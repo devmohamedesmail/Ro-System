@@ -1,0 +1,356 @@
+{
+  
+    "landing": {
+        "brand": "AquaRO",
+        "meta": {
+            "title": "AquaRO — RO Water Treatment Management System"
+        },
+        "nav": {
+            "features": "Features",
+            "dashboard": "Dashboard",
+            "workflow": "How It Works",
+            "analytics": "Analytics",
+            "pricing": "Pricing",
+            "login": "Sign In",
+            "cta": "Get Started Free",
+            "language": "Switch Language",
+            "theme": "Toggle Theme"
+        },
+        "hero": {
+            "badge": "Enterprise Water Treatment Platform",
+            "titlePart1": "Manage Your",
+            "titlePart2": "RO Systems",
+            "titlePart3": "With Intelligence",
+            "subtitle": "The complete platform for monitoring, managing, and optimizing reverse osmosis water treatment systems — from a single unit to a full enterprise network.",
+            "ctaPrimary": "Start Free Trial",
+            "ctaSecondary": "Watch Demo",
+            "stat1": "RO Units Managed",
+            "stat2": "System Uptime",
+            "stat3": "Readings Logged",
+            "mock": {
+                "title": "Live Dashboard",
+                "subtitle": "Water Treatment Overview",
+                "live": "Live",
+                "tds": "TDS Level",
+                "pressure": "Feed Pressure",
+                "ph": "pH Level",
+                "alert": "Filter Maintenance",
+                "alertDetail": "Unit RO-003 requires service",
+                "units": "24/24 Units Active",
+                "unitsDetail": "All systems operating normally",
+                "conductivity": "Conductivity",
+                "recovery": "Recovery Rate"
+            }
+        },
+        "trusted": {
+            "label": "Trusted by leading water treatment companies",
+            "company1": "AquaTech Arabia",
+            "company2": "PureFlow Systems",
+            "company3": "HydroServ Corp",
+            "company4": "ClearWater Pro",
+            "company5": "AquaPure Solutions",
+            "company6": "WaterCare Group"
+        },
+        "features": {
+            "badge": "Everything You Need",
+            "title": "Built for Modern Water Management",
+            "subtitle": "A complete suite of tools to monitor, manage, and optimize every aspect of your reverse osmosis water treatment operations.",
+            "dashboard": {
+                "title": "Real-time Dashboard",
+                "desc": "Live monitoring of all RO units with interactive charts, KPI cards, and instant alerts."
+            },
+            "roUnits": {
+                "title": "RO Unit Management",
+                "desc": "Track every RO unit's specifications, performance history, and operational status."
+            },
+            "stations": {
+                "title": "Station Management",
+                "desc": "Organize units by geographic stations with location mapping and regional reporting."
+            },
+            "operators": {
+                "title": "Operator Management",
+                "desc": "Assign operators to stations, track schedules, and manage certifications."
+            },
+            "readings": {
+                "title": "Reading Logs",
+                "desc": "Capture TDS, pressure, pH, conductivity, and flow rate with timestamped precision."
+            },
+            "maintenance": {
+                "title": "Maintenance Tracking",
+                "desc": "Schedule preventive maintenance, log service visits, and track filter replacements."
+            },
+            "reports": {
+                "title": "Advanced Reports",
+                "desc": "Generate compliance reports, trend analysis, and executive summaries on demand."
+            },
+            "notifications": {
+                "title": "Smart Notifications",
+                "desc": "Instant alerts for parameter breaches, maintenance due dates, and system anomalies."
+            },
+            "analytics": {
+                "title": "Deep Analytics",
+                "desc": "AI-powered insights into consumption patterns, efficiency trends, and cost optimization."
+            },
+            "waterQuality": {
+                "title": "Water Quality",
+                "desc": "Comprehensive water quality tracking against WHO and local regulatory standards."
+            },
+            "multiCompany": {
+                "title": "Multi-Company",
+                "desc": "Manage multiple client companies from one platform with complete data isolation."
+            },
+            "roles": {
+                "title": "Role & Permissions",
+                "desc": "Fine-grained access control with custom roles for admins, managers, and operators."
+            }
+        },
+        "dashboard": {
+            "badge": "Powerful Interface",
+            "title": "A Dashboard That Works for You",
+            "subtitle": "Intuitive, data-rich, and beautifully designed. Everything you need to keep your water treatment systems operating at peak performance.",
+            "nav": {
+                "overview": "Overview",
+                "units": "RO Units",
+                "readings": "Readings",
+                "alerts": "Alerts",
+                "reports": "Reports"
+            },
+            "kpi": {
+                "units": "Active RO Units",
+                "active": "Online & Monitored",
+                "readings": "Readings Today",
+                "today": "Across All Stations",
+                "alerts": "Active Alerts",
+                "pending": "Needs Attention",
+                "compliance": "Compliance Rate",
+                "monthly": "This Month"
+            },
+            "chart": {
+                "title": "Parameter Trends",
+                "sub": "Last 7 days across all units"
+            },
+            "status": {
+                "title": "Unit Status",
+                "unit1": "Station A — RO-001",
+                "unit2": "Station A — RO-002",
+                "unit3": "Station B — RO-003",
+                "unit4": "Station B — RO-004",
+                "unit5": "Station C — RO-005"
+            },
+            "table": {
+                "title": "Recent Readings",
+                "viewAll": "View All",
+                "unit": "Unit",
+                "tds": "TDS (ppm)",
+                "pressure": "Pressure",
+                "ph": "pH",
+                "status": "Status",
+                "ok": "Normal",
+                "alert": "Alert"
+            }
+        },
+        "workflow": {
+            "badge": "Simple Process",
+            "title": "Up and Running in Minutes",
+            "subtitle": "Our streamlined onboarding gets you from setup to full operational monitoring in four simple steps.",
+            "step1": {
+                "title": "Create Your Account",
+                "desc": "Sign up, set up your company profile, and configure your team roles and permissions in minutes."
+            },
+            "step2": {
+                "title": "Add Your RO Units",
+                "desc": "Register all your reverse osmosis units with specifications, locations, and operating parameters."
+            },
+            "step3": {
+                "title": "Start Logging Data",
+                "desc": "Begin capturing readings from operators or integrate with automated sensors for real-time data."
+            },
+            "step4": {
+                "title": "Get Smart Alerts",
+                "desc": "Receive instant notifications when parameters exceed thresholds and track performance trends."
+            }
+        },
+        "analytics": {
+            "badge": "By The Numbers",
+            "title": "Performance That Speaks for Itself",
+            "subtitle": "Proven results from water treatment facilities using AquaRO across the region.",
+            "stat1": {
+                "label": "RO Units",
+                "sub": "Actively monitored"
+            },
+            "stat2": {
+                "label": "Uptime",
+                "sub": "System availability"
+            },
+            "stat3": {
+                "label": "Efficiency Gain",
+                "sub": "vs. manual management"
+            },
+            "stat4": {
+                "label": "Compliance",
+                "sub": "Quality standard"
+            },
+            "stat5": {
+                "label": "Faster Detection",
+                "sub": "Issue response time"
+            },
+            "chart1": {
+                "title": "TDS Level Trend",
+                "sub": "Parts per million, weekly average",
+                "trend": "12% improvement this month"
+            },
+            "chart2": {
+                "title": "Feed Pressure Stability",
+                "sub": "Bar pressure, daily readings",
+                "trend": "Variance reduced by 18%"
+            }
+        },
+        "benefits": {
+            "badge": "Why AquaRO",
+            "title": "Modern vs. Traditional Management",
+            "subtitle": "See the clear difference between outdated manual processes and the AquaRO intelligent platform.",
+            "traditional": {
+                "label": "Traditional Management",
+                "title": "Manual & Reactive",
+                "item1": "Paper-based reading logs prone to errors",
+                "item2": "Delayed detection of parameter breaches",
+                "item3": "No visibility across multiple stations",
+                "item4": "Manual report generation taking hours",
+                "item5": "Reactive maintenance after failures occur",
+                "item6": "No historical trend analysis available"
+            },
+            "modern": {
+                "label": "AquaRO Platform",
+                "title": "Digital & Proactive",
+                "item1": "Digital logs with automatic validation",
+                "item2": "Real-time alerts within seconds of a breach",
+                "item3": "Unified view across all stations and units",
+                "item4": "Automated reports generated instantly",
+                "item5": "Predictive maintenance scheduling",
+                "item6": "AI-powered historical trend analysis"
+            }
+        },
+        "testimonials": {
+            "badge": "Customer Stories",
+            "title": "Loved by Water Treatment Teams",
+            "subtitle": "Hear from the professionals who rely on AquaRO every day to keep their operations running.",
+            "t1": {
+                "name": "Ahmed Hassan",
+                "role": "Operations Manager",
+                "company": "AquaTech Arabia",
+                "quote": "AquaRO transformed how we manage our 80+ RO units across 12 stations. What used to take a full day of paperwork now takes minutes. The real-time alerts alone saved us from three major equipment failures."
+            },
+            "t2": {
+                "name": "Mohamed Basil",
+                "role": "Chief Engineer",
+                "company": "PureFlow Systems",
+                "quote": "The compliance reporting feature is a game-changer. We can generate complete audit-ready reports instantly. The dashboard gives us visibility we never had before. Highly recommended."
+            },
+            "t3": {
+                "name": "Sara Rashid",
+                "role": "Quality Director",
+                "company": "HydroServ Corp",
+                "quote": "Implementing AquaRO reduced our water quality incidents by 60%. The trend analysis helps us catch issues weeks before they become problems. Our team can't imagine working without it."
+            }
+        },
+        "pricing": {
+            "badge": "Simple Pricing",
+            "title": "Choose the Right Plan",
+            "subtitle": "Transparent pricing with no hidden fees. Scale up or down at any time. Cancel anytime.",
+            "popular": "Most Popular",
+            "note": "All plans include a 14-day free trial. No credit card required.",
+            "starter": {
+                "tier": "Starter",
+                "price": "$49",
+                "period": "/ month",
+                "desc": "Perfect for small operations with a single station.",
+                "f1": "Up to 10 RO units",
+                "f2": "1 station",
+                "f3": "5 operator accounts",
+                "f4": "Basic reporting",
+                "f5": "Email notifications",
+                "cta": "Start Free Trial"
+            },
+            "pro": {
+                "tier": "Professional",
+                "price": "$149",
+                "period": "/ month",
+                "desc": "For growing operations with multiple stations.",
+                "f1": "Up to 50 RO units",
+                "f2": "Unlimited stations",
+                "f3": "20 operator accounts",
+                "f4": "Advanced analytics & reports",
+                "f5": "SMS + Email notifications",
+                "f6": "API access",
+                "cta": "Start Free Trial"
+            },
+            "enterprise": {
+                "tier": "Enterprise",
+                "price": "Custom",
+                "period": "",
+                "desc": "For large enterprises with complex requirements.",
+                "f1": "Unlimited RO units",
+                "f2": "Unlimited stations",
+                "f3": "Unlimited accounts",
+                "f4": "Custom reports & SLA",
+                "f5": "Dedicated support",
+                "f6": "On-premise option",
+                "cta": "Contact Sales"
+            }
+        },
+        "faq": {
+            "badge": "FAQ",
+            "title": "Frequently Asked Questions",
+            "subtitle": "Everything you need to know about AquaRO. Can't find your answer? Reach out to our team.",
+            "q1": "How does the free trial work?",
+            "a1": "You get full access to all Professional plan features for 14 days, no credit card required. At the end of the trial, choose a plan that fits your needs or your account will be paused.",
+            "q2": "Can I monitor multiple RO units from a single dashboard?",
+            "a2": "Absolutely. AquaRO is built for multi-unit, multi-station operations. You can monitor hundreds of RO units across unlimited geographic stations from a single unified dashboard.",
+            "q3": "How do operators submit readings?",
+            "a3": "Operators can submit readings through our mobile-friendly web interface. They log in, select their assigned unit, and input the daily parameters. The system validates the data in real-time against configured thresholds.",
+            "q4": "Does AquaRO integrate with automated sensors?",
+            "a4": "Yes. Our API supports integration with IoT sensors and automated monitoring equipment for real-time data ingestion without manual operator input.",
+            "q5": "How are alert thresholds configured?",
+            "a5": "Administrators can configure custom upper and lower thresholds for each parameter (TDS, pressure, pH, conductivity, etc.) per unit or station. When a reading exceeds a threshold, alerts are sent instantly.",
+            "q6": "Is my data secure?",
+            "a6": "Yes. All data is encrypted at rest and in transit. We use role-based access control to ensure users only see the data they're authorized to access. We perform regular security audits."
+        },
+        "cta": {
+            "title": "Ready to Transform Your Water Management?",
+            "subtitle": "Join hundreds of water treatment professionals who rely on AquaRO to keep their systems running at peak performance.",
+            "primary": "Start Your Free Trial",
+            "secondary": "Talk to Sales",
+            "trust1": "No credit card required",
+            "trust2": "14-day free trial",
+            "trust3": "Cancel anytime"
+        },
+        "footer": {
+            "tagline": "The intelligent platform for managing reverse osmosis water treatment systems at any scale.",
+            "product": "Product",
+            "company": "Company",
+            "legal": "Legal",
+            "support": "Support",
+            "features": "Features",
+            "dashboard": "Dashboard",
+            "pricing": "Pricing",
+            "changelog": "Changelog",
+            "about": "About Us",
+            "blog": "Blog",
+            "careers": "Careers",
+            "contact": "Contact",
+            "privacy": "Privacy Policy",
+            "terms": "Terms of Service",
+            "security": "Security",
+            "cookies": "Cookie Policy",
+            "docs": "Documentation",
+            "status": "All systems operational",
+            "community": "Community",
+            "api": "API Reference",
+            "twitter": "Twitter",
+            "github": "GitHub",
+            "linkedin": "LinkedIn",
+            "email": "Email",
+            "copyright": "© {{year}} AquaRO. All rights reserved."
+        }
+    }
+}
