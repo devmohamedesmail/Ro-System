@@ -4,9 +4,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::inertia('/', 'index')->name('home');
 
-Route::middleware(['auth', 'verified'])->group(function () {
-    Route::inertia('dashboard', 'dashboard')->name('dashboard');
-});
+// Route::middleware(['auth', 'verified'])->group(function () {
+//     Route::inertia('dashboard', 'dashboard')->name('dashboard');
+// });
 
+require __DIR__.'/redirect.php';
 require __DIR__.'/settings.php';
 require __DIR__.'/companies.php';
+require __DIR__.'/stations.php';
+require __DIR__.'/ro-units.php';
+require __DIR__.'/users.php';

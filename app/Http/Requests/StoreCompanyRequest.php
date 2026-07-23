@@ -23,7 +23,58 @@ class StoreCompanyRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => [
+                'required',
+                'string',
+                'max:255',
+            ],
+
+            'email' => [
+                'required',
+                'email',
+                'unique:companies,email',
+            ],
+
+            'phone' => [
+                'nullable',
+                'string',
+            ],
+
+            'whatsapp' => [
+                'nullable',
+                'string',
+            ],
+
+            'website' => [
+                'nullable',
+                'url',
+            ],
+
+            'description' => [
+                'nullable',
+                'string',
+            ],
+
+            'country' => [
+                'nullable',
+                'string',
+            ],
+
+            'city' => [
+                'nullable',
+                'string',
+            ],
+
+            'address' => [
+                'nullable',
+                'string',
+            ],
+
+            'logo' => [
+                'nullable',
+                'image',
+                'max:2048',
+            ],
         ];
     }
 }

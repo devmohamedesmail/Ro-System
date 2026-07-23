@@ -15,9 +15,13 @@ import PricingSection from '@/components/landing/PricingSection';
 import FAQSection from '@/components/landing/FAQSection';
 import CTASection from '@/components/landing/CTASection';
 import Footer from '@/components/landing/Footer';
+import useImport from '@/hooks/use-import';
+import useComapny from '@/hooks/use-comapny';
 
 export default function LandingPage() {
-    const { t } = useTranslation();
+    const { t } = useImport();
+    const {company}=useComapny();
+    console.log("company",company)
 
     return (
         <>

@@ -1,0 +1,81 @@
+<?php
+
+namespace App\Services;
+
+use App\Http\Requests\StoreStationRequest;
+use App\Http\Requests\UpdateStationRequest;
+use App\Models\Company;
+use App\Models\Station;
+use Illuminate\Support\Str;
+
+class StationService
+{
+    public function StoreStation(StoreStationRequest $request)
+    {
+        $companyId = auth()->user()?->company_id ?? 1;
+        $company = Company::findOrFail($companyId);
+        $station = new Station;
+        $station->company_id = $companyId;
+        $station->name = $request->name;
+        $station->code = $this->generateStationCode($company);
+        $station->slug = $this->generateSlug($request->name);
+        $station->phone = $request->phone;
+        $station->city = $request->city;
+        $station->address = $request->address;
+        $station->save();
+
+        return $station;
+    }
+
+    public function updateStation(UpdateStationRequest $request, Station $station): Station
+    {
+        $station->fill($request->only(['name', 'phone', 'city', 'country', 'address', 'lat', 'lng']));
+        if ($request->has('is_active')) {
+            $station->is_active = $request->boolean('is_active');
+        }
+        $station->save();
+
+        return $station;
+    }
+
+    public function destroyStation(Station $station): void
+    {
+        $station->delete();
+    }
+
+    private function generateSlug(string $name): string
+    {
+        $slug = Str::slug($name);
+
+        $originalSlug = $slug;
+        $counter = 1;
+
+        while (Station::where('slug', $slug)->exists()) {
+
+            $slug = $originalSlug.'-'.$counter;
+
+            $counter++;
+        }
+
+        return $slug;
+    }
+
+    private function generateStationCode(Company $company): string
+    {
+        // Get first letters from company name
+        $prefix = collect(explode(' ', $company->name))
+            ->map(fn ($word) => strtoupper(substr($word, 0, 1)))
+            ->join('');
+
+        // Get last station number
+        $lastStation = Station::where('company_id', $company->id)
+            ->latest('id')
+            ->first();
+
+        $number = $lastStation
+          ? ((int) substr($lastStation->code, strlen($prefix) + 1)) + 1
+          : 1;
+
+        return $prefix.'-'.str_pad($number, 3, '0', STR_PAD_LEFT);
+    }
+}

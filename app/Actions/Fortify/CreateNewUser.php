@@ -6,6 +6,7 @@ use App\Concerns\PasswordValidationRules;
 use App\Concerns\ProfileValidationRules;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 
 class CreateNewUser implements CreatesNewUsers
@@ -26,8 +27,30 @@ class CreateNewUser implements CreatesNewUsers
 
         return User::create([
             'name' => $input['name'],
+            'username' => $this->generateUsername($input['name']),
             'email' => $input['email'],
             'password' => $input['password'],
         ]);
+    }
+
+    private function generateUsername(string $name): string
+    {
+        // convert name to slug
+        $username = Str::slug($name);
+
+        // fallback if Arabic name
+        if (! $username) {
+            $username = 'user';
+        }
+
+        $originalUsername = $username;
+        $counter = 1;
+
+        while (User::where('username', $username)->exists()) {
+            $username = $originalUsername.$counter;
+            $counter++;
+        }
+
+        return $username;
     }
 }

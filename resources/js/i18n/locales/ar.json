@@ -352,5 +352,126 @@
             "email": "البريد الإلكتروني",
             "copyright": "© {{year}} AquaRO. جميع الحقوق محفوظة."
         }
+    },
+     "common": {
+        "save": "حفظ",
+        "success": "تم بنجاح",
+        "failed": "فشل",
+        "error": "خطأ",
+        "name": "الاسم",
+        "create": "إنشاء",
+        "edit": "تعديل",
+        "delete": "حذف",
+        "cancel": "إلغاء",
+        "confirm": "تأكيد",
+        "actions": "الإجراءات",
+        "status": "الحالة",
+        "active": "نشط",
+        "inactive": "غير نشط",
+        "search": "بحث...",
+        "noData": "لا توجد بيانات",
+        "loading": "جارٍ التحميل...",
+        "deleteConfirmTitle": "تأكيد الحذف",
+        "deleteConfirmMessage": "هل أنت متأكد أنك تريد حذف هذا العنصر؟ لا يمكن التراجع عن هذا الإجراء.",
+        "createdAt": "تاريخ الإنشاء",
+        "total": "الإجمالي",
+        "of": "من"
+    },
+    "stations": {
+        "title": "المحطات",
+        "subtitle": "إدارة محطات RO",
+        "create": "إنشاء محطة",
+        "edit": "تعديل المحطة",
+        "delete": "حذف المحطة",
+        "deleteSuccess": "تم حذف المحطة بنجاح",
+        "createSuccess": "تم إنشاء المحطة بنجاح",
+        "updateSuccess": "تم تحديث المحطة بنجاح",
+        "noStations": "لا توجد محطات. أنشئ أول محطة.",
+        "table": {
+            "name": "اسم المحطة",
+            "code": "الكود",
+            "city": "المدينة",
+            "phone": "الهاتف",
+            "status": "الحالة",
+            "units": "وحدات RO",
+            "actions": "الإجراءات"
+        },
+        "fields": {
+            "name": "اسم المحطة",
+            "code": "كود المحطة",
+            "phone": "رقم الهاتف",
+            "country": "الدولة",
+            "city": "المدينة",
+            "address": "العنوان",
+            "lat": "خط العرض",
+            "lng": "خط الطول",
+            "isActive": "نشط"
+        }
+    },
+    "validation": {
+       "required": "هذا الحقل مطلوب",
+       "email": "يرجى إدخال بريد إلكتروني صحيح",
+       "min": "الحد الأدنى {{min}} أحرف",
+       "max": "الحد الأقصى {{max}} أحرف"
+    },
+   "users": {
+    "title": "المستخدمون",
+    "subtitle": "إدارة مستخدمي الشركة",
+    "create": "إضافة مستخدم",
+    "edit": "تعديل المستخدم",
+    "delete": "إزالة المستخدم",
+    "deleteSuccess": "تم إزالة المستخدم بنجاح",
+    "createSuccess": "تم إنشاء المستخدم بنجاح",
+    "updateSuccess": "تم تحديث المستخدم بنجاح",
+    "noUsers": "لا يوجد مستخدمون. أضف أول مستخدم.",
+    "table": {
+        "name": "الاسم",
+        "email": "البريد الإلكتروني",
+        "role": "الدور",
+        "stations": "المحطات",
+        "status": "الحالة",
+        "actions": "الإجراءات"
+    },
+    "fields": {
+      "name": "الاسم الكامل",
+      "email": "البريد الإلكتروني",
+      "password": "كلمة المرور",
+      "phone": "رقم الهاتف",
+      "role": "الدور",
+      "company": "الشركة",
+      "stations": "المحطات المعينة",
+      "isActive": "نشط"
     }
+  },
+  "ro-units": {
+    "title": "وحدات RO",
+    "subtitle": "إدارة وحدات التناضح العكسي",
+    "create": "إنشاء وحدة RO",
+    "edit": "تعديل وحدة RO",
+    "delete": "حذف وحدة RO",
+    "deleteSuccess": "تم حذف وحدة RO بنجاح",
+    "createSuccess": "تم إنشاء وحدة RO بنجاح",
+    "updateSuccess": "تم تحديث وحدة RO بنجاح",
+    "noUnits": "لا توجد وحدات RO. أنشئ أول وحدة.",
+    "table": {
+        "name": "اسم الوحدة",
+        "code": "الكود",
+        "station": "المحطة",
+        "capacity": "الطاقة (م³/س)",
+        "manufacturer": "الشركة المصنعة",
+        "serialNumber": "الرقم التسلسلي",
+        "status": "الحالة",
+        "actions": "الإجراءات"
+    },
+    "fields": {
+      "name": "اسم الوحدة",
+      "code": "كود الوحدة",
+      "station": "المحطة",
+      "capacity": "الطاقة (م³/س)",
+      "description": "الوصف",
+      "serialNumber": "الرقم التسلسلي",
+      "manufacturer": "الشركة المصنعة",
+      "isActive": "نشط"
+    }
+  }
 }

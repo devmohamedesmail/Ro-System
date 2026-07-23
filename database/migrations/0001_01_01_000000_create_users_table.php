@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('username')->unique();
-            $table->string('phone')->unique();
-            $table->foreignId('role_id')->constrained('roles')->cascadeOnDelete();
+            $table->string('phone')->nullable()->unique();
+            $table->foreignId('role_id')->nullable()->constrained('roles')->cascadeOnDelete();
             $table->longText('avatar')->nullable();
             $table->boolean('is_active')->default(true);
             $table->boolean('is_delete')->default(false);

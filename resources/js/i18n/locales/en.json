@@ -1,5 +1,4 @@
 {
-  
     "landing": {
         "brand": "AquaRO",
         "meta": {
@@ -351,6 +350,128 @@
             "linkedin": "LinkedIn",
             "email": "Email",
             "copyright": "© {{year}} AquaRO. All rights reserved."
+        }
+    },
+    "common": {
+        "save": "Save",
+        "success": "Success",
+        "failed": "Failed",
+        "error": "Error",
+        "name": "Name",
+        "create": "Create",
+        "edit": "Edit",
+        "delete": "Delete",
+        "cancel": "Cancel",
+        "confirm": "Confirm",
+        "actions": "Actions",
+        "status": "Status",
+        "active": "Active",
+        "inactive": "Inactive",
+        "search": "Search...",
+        "noData": "No data found",
+        "loading": "Loading...",
+        "deleteConfirmTitle": "Confirm Delete",
+        "deleteConfirmMessage": "Are you sure you want to delete this item? This action cannot be undone.",
+        "createdAt": "Created At",
+        "total": "Total",
+        "of": "of"
+    },
+    "companies": {},
+    "stations": {
+        "title": "Stations",
+        "subtitle": "Manage your RO stations",
+        "create": "Create Station",
+        "edit": "Edit Station",
+        "delete": "Delete Station",
+        "deleteSuccess": "Station deleted successfully",
+        "createSuccess": "Station created successfully",
+        "updateSuccess": "Station updated successfully",
+        "noStations": "No stations found. Create your first station.",
+        "table": {
+            "name": "Station Name",
+            "code": "Code",
+            "city": "City",
+            "phone": "Phone",
+            "status": "Status",
+            "units": "RO Units",
+            "actions": "Actions"
+        },
+        "fields": {
+            "name": "Station Name",
+            "code": "Station Code",
+            "phone": "Phone",
+            "country": "Country",
+            "city": "City",
+            "address": "Address",
+            "lat": "Latitude",
+            "lng": "Longitude",
+            "isActive": "Active"
+        }
+    },
+    "validation": {
+        "required": "This field is required",
+        "email": "Please enter a valid email address",
+        "min": "Minimum {{min}} characters required",
+        "max": "Maximum {{max}} characters allowed"
+    },
+    "users": {
+        "title": "Users",
+        "subtitle": "Manage your company users",
+        "create": "Add User",
+        "edit": "Edit User",
+        "delete": "Remove User",
+        "deleteSuccess": "User removed successfully",
+        "createSuccess": "User created successfully",
+        "updateSuccess": "User updated successfully",
+        "noUsers": "No users found. Add your first user.",
+        "table": {
+            "name": "Name",
+            "email": "Email",
+            "role": "Role",
+            "stations": "Stations",
+            "status": "Status",
+            "actions": "Actions"
+        },
+        "fields": {
+            "name": "Full Name",
+            "email": "Email Address",
+            "password": "Password",
+            "phone": "Phone Number",
+            "role": "Role",
+            "company": "Company",
+            "stations": "Assigned Stations",
+            "isActive": "Active"
+        }
+    },
+    "ro-units": {
+        "title": "RO Units",
+        "subtitle": "Manage your reverse osmosis units",
+        "create": "Create RO Unit",
+        "edit": "Edit RO Unit",
+        "delete": "Delete RO Unit",
+        "deleteSuccess": "RO Unit deleted successfully",
+        "createSuccess": "RO Unit created successfully",
+        "updateSuccess": "RO Unit updated successfully",
+        "noUnits": "No RO units found. Create your first unit.",
+        "table": {
+            "name": "Unit Name",
+            "code": "Code",
+            "station": "Station",
+            "capacity": "Capacity (m³/h)",
+            "manufacturer": "Manufacturer",
+            "serialNumber": "Serial No.",
+            "status": "Status",
+            "actions": "Actions"
+        },
+        "fields": {
+            "name": "Unit Name",
+            "code": "Unit Code",
+            "station": "Station",
+            "capacity": "Capacity (m³/h)",
+            "description": "Description",
+            "serialNumber": "Serial Number",
+            "manufacturer": "Manufacturer",
+            "isActive": "Active"
         }
     }
 }

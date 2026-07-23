@@ -4,7 +4,9 @@ namespace App\Services;
 
 use App\Http\Requests\StoreCompanyRequest;
 use App\Models\Company;
-use App\Services\CloudinaryService;
+use App\Models\Role;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class CompanyService
 {
@@ -12,26 +14,42 @@ class CompanyService
         protected CloudinaryService $cloudinaryService,
     ) {}
 
-
     public function createCompany(StoreCompanyRequest $request): Company
     {
-        $company = new Company();
-        $company->fill($request->validated());
+
+        $company = new Company;
+        $auth = Auth::user();
+        $user = User::find($auth->id);
+        $company->name = $request['name'];
+        $company->email = $request['email'];
+        $company->phone = $request['phone'];
+        $company->whatsapp = $request['whatsapp'];
+        $company->website = $request['website'];
+        $company->description = $request['description'];
+        $company->country = $request['country'];
+        $company->city = $request['city'];
+        $company->address = $request['address'];
         $company->slug = $this->generateSlug($company->name);
+        $company->user_id = $auth->id;
         $company->company_code = $this->generateCompanyCode();
         if ($request->hasFile('logo')) {
             $logo = $this->cloudinaryService->uploadToCloudinary(
                 $request->file('logo'),
                 'companies',
             );
-            $company->logo = $logo['url'];
-            $company->public_id = $logo['public_id'];
+            if ($logo) {
+                $company->logo = $logo['url'] ?? null;
+                $company->public_id = $logo['public_id'] ?? null;
+            }
         }
+
+        $role = Role::where('slug', 'company-admin')->first();
+        $user->role_id = $role->id;
+        $user->save();
         $company->save();
+
         return $company;
     }
-
-
 
     private function generateSlug(string $name): string
     {
@@ -51,8 +69,6 @@ class CompanyService
 
         return $slug;
     }
-
-
 
     private function generateCompanyCode(): string
     {
