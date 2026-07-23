@@ -2,6 +2,10 @@
 
 namespace App\Models;
 
+use App\Models\Company;
+use App\Models\Inventory;
+use App\Models\RoUnit;
+use App\Models\User;
 use Database\Factories\StationFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -47,5 +51,12 @@ class Station extends Model
     public function users()
     {
         return $this->belongsToMany(User::class, 'user_stations');
+    }
+
+
+
+    public function inventory()
+    {
+        return $this->hasOne(Inventory::class);
     }
 }

@@ -374,7 +374,8 @@
         "deleteConfirmMessage": "Are you sure you want to delete this item? This action cannot be undone.",
         "createdAt": "Created At",
         "total": "Total",
-        "of": "of"
+        "of": "of",
+        "subtitle":"Manage your RO systems"
     },
     "companies": {},
     "stations": {
@@ -440,7 +441,9 @@
             "role": "Role",
             "company": "Company",
             "stations": "Assigned Stations",
-            "isActive": "Active"
+            "isActive": "Active",
+            "selectRole":"Select Role",
+            "selectStations":"Select Stations"
         }
     },
     "ro-units": {
@@ -453,6 +456,7 @@
         "createSuccess": "RO Unit created successfully",
         "updateSuccess": "RO Unit updated successfully",
         "noUnits": "No RO units found. Create your first unit.",
+        "ro-settings":"Ro Setting",
         "table": {
             "name": "Unit Name",
             "code": "Code",
@@ -473,5 +477,98 @@
             "manufacturer": "Manufacturer",
             "isActive": "Active"
         }
+    },
+    "readings": {
+        "title": "Reading Logs",
+        "subtitle": "All RO unit reading sessions",
+        "insertReading": "Insert Reading",
+        "noSessions": "No reading sessions found.",
+        "session": "Session",
+        "readingAt": "Reading Time",
+        "submittedBy": "Submitted By",
+        "unit": "RO Unit",
+        "notes": "Notes",
+        "viewValues": "View Values",
+        "create": {
+            "title": "Insert New Reading",
+            "subtitle": "Submit meter readings for an RO unit",
+            "selectUnit": "Select RO Unit",
+            "notAllowed": "Reading not allowed yet",
+            "nextAllowedAt": "Next reading allowed at",
+            "hoursRule": "A new reading can only be submitted every 3 hours",
+            "categories": "Reading Categories",
+            "noCategories": "This RO unit has no reading categories configured. Go to RO Settings first.",
+            "notes": "Notes (optional)",
+            "submit": "Submit Reading",
+            "submitting": "Submitting...",
+            "success": "Reading submitted successfully"
+        },
+        "filter": {
+            "allUnits": "All RO Units",
+            "label": "Filter by RO Unit"
+        },
+        "table": {
+            "unit": "RO Unit",
+            "readingAt": "Reading Time",
+            "submittedBy": "Submitted By",
+            "valuesCount": "Values",
+            "notes": "Notes"
+        }
+    },
+    "reports":{
+        "title":"Reports"
+    },
+    "ro-settings": {
+        "title": "RO Settings",
+        "subtitle": "Manage reading categories and parameters per RO unit",
+        "selectUnit": "Select an RO unit to configure",
+        "categories": "Reading Categories",
+        "addCategory": "Add Category",
+        "editCategory": "Edit Category",
+        "deleteCategory": "Delete Category",
+        "assignCategory": "Assign Category",
+        "unassignCategory": "Unassign",
+        "noCategories": "No categories assigned. Assign a category to start.",
+        "allCategories": "All Company Categories",
+        "assigned": "Assigned",
+        "notAssigned": "Not Assigned",
+        "parameters": "Parameters",
+        "addParameter": "Add Parameter",
+        "editParameter": "Edit Parameter",
+        "deleteParameter": "Delete Parameter",
+        "noParameters": "No parameters yet. Add one.",
+        "createCategorySuccess": "Category created successfully",
+        "updateCategorySuccess": "Category updated successfully",
+        "deleteCategorySuccess": "Category deleted successfully",
+        "createParameterSuccess": "Parameter created successfully",
+        "updateParameterSuccess": "Parameter updated successfully",
+        "deleteParameterSuccess": "Parameter deleted successfully",
+        "assignSuccess": "Category assigned to RO unit",
+        "unassignSuccess": "Category removed from RO unit",
+        "fields": {
+            "categoryName": "Category Name",
+            "order": "Order",
+            "paramName": "Parameter Name",
+            "code": "Code",
+            "unit": "Unit (e.g. ppm, bar)",
+            "inputType": "Input Type",
+            "minValue": "Min Value",
+            "maxValue": "Max Value",
+            "isRequired": "Required",
+            "isActive": "Active"
+        },
+        "inputTypes": {
+            "NUMBER": "Number",
+            "TEXT": "Text",
+            "BOOLEAN": "Yes / No"
+        },
+        "readingValidation": {
+            "tooSoon": "Reading not allowed yet",
+            "nextAllowedAt": "Next reading allowed at",
+            "hoursRule": "A new reading can only be submitted every 3 hours"
+        }
+    },
+    "inventory":{
+        "title":"Inventory"
     }
 }

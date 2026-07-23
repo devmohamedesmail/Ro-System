@@ -1,0 +1,37 @@
+<?php
+
+namespace App\Models;
+
+use Database\Factories\RoUnitReadingCategoryFactory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class RoUnitReadingCategory extends Model
+{
+    /** @use HasFactory<RoUnitReadingCategoryFactory> */
+    use HasFactory;
+
+    protected $fillable = [
+        'ro_unit_id',
+        'category_id',
+        'order',
+        'is_active',
+    ];
+
+    protected $casts = [
+        'is_active' => 'boolean',
+    ];
+
+    public function roUnit()
+    {
+        return $this->belongsTo(RoUnit::class);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(
+            ReadingCategory::class,
+            'category_id'
+        );
+    }
+}

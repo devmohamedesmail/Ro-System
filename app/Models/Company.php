@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Inventory;
 use Database\Factories\CompanyFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -49,5 +50,12 @@ class Company extends Model
     public function users(): HasMany
     {
         return $this->hasMany(User::class);
+    }
+
+
+
+    public function inventories()
+    {
+        return $this->hasMany(Inventory::class);
     }
 }

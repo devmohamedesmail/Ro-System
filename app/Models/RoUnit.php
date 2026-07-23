@@ -6,6 +6,9 @@ use Database\Factories\RoUnitFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class RoUnit extends Model
 {
@@ -34,5 +37,25 @@ class RoUnit extends Model
     public function station(): BelongsTo
     {
         return $this->belongsTo(Station::class);
+    }
+
+    public function readingCategories(): BelongsToMany
+    {
+        return $this->belongsToMany(
+            ReadingCategory::class,
+            'ro_unit_reading_categories',
+            'ro_unit_id',
+            'category_id'
+        )->withPivot(['order', 'is_active'])->orderBy('ro_unit_reading_categories.order');
+    }
+
+    public function readingSessions(): HasMany
+    {
+        return $this->hasMany(ReadingSession::class);
+    }
+
+    public function lastReadingSession(): HasOne
+    {
+        return $this->hasOne(ReadingSession::class)->latestOfMany('reading_at');
     }
 }

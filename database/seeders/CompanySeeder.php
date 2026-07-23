@@ -32,8 +32,8 @@ class CompanySeeder extends Seeder
                 'is_verified' => false,
                 'status' => 1,
                 'user_id' => 1,
-                'created_at' => '2026-07-21 09:47:06',
-                'updated_at' => '2026-07-21 09:47:06',
+                'created_at' => now(),
+                'updated_at' => now(),
             ]
         );
     }

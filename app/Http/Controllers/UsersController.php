@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Role;
 use App\Models\Station;
 use App\Models\User;
 use App\Services\UserService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 class UsersController extends Controller
@@ -14,7 +16,8 @@ class UsersController extends Controller
 
     public function users_page()
     {
-        $companyId = auth()->user()?->company_id ?? 1;
+        // $companyId = auth()->user()?->company_id ?? 1;
+        $companyId = Auth::user()?->company_id ?? 1;
 
         $users = User::where('company_id', $companyId)
             ->with('stations:id,name,code')
@@ -26,9 +29,12 @@ class UsersController extends Controller
             ->orderBy('name')
             ->get(['id', 'name', 'code']);
 
+         $roles = Role::where('slug', '!=', 'super-admin')->get();   
+
         return Inertia::render('company-users/index', [
             'users' => $users,
             'stations' => $stations,
+            'roles' => $roles,
         ]);
     }
 
@@ -42,9 +48,9 @@ class UsersController extends Controller
             'station_ids.*' => 'exists:stations,id',
         ]);
 
-        $request->merge(['company_id' => auth()->user()?->company_id ?? 1]);
+        // $request->merge(['company_id' => auth()->user()?->company_id ?? 1]);
+        $request->merge(['company_id' => Auth::user()?->company_id ?? 1]);
         $this->userService->store($request);
-
         return redirect()->back();
     }
 

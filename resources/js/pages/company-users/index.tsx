@@ -8,6 +8,12 @@ import { UserTable } from './components/UserTable';
 import { UserFormDialog } from './components/UserFormDialog';
 import useComapny from '@/hooks/use-comapny';
 
+
+interface Role {
+    id: number;
+    name: string;
+}
+
 interface Station {
     id: number;
     name: string;
@@ -18,17 +24,19 @@ interface User {
     id: number;
     name: string;
     email: string;
+    role_id?: number;
     stations?: Station[];
 }
 
 interface PageProps {
     users: User[];
+    roles: Role[];
     stations: Station[];
 }
 
 export default function CompanyUsersPage() {
     const { t } = useTranslation();
-    const { users, stations } = usePage().props as any as PageProps;
+    const { users, stations,roles } = usePage().props as any as PageProps;
     const { company } = useComapny();
     const [createOpen, setCreateOpen] = useState(false);
 
@@ -93,6 +101,7 @@ export default function CompanyUsersPage() {
                 open={createOpen}
                 onClose={() => setCreateOpen(false)}
                 stations={stations ?? []}
+                roles={roles ?? []}
             />
         </DashboardLayout>
     );

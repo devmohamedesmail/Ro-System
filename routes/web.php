@@ -14,3 +14,6 @@ require __DIR__.'/companies.php';
 require __DIR__.'/stations.php';
 require __DIR__.'/ro-units.php';
 require __DIR__.'/users.php';
+require __DIR__.'/readings.php';
+require __DIR__.'/reports.php';
+require __DIR__.'/inventory.php';

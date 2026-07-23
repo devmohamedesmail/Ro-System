@@ -1,5 +1,4 @@
 {
- 
     "landing": {
         "brand": "أكوا آر أو",
         "meta": {
@@ -353,7 +352,7 @@
             "copyright": "© {{year}} AquaRO. جميع الحقوق محفوظة."
         }
     },
-     "common": {
+    "common": {
         "save": "حفظ",
         "success": "تم بنجاح",
         "failed": "فشل",
@@ -375,7 +374,8 @@
         "deleteConfirmMessage": "هل أنت متأكد أنك تريد حذف هذا العنصر؟ لا يمكن التراجع عن هذا الإجراء.",
         "createdAt": "تاريخ الإنشاء",
         "total": "الإجمالي",
-        "of": "من"
+        "of": "من",
+        "subtitle":" ادارة محطات RO  "
     },
     "stations": {
         "title": "المحطات",
@@ -409,69 +409,166 @@
         }
     },
     "validation": {
-       "required": "هذا الحقل مطلوب",
-       "email": "يرجى إدخال بريد إلكتروني صحيح",
-       "min": "الحد الأدنى {{min}} أحرف",
-       "max": "الحد الأقصى {{max}} أحرف"
+        "required": "هذا الحقل مطلوب",
+        "email": "يرجى إدخال بريد إلكتروني صحيح",
+        "min": "الحد الأدنى {{min}} أحرف",
+        "max": "الحد الأقصى {{max}} أحرف"
     },
-   "users": {
-    "title": "المستخدمون",
-    "subtitle": "إدارة مستخدمي الشركة",
-    "create": "إضافة مستخدم",
-    "edit": "تعديل المستخدم",
-    "delete": "إزالة المستخدم",
-    "deleteSuccess": "تم إزالة المستخدم بنجاح",
-    "createSuccess": "تم إنشاء المستخدم بنجاح",
-    "updateSuccess": "تم تحديث المستخدم بنجاح",
-    "noUsers": "لا يوجد مستخدمون. أضف أول مستخدم.",
-    "table": {
-        "name": "الاسم",
-        "email": "البريد الإلكتروني",
-        "role": "الدور",
-        "stations": "المحطات",
-        "status": "الحالة",
-        "actions": "الإجراءات"
+    "users": {
+        "title": "المستخدمون",
+        "subtitle": "إدارة مستخدمي الشركة",
+        "create": "إضافة مستخدم",
+        "edit": "تعديل المستخدم",
+        "delete": "إزالة المستخدم",
+        "deleteSuccess": "تم إزالة المستخدم بنجاح",
+        "createSuccess": "تم إنشاء المستخدم بنجاح",
+        "updateSuccess": "تم تحديث المستخدم بنجاح",
+        "noUsers": "لا يوجد مستخدمون. أضف أول مستخدم.",
+        "table": {
+            "name": "الاسم",
+            "email": "البريد الإلكتروني",
+            "role": "الدور",
+            "stations": "المحطات",
+            "status": "الحالة",
+            "actions": "الإجراءات"
+        },
+        "fields": {
+            "name": "الاسم الكامل",
+            "email": "البريد الإلكتروني",
+            "password": "كلمة المرور",
+            "phone": "رقم الهاتف",
+            "role": "الدور",
+            "company": "الشركة",
+            "stations": "المحطات المعينة",
+            "isActive": "نشط",
+            "selectRole":"اختر الدور",
+            "selectStations":"اختر المحطات"
+        }
     },
-    "fields": {
-      "name": "الاسم الكامل",
-      "email": "البريد الإلكتروني",
-      "password": "كلمة المرور",
-      "phone": "رقم الهاتف",
-      "role": "الدور",
-      "company": "الشركة",
-      "stations": "المحطات المعينة",
-      "isActive": "نشط"
+    "ro-units": {
+        "title": "وحدات RO",
+        "subtitle": "إدارة وحدات التناضح العكسي",
+        "create": "إنشاء وحدة RO",
+        "edit": "تعديل وحدة RO",
+        "delete": "حذف وحدة RO",
+        "deleteSuccess": "تم حذف وحدة RO بنجاح",
+        "createSuccess": "تم إنشاء وحدة RO بنجاح",
+        "updateSuccess": "تم تحديث وحدة RO بنجاح",
+        "noUnits": "لا توجد وحدات RO. أنشئ أول وحدة.",
+        "ro-settings": " اعدادت RO ",
+        "table": {
+            "name": "اسم الوحدة",
+            "code": "الكود",
+            "station": "المحطة",
+            "capacity": "الطاقة (م³/س)",
+            "manufacturer": "الشركة المصنعة",
+            "serialNumber": "الرقم التسلسلي",
+            "status": "الحالة",
+            "actions": "الإجراءات"
+        },
+        "fields": {
+            "name": "اسم الوحدة",
+            "code": "كود الوحدة",
+            "station": "المحطة",
+            "capacity": "الطاقة (م³/س)",
+            "description": "الوصف",
+            "serialNumber": "الرقم التسلسلي",
+            "manufacturer": "الشركة المصنعة",
+            "isActive": "نشط"
+        }
+    },
+    "readings": {
+        "title": "سجلات القراءات",
+        "subtitle": "جميع جلسات قراءات وحدات RO",
+        "insertReading": "إدخال قراءة",
+        "noSessions": "لا توجد جلسات قراءة.",
+        "session": "الجلسة",
+        "readingAt": "وقت القراءة",
+        "submittedBy": "أدخلها",
+        "unit": "وحدة RO",
+        "notes": "الملاحظات",
+        "viewValues": "عرض القيم",
+        "create": {
+            "title": "إدخال قراءة جديدة",
+            "subtitle": "أدخل قراءات العداد لوحدة RO",
+            "selectUnit": "اختر وحدة RO",
+            "notAllowed": "القراءة غير مسموح بها الآن",
+            "nextAllowedAt": "القراءة التالية مسموح بها في",
+            "hoursRule": "يمكن إدخال قراءة جديدة كل 3 ساعات فقط",
+            "categories": "فئات القراءات",
+            "noCategories": "لا توجد فئات قراءات لهذه الوحدة. اذهب إلى إعدادات RO أولاً.",
+            "notes": "ملاحظات (اختياري)",
+            "submit": "إرسال القراءة",
+            "submitting": "جارٍ الإرسال...",
+            "success": "تم إرسال القراءة بنجاح"
+        },
+        "filter": {
+            "allUnits": "جميع وحدات RO",
+            "label": "تصفية حسب وحدة RO"
+        },
+        "table": {
+            "unit": "وحدة RO",
+            "readingAt": "وقت القراءة",
+            "submittedBy": "أدخلها",
+            "valuesCount": "القيم",
+            "notes": "الملاحظات"
+        }
+    },
+    "reports": {
+        "title": "التقارير اليومية"
+    },
+    "ro-settings": {
+        "title": "إعدادات RO",
+        "subtitle": "إدارة فئات القراءات والمعاملات لكل وحدة RO",
+        "selectUnit": "اختر وحدة RO للضبط",
+        "categories": "فئات القراءات",
+        "addCategory": "إضافة فئة",
+        "editCategory": "تعديل الفئة",
+        "deleteCategory": "حذف الفئة",
+        "assignCategory": "تعيين فئة",
+        "unassignCategory": "إلغاء التعيين",
+        "noCategories": "لا توجد فئات معينة. عيّن فئة للبدء.",
+        "allCategories": "جميع فئات الشركة",
+        "assigned": "معينة",
+        "notAssigned": "غير معينة",
+        "parameters": "المعاملات",
+        "addParameter": "إضافة معامل",
+        "editParameter": "تعديل المعامل",
+        "deleteParameter": "حذف المعامل",
+        "noParameters": "لا توجد معاملات بعد. أضف واحداً.",
+        "createCategorySuccess": "تم إنشاء الفئة بنجاح",
+        "updateCategorySuccess": "تم تحديث الفئة بنجاح",
+        "deleteCategorySuccess": "تم حذف الفئة بنجاح",
+        "createParameterSuccess": "تم إنشاء المعامل بنجاح",
+        "updateParameterSuccess": "تم تحديث المعامل بنجاح",
+        "deleteParameterSuccess": "تم حذف المعامل بنجاح",
+        "assignSuccess": "تم تعيين الفئة للوحدة",
+        "unassignSuccess": "تم إلغاء تعيين الفئة من الوحدة",
+        "fields": {
+            "categoryName": "اسم الفئة",
+            "order": "الترتيب",
+            "paramName": "اسم المعامل",
+            "code": "الكود",
+            "unit": "الوحدة (مثال: ppm، bar)",
+            "inputType": "نوع الإدخال",
+            "minValue": "الحد الأدنى",
+            "maxValue": "الحد الأقصى",
+            "isRequired": "إلزامي",
+            "isActive": "نشط"
+        },
+        "inputTypes": {
+            "NUMBER": "رقم",
+            "TEXT": "نص",
+            "BOOLEAN": "نعم / لا"
+        },
+        "readingValidation": {
+            "tooSoon": "القراءة غير مسموح بها الآن",
+            "nextAllowedAt": "يُسمح بالقراءة التالية في",
+            "hoursRule": "يمكن إدخال قراءة جديدة كل 3 ساعات فقط"
+        }
+    },
+     "inventory":{
+        "title":" المخزون "
     }
-  },
-  "ro-units": {
-    "title": "وحدات RO",
-    "subtitle": "إدارة وحدات التناضح العكسي",
-    "create": "إنشاء وحدة RO",
-    "edit": "تعديل وحدة RO",
-    "delete": "حذف وحدة RO",
-    "deleteSuccess": "تم حذف وحدة RO بنجاح",
-    "createSuccess": "تم إنشاء وحدة RO بنجاح",
-    "updateSuccess": "تم تحديث وحدة RO بنجاح",
-    "noUnits": "لا توجد وحدات RO. أنشئ أول وحدة.",
-    "table": {
-        "name": "اسم الوحدة",
-        "code": "الكود",
-        "station": "المحطة",
-        "capacity": "الطاقة (م³/س)",
-        "manufacturer": "الشركة المصنعة",
-        "serialNumber": "الرقم التسلسلي",
-        "status": "الحالة",
-        "actions": "الإجراءات"
-    },
-    "fields": {
-      "name": "اسم الوحدة",
-      "code": "كود الوحدة",
-      "station": "المحطة",
-      "capacity": "الطاقة (م³/س)",
-      "description": "الوصف",
-      "serialNumber": "الرقم التسلسلي",
-      "manufacturer": "الشركة المصنعة",
-      "isActive": "نشط"
-    }
-  }
+
 }

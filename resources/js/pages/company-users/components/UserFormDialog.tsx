@@ -16,6 +16,18 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
 import InputError from '@/components/input-error';
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select";
+
+interface Role {
+    id: number;
+    name: string;
+}
 
 interface Station {
     id: number;
@@ -27,6 +39,7 @@ interface User {
     id: number;
     name: string;
     email: string;
+    role_id?: number;
     stations?: { id: number }[];
 }
 
@@ -34,10 +47,11 @@ interface UserFormDialogProps {
     open: boolean;
     onClose: () => void;
     stations: Station[];
+    roles: Role[];
     user?: User | null;
 }
 
-export function UserFormDialog({ open, onClose, stations, user }: UserFormDialogProps) {
+export function UserFormDialog({ open, onClose, stations, user ,roles}: UserFormDialogProps) {
     const { t } = useTranslation();
     const isEdit = !!user;
 
@@ -47,6 +61,7 @@ export function UserFormDialog({ open, onClose, stations, user }: UserFormDialog
             name: user?.name ?? '',
             email: user?.email ?? '',
             password: '',
+            role_id: user?.role_id?.toString() ?? '',
             station_ids: user?.stations?.map((s) => s.id) ?? [],
         },
         validationSchema: Yup.object({
@@ -57,13 +72,18 @@ export function UserFormDialog({ open, onClose, stations, user }: UserFormDialog
             password: isEdit
                 ? Yup.string().min(8, t('validation.min', { min: 8 })).nullable()
                 : Yup.string()
-                      .required(t('validation.required'))
-                      .min(8, t('validation.min', { min: 8 })),
+                    .required(t('validation.required'))
+                    .min(8, t('validation.min', { min: 8 })),
+            role_id: Yup.string().required(t('validation.required')),
             station_ids: Yup.array().of(Yup.number()),
         }),
         onSubmit: (values, { setSubmitting, resetForm }) => {
+            const payload = {
+                ...values,
+                role_id: Number(values.role_id),
+            };
             if (isEdit) {
-                router.put(`/users/${user!.id}`, values, {
+                router.put(`/users/${user!.id}`, payload, {
                     onSuccess: () => {
                         toast.success(t('users.updateSuccess'));
                         resetForm();
@@ -73,7 +93,7 @@ export function UserFormDialog({ open, onClose, stations, user }: UserFormDialog
                     onFinish: () => setSubmitting(false),
                 });
             } else {
-                router.post('/users/store', values, {
+                router.post('/users/store', payload, {
                     onSuccess: () => {
                         toast.success(t('users.createSuccess'));
                         resetForm();
@@ -173,6 +193,39 @@ export function UserFormDialog({ open, onClose, stations, user }: UserFormDialog
                             </div>
                         </div>
                     )}
+
+
+                    <div className="space-y-1">
+                        <Label>{t('users.fields.role')}</Label>
+
+                        <Select
+                            value={formik.values.role_id}
+                            onValueChange={(value) => formik.setFieldValue('role_id', value)}
+                        >
+                            <SelectTrigger className="w-full">
+                                <SelectValue placeholder={t('users.fields.selectRole')} />
+                            </SelectTrigger>
+
+                            <SelectContent>
+                                {roles?.map((role) => (
+                                    <SelectItem
+                                        key={role.id}
+                                        value={role.id.toString()}
+                                    >
+                                        {role.name}
+                                    </SelectItem>
+                                ))}
+                            </SelectContent>
+                        </Select>
+
+                        <InputError
+                            message={
+                                formik.touched.role_id
+                                    ? (formik.errors.role_id as string)
+                                    : undefined
+                            }
+                        />
+                    </div>
 
                     <DialogFooter>
                         <Button type="button" variant="outline" onClick={onClose}>

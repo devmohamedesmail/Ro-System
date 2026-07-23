@@ -104,4 +104,5 @@ export interface SidebarNavItem {
     href: string;
     icon: LucideIcon;
     badge?: number;
+    activeUrls?: string[];
 }

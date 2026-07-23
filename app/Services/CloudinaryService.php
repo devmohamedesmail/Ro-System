@@ -3,51 +3,79 @@
 namespace App\Services;
 
 use Cloudinary\Cloudinary;
+use Intervention\Image\ImageManager;
+use Intervention\Image\Format;
+use Intervention\Image\Drivers\Gd\Driver as GdDriver;
 
 class CloudinaryService
 {
+    private function cloudinary()
+    {
+        return new Cloudinary([
+            'cloud' => [
+                'cloud_name' => config('services.cloudinary.cloud_name'),
+                'api_key'    => config('services.cloudinary.api_key'),
+                'api_secret' => config('services.cloudinary.api_secret'),
+            ],
+        ]);
+    }
+
     public function uploadToCloudinary($file, string $folder): ?array
     {
         try {
-            $cloudinary = new Cloudinary([
-                'cloud' => [
-                    'cloud_name' => config('services.cloudinary.cloud_name'),
-                    'api_key' => config('services.cloudinary.api_key'),
-                    'api_secret' => config('services.cloudinary.api_secret'),
-                ],
-            ]);
 
-            $result = $cloudinary->uploadApi()->upload(
-                $file->getRealPath(),
-                ['folder' => $folder]
+            $manager = ImageManager::usingDriver(
+                GdDriver::class
             );
 
-            // return $result['secure_url'];
 
+            $image = $manager->decodePath(
+                $file->getRealPath()
+            );
+
+
+            $image->scale(
+                width: 1200
+            );
+
+
+            $encoded = $image->encodeUsingFormat(
+                Format::WEBP,
+                quality: 80
+            );
+
+
+            $tempPath = storage_path(
+                'app/temp_' . uniqid() . '.webp'
+            );
+
+
+            $encoded->save($tempPath);
+
+            $result = $this->cloudinary()->uploadApi()->upload(
+                // $file->getRealPath(),
+                $tempPath,
+                ['folder' => $folder]
+            );
+            unlink($tempPath);
+            // return $result['secure_url'];
             return [
-                'url' => $result['secure_url'],
-                'public_id' => $result['public_id'],
+                "url" => $result['secure_url'],
+                "public_id" => $result['public_id']
             ];
         } catch (\Exception $e) {
             return null;
         }
     }
 
+
+
     public function deleteFromCloudinary(string $publicId): bool
     {
         try {
-            $cloudinary = new Cloudinary([
-                'cloud' => [
-                    'cloud_name' => config('services.cloudinary.cloud_name'),
-                    'api_key' => config('services.cloudinary.api_key'),
-                    'api_secret' => config('services.cloudinary.api_secret'),
-                ],
-            ]);
-
-            $cloudinary->uploadApi()->destroy($publicId);
-
+            $this->cloudinary()->uploadApi()->destroy($publicId);
             return true;
-        } catch (\Throwable $th) {
+        } catch (\Exception $e) {
             return false;
         }
     }

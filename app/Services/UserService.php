@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class UserService
 {
@@ -12,6 +13,7 @@ class UserService
     {
         $user = new User;
         $user->name = $request->name;
+        $user->username = $this->generateUsername($request->name);
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->company_id = $request->company_id;
@@ -55,5 +57,28 @@ class UserService
     {
         $user->stations()->detach();
         $user->delete();
+    }
+
+
+
+      private function generateUsername(string $name): string
+    {
+        // convert name to slug
+        $username = Str::slug($name);
+
+        // fallback if Arabic name
+        if (! $username) {
+            $username = 'user';
+        }
+
+        $originalUsername = $username;
+        $counter = 1;
+
+        while (User::where('username', $username)->exists()) {
+            $username = $originalUsername.$counter;
+            $counter++;
+        }
+
+        return $username;
     }
 }

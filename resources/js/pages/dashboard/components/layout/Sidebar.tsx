@@ -12,12 +12,14 @@ import {
     LayoutDashboard,
     MapPin,
     Settings,
+    Settings2Icon,
     Users,
     X,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { SidebarNavItem } from '../../types';
 import useImport from '@/hooks/use-import';
+import useComapny from '@/hooks/use-comapny';
 
 
 
@@ -30,9 +32,8 @@ interface SidebarProps {
 }
 
 export function Sidebar({ isOpen, isCollapsed, onClose, onToggleCollapse, isMobile }: SidebarProps) {
-    const { t, i18n } = useImport()
-    const isRtl = i18n.language === 'ar';
-    const page = usePage();
+    const { t,isRtl} = useImport()
+    const {company}=useComapny();
     const currentPath = typeof window !== 'undefined' ? window.location.pathname : '';
 
     const isActive = (href: string) => {
@@ -45,13 +46,15 @@ export function Sidebar({ isOpen, isCollapsed, onClose, onToggleCollapse, isMobi
         : isCollapsed ? ChevronRight : ChevronLeft;
 
     const navItems: SidebarNavItem[] = [
-        { key: 'dashboard', label: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
-        { key: 'companies', label: 'Companies', href: '/companies', icon: Building2 },
+        // { key: 'dashboard', label: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
+        // { key: 'companies', label: 'Companies', href: '/companies', icon: Building2 },
         { key: 'stations', label: t("stations.title"), href: '/stations', icon: MapPin },
-        { key: 'ro-units', label: t("ro-units.title"), href: '/ro-units', icon: Droplets },
-        { key: 'readings', label: 'Readings', href: '/readings', icon: BarChart3 },
-        { key: 'daily-reports', label: 'Daily Reports', href: '/daily-reports', icon: FileBarChart },
-        { key: 'alerts', label: 'Alerts', href: '/alerts', icon: AlertTriangle, badge: 2 },
+        { key: 'ro-units', label: t("ro-units.title"), href: '/ro-units', icon: Droplets , activeUrls: ['/ro-units'] },
+        { key: 'ro-units-settings', label: t("ro-units.ro-settings"), href: '/ro-units/settings', icon: Settings2Icon , activeUrls: ['/ro-units/settings'] },
+        { key: 'readings', label: t("readings.title"), href: '/readings', icon: BarChart3 },
+        { key: 'daily-reports', label: t("reports.title"), href: '/reports', icon: FileBarChart },
+        { key: 'inventory', label: t("inventory.title"), href: '/inventory', icon: FileBarChart },
+        // { key: 'alerts', label: 'Alerts', href: '/alerts', icon: AlertTriangle, badge: 2 },
         { key: 'users', label:t("users.title"), href: '/users', icon: Users },
         { key: 'settings', label: 'Settings', href: '/settings', icon: Settings },
     ];
@@ -89,12 +92,13 @@ export function Sidebar({ isOpen, isCollapsed, onClose, onToggleCollapse, isMobi
                     {(!isCollapsed || isMobile) && (
                         <div className="flex items-center gap-2.5 overflow-hidden">
                             <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-blue-600">
-                                <Droplets className="h-4.5 w-4.5 text-white" />
+                                {/* <Droplets className="h-4.5 w-4.5 text-white" /> */}
+                                <img src={company?.logo} />
                             </div>
                             <div className="min-w-0">
-                                <p className="truncate text-sm font-bold text-gray-900 dark:text-white">AquaRO</p>
+                                <p className="truncate text-sm font-bold text-gray-900 dark:text-white">{company.name}</p>
                                 <p className="truncate text-xs text-gray-500 dark:text-gray-400">
-                                    {t('sidebar.subtitle', 'RO Management')}
+                                    {t('common.subtitle')}
                                 </p>
                             </div>
                         </div>

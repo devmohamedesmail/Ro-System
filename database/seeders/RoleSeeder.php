@@ -14,32 +14,32 @@ class RoleSeeder extends Seeder
     {
         $roles = [
             [
-                'name' => 'Super Admin',
+                'name' => 'Super Admin / مدير النظام',
                 'slug' => 'super-admin',
                 'description' => 'Full access to manage the entire RO system platform.',
             ],
             [
-                'name' => 'Company Admin',
+                'name' => 'Company Admin / مدير الشركة',
                 'slug' => 'company-admin',
                 'description' => 'Manages company settings, stations, users, and reports.',
             ],
             [
-                'name' => 'Station Manager',
+                'name' => 'Station Manager / مدير المحطة',
                 'slug' => 'station-manager',
                 'description' => 'Manages RO stations, units, and monitoring operations.',
             ],
             [
-                'name' => 'Operator',
+                'name' => 'Operator / مشغل المحطة',
                 'slug' => 'operator',
                 'description' => 'Responsible for entering RO readings and daily logs.',
             ],
             [
-                'name' => 'Technician',
+                'name' => 'Technician / فني الصيانة',
                 'slug' => 'technician',
                 'description' => 'Handles maintenance tasks and technical issues.',
             ],
             [
-                'name' => 'Viewer',
+                'name' => 'Viewer / مراقب',
                 'slug' => 'viewer',
                 'description' => 'Can view reports and system data without editing.',
             ],
