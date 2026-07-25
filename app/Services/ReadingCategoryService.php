@@ -15,6 +15,7 @@ class ReadingCategoryService
     public function getCompanyCategories(int $companyId): Collection
     {
         return ReadingCategory::where('company_id', $companyId)
+            ->orWhere('company_id',null)
             ->orWhere('is_system', true)
             ->orderBy('order')
             ->with(['parameters' => fn ($q) => $q->orderBy('order')])

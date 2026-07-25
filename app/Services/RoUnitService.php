@@ -6,12 +6,15 @@ use App\Http\Requests\StoreROunitRequest;
 use App\Http\Requests\UpdateROunitRequest;
 use App\Models\RoUnit;
 use App\Models\Station;
+use Illuminate\Support\Facades\Auth;
 
 class RoUnitService
 {
     public function store(StoreROunitRequest $request): RoUnit
     {
+        $companyId = Auth::user()?->company_id ?? 1;
         $unit = new RoUnit;
+        $unit->company_id = $companyId;
         $unit->station_id = $request->station_id;
         $unit->name = $request->name;
         $unit->code = $request->code ?? $this->generateCode($request->station_id);
@@ -21,7 +24,6 @@ class RoUnitService
         $unit->manufacturer = $request->manufacturer;
         $unit->is_active = $request->boolean('is_active', true);
         $unit->save();
-
         return $unit;
     }
 

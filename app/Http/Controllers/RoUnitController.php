@@ -8,6 +8,7 @@ use App\Models\RoUnit;
 use App\Models\Station;
 use App\Services\ReadingCategoryService;
 use App\Services\RoUnitService;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 class RoUnitController extends Controller
@@ -19,7 +20,7 @@ class RoUnitController extends Controller
 
     public function ro_units_page()
     {
-        $stations = Station::where('company_id', auth()->user()?->company_id ?? 1)
+        $stations = Station::where('company_id', Auth::user()?->company_id ?? 1)
             ->where('is_active', true)
             ->orderBy('name')
             ->get(['id', 'name', 'code']);
@@ -29,6 +30,8 @@ class RoUnitController extends Controller
             ->orderBy('created_at', 'desc')
             ->get();
 
+
+            
         return Inertia::render('ro-units/index', [
             'ro_units' => $roUnits,
             'stations' => $stations,
@@ -37,7 +40,8 @@ class RoUnitController extends Controller
 
     public function ro_units_settings_page()
     {
-        $companyId = auth()->user()?->company_id ?? 1;
+        // $companyId = auth()->user()?->company_id ?? 1;
+        $companyId = Auth::user()?->company_id ?? 1;
 
         $stations = Station::where('company_id', $companyId)
             ->where('is_active', true)

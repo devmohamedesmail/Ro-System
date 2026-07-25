@@ -68,7 +68,7 @@ export function RoUnitFormDialog({ open, onClose, stations, roUnit }: RoUnitForm
             station_id: Yup.string().required(t('validation.required')),
             name: Yup.string().required(t('validation.required')),
             code: Yup.string().nullable(),
-            capacity: Yup.number().nullable().min(0),
+            capacity: Yup.number().required(t('validation.required')),
             serial_number: Yup.string().nullable(),
             manufacturer: Yup.string().nullable(),
             description: Yup.string().nullable(),
@@ -121,7 +121,7 @@ export function RoUnitFormDialog({ open, onClose, stations, roUnit }: RoUnitForm
                             value={formik.values.station_id}
                             onValueChange={(val) => formik.setFieldValue('station_id', val)}
                         >
-                            <SelectTrigger>
+                            <SelectTrigger className='w-full'>
                                 <SelectValue placeholder={t('ro-units.fields.station')} />
                             </SelectTrigger>
                             <SelectContent>
@@ -147,7 +147,7 @@ export function RoUnitFormDialog({ open, onClose, stations, roUnit }: RoUnitForm
                             <InputError message={formik.touched.name ? formik.errors.name : undefined} />
                         </div>
 
-                        <div className="space-y-1">
+                        {/* <div className="space-y-1">
                             <Label>{t('ro-units.fields.code')}</Label>
                             <Input
                                 name="code"
@@ -157,7 +157,7 @@ export function RoUnitFormDialog({ open, onClose, stations, roUnit }: RoUnitForm
                                 placeholder={t('common.loading')}
                             />
                             <InputError message={formik.touched.code ? formik.errors.code : undefined} />
-                        </div>
+                        </div> */}
 
                         <div className="space-y-1">
                             <Label>{t('ro-units.fields.capacity')}</Label>

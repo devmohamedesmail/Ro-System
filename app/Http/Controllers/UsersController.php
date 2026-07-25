@@ -20,7 +20,7 @@ class UsersController extends Controller
         $companyId = Auth::user()?->company_id ?? 1;
 
         $users = User::where('company_id', $companyId)
-            ->with('stations:id,name,code')
+            ->with(['role','stations:id,name,code'])
             ->orderBy('created_at', 'desc')
             ->get();
 
@@ -74,5 +74,10 @@ class UsersController extends Controller
         $this->userService->destroy($user);
 
         return redirect()->back();
+    }
+
+
+    public function user_setting(){
+        return Inertia::render('company-users/profile');
     }
 }

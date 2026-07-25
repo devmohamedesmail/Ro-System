@@ -3,7 +3,7 @@ import { Head } from '@inertiajs/react';
 import { useTranslation } from 'react-i18next';
 import { usePage } from '@inertiajs/react';
 import { MapPin, Plus } from 'lucide-react';
-import { DashboardLayout } from '../dashboard/components/layout/DashboardLayout';
+import { DashboardLayout } from '../dashboard/components/DashboardLayout';
 import { Button } from '@/components/ui/button';
 import { StationTable } from './components/StationTable';
 import { StationFormDialog } from './components/StationFormDialog';

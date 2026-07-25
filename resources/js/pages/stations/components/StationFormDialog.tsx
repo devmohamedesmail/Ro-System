@@ -16,6 +16,8 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import InputError from '@/components/input-error';
+import useImport from '@/hooks/use-import';
+
 
 interface Station {
     id: number;
@@ -35,7 +37,7 @@ interface StationFormDialogProps {
 }
 
 export function StationFormDialog({ open, onClose, station }: StationFormDialogProps) {
-    const { t } = useTranslation();
+    const { t } = useImport();
     const isEdit = !!station;
 
     const formik = useFormik({
@@ -72,7 +74,10 @@ export function StationFormDialog({ open, onClose, station }: StationFormDialogP
                         resetForm();
                         onClose();
                     },
-                    onError: () => toast.error(t('common.error')),
+                    onError: (errors) => {
+                        toast.error(t('stations.createFailed'))
+                        console.log("Error", errors)
+                    },
                     onFinish: () => setSubmitting(false),
                 });
             }
@@ -112,7 +117,7 @@ export function StationFormDialog({ open, onClose, station }: StationFormDialogP
                             <InputError message={formik.touched.phone ? formik.errors.phone : undefined} />
                         </div>
 
-                        <div className="space-y-1">
+                        {/* <div className="space-y-1">
                             <Label>{t('stations.fields.city')}</Label>
                             <Input
                                 name="city"
@@ -121,9 +126,9 @@ export function StationFormDialog({ open, onClose, station }: StationFormDialogP
                                 onBlur={formik.handleBlur}
                             />
                             <InputError message={formik.touched.city ? formik.errors.city : undefined} />
-                        </div>
+                        </div> */}
 
-                        <div className="space-y-1">
+                        {/* <div className="space-y-1">
                             <Label>{t('stations.fields.country')}</Label>
                             <Input
                                 name="country"
@@ -132,7 +137,7 @@ export function StationFormDialog({ open, onClose, station }: StationFormDialogP
                                 onBlur={formik.handleBlur}
                             />
                             <InputError message={formik.touched.country ? formik.errors.country : undefined} />
-                        </div>
+                        </div> */}
                     </div>
 
                     <div className="space-y-1">

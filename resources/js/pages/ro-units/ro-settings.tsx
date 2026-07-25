@@ -15,7 +15,7 @@ import {
     Zap,
 } from 'lucide-react';
 import toast from 'react-hot-toast';
-import { DashboardLayout } from '../dashboard/components/layout/DashboardLayout';
+import { DashboardLayout } from '../dashboard/components/DashboardLayout';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { ConfirmDeleteDialog } from '@/components/shared/ConfirmDeleteDialog';
@@ -23,37 +23,9 @@ import { CategoryFormDialog } from './components/CategoryFormDialog';
 import { ParameterFormDialog } from './components/ParameterFormDialog';
 import useComapny from '@/hooks/use-comapny';
 import { cn } from '@/lib/utils';
+import { Category, Parameter, RoUnit } from '@/types/ro';
+import useImport from '@/hooks/use-import';
 
-// ─── Types ────────────────────────────────────────────────────────────────────
-
-interface Parameter {
-    id: number;
-    name: string;
-    code: string | null;
-    unit: string | null;
-    input_type: 'NUMBER' | 'TEXT' | 'BOOLEAN';
-    min_value: number | null;
-    max_value: number | null;
-    order: number;
-    is_required: boolean;
-    is_active: boolean;
-}
-
-interface Category {
-    id: number;
-    name: string;
-    order: number;
-    is_system: boolean;
-    parameters: Parameter[];
-    pivot?: { is_active: boolean; order: number };
-}
-
-interface RoUnit {
-    id: number;
-    name: string;
-    code: string;
-    reading_categories: Category[];
-}
 
 interface PageProps {
     ro_units: RoUnit[];
@@ -79,7 +51,7 @@ function ParameterRow({
     onEdit: (p: Parameter) => void;
     onDelete: (p: Parameter) => void;
 }) {
-    const { t } = useTranslation();
+    const { t } = useImport();
     return (
         <div className="flex items-center gap-3 rounded-lg border border-gray-100 bg-gray-50/60 px-3 py-2 dark:border-gray-800 dark:bg-gray-800/30">
             <span className="w-4 text-center text-xs text-gray-400">{param.order}</span>

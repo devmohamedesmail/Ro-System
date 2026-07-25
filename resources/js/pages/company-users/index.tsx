@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Head, usePage } from '@inertiajs/react';
 import { useTranslation } from 'react-i18next';
 import { Plus, Users } from 'lucide-react';
-import { DashboardLayout } from '../dashboard/components/layout/DashboardLayout';
+import { DashboardLayout } from '../dashboard/components/DashboardLayout';
 import { Button } from '@/components/ui/button';
 import { UserTable } from './components/UserTable';
 import { UserFormDialog } from './components/UserFormDialog';
@@ -26,6 +26,10 @@ interface User {
     email: string;
     role_id?: number;
     stations?: Station[];
+      role:{
+        id:number,
+        name:string
+    }
 }
 
 interface PageProps {
@@ -36,7 +40,8 @@ interface PageProps {
 
 export default function CompanyUsersPage() {
     const { t } = useTranslation();
-    const { users, stations,roles } = usePage().props as any as PageProps;
+    const { users, stations, roles } = usePage().props as any as PageProps;
+    
     const { company } = useComapny();
     const [createOpen, setCreateOpen] = useState(false);
 

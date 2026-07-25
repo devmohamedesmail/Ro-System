@@ -64,9 +64,9 @@ export function StationTable({ stations }: StationTableProps) {
                             <th className="px-6 py-3 text-start text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
                                 {t('stations.table.code')}
                             </th>
-                            <th className="px-6 py-3 text-start text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+                            {/* <th className="px-6 py-3 text-start text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
                                 {t('stations.table.city')}
-                            </th>
+                            </th> */}
                             <th className="px-6 py-3 text-start text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
                                 {t('stations.table.phone')}
                             </th>
@@ -89,7 +89,7 @@ export function StationTable({ stations }: StationTableProps) {
                             >
                                 <td className="px-6 py-4">
                                     <div className="flex items-center gap-3">
-                                        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-blue-100 dark:bg-blue-900/30">
+                                        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/30 dark:bg-blue-900/30">
                                             <MapPin className="h-4 w-4 text-blue-600 dark:text-blue-400" />
                                         </div>
                                         <span className="text-sm font-medium text-gray-900 dark:text-white">
@@ -102,9 +102,7 @@ export function StationTable({ stations }: StationTableProps) {
                                         {station.code}
                                     </span>
                                 </td>
-                                <td className="px-6 py-4 text-sm text-gray-600 dark:text-gray-400">
-                                    {station.city ?? '—'}
-                                </td>
+                              
                                 <td className="px-6 py-4">
                                     {station.phone ? (
                                         <div className="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400">

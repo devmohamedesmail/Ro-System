@@ -1,21 +1,21 @@
 import React from 'react'
-import { DashboardLayout } from '../dashboard/components/layout/DashboardLayout'
+import { DashboardLayout } from '../dashboard/components/DashboardLayout'
 import InventoryFormDialog from './components/InventoryFormDialog'
 import useImport from '@/hooks/use-import';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Plus,Package } from 'lucide-react';
+import { Plus, Package } from 'lucide-react';
 import { Head } from '@inertiajs/react';
 
-export default function InventoryPage({stations}:any) {
+export default function InventoryPage({ stations }: any) {
     const { t } = useImport();
     const [createOpen, setCreateOpen] = useState(false);
 
 
-    console.log("stations",stations)
+    console.log("stations", stations)
     return (
-    <DashboardLayout>
-          <Head title={t("inventory.title")} />
+        <DashboardLayout>
+            <Head title={t("inventory.title")} />
 
             <div className="space-y-6 p-6">
 
@@ -58,6 +58,6 @@ export default function InventoryPage({stations}:any) {
                 stations={stations}
                 inventory={null}
             />
-    </DashboardLayout>
-  )
+        </DashboardLayout>
+    )
 }

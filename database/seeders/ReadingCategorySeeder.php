@@ -15,19 +15,19 @@ class ReadingCategorySeeder extends Seeder
         $categories = [
             [
                 'name' => 'Conductivity / التوصيلية الكهربائية',
-                'sort_order' => 1,
+                'order' => 1,
             ],
             [
                 'name' => 'Water Flow Rate / معدل تدفق المياه',
-                'sort_order' => 2,
+                'order' => 2,
             ],
             [
                 'name' => 'Pressure / الضغط',
-                'sort_order' => 3,
+                'order' => 3,
             ],
             [
                 'name' => 'Electrical Reading / القراءات الكهربائية',
-                'sort_order' => 4,
+                'order' => 4,
             ],
         ];
 
@@ -38,13 +38,15 @@ class ReadingCategorySeeder extends Seeder
                 [
                     'company_id' => null,
                     'name' => $category['name'],
+                    // 'is_active' => true,
+                    'order' => $category['order'],
                 ],
-                [
-                    'station_id' => null,
-                    'ro_unit_id' => null,
-                    'is_active' => true,
-                    'sort_order' => $category['sort_order'],
-                ]
+                // [
+                //     'station_id' => null,
+                //     'ro_unit_id' => null,
+                //     'is_active' => true,
+                //     'sort_order' => $category['sort_order'],
+                // ]
             );
         }
     }

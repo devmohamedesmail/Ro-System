@@ -7,6 +7,7 @@ use App\Models\RoUnit;
 use App\Models\Station;
 use App\Services\ReadingService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 class ReadingController extends Controller
@@ -17,28 +18,38 @@ class ReadingController extends Controller
 
     public function readings_page(Request $request)
     {
-        $companyId = auth()->user()?->company_id ?? 1;
+        $companyId = Auth::user()?->company_id ?? 1;
 
-        $stations = Station::where('company_id', $companyId)
-            ->where('is_active', true)
-            ->orderBy('name')
-            ->get(['id', 'name', 'code']);
+        // $stations = Station::where('company_id', $companyId)
+        //     ->where('is_active', true)
+        //     ->orderBy('name')
+        //     ->get(['id', 'name', 'code']);
 
-        $roUnits = RoUnit::whereIn('station_id', $stations->pluck('id'))
-            ->orderBy('name')
-            ->get(['id', 'name', 'code', 'station_id']);
+        // $roUnits = RoUnit::whereIn('station_id', $stations->pluck('id'))
+        //     ->orderBy('name')
+        //     ->get(['id', 'name', 'code', 'station_id']);
 
-        $sessions = ReadingSession::with(['roUnit:id,name,code', 'user:id,name'])
-            ->whereIn('ro_unit_id', $roUnits->pluck('id'))
-            ->when($request->ro_unit_id, fn ($q, $id) => $q->where('ro_unit_id', $id))
-            ->orderBy('reading_at', 'desc')
-            ->paginate(20)
-            ->withQueryString();
+        // $sessions = ReadingSession::with(['roUnit:id,name,code', 'user:id,name'])
+        //     ->whereIn('ro_unit_id', $roUnits->pluck('id'))
+        //     ->when($request->ro_unit_id, fn ($q, $id) => $q->where('ro_unit_id', $id))
+        //     ->orderBy('reading_at', 'desc')
+        //     ->paginate(20)
+        //     ->withQueryString();
+        // $stations = Auth::user()?->load("stations.roUnits.readingCategories.parameters");
 
+
+
+        $stations = Auth::user()->stations()->with('roUnits.readingCategories.parameters')->get();
+
+          
+
+        // return Inertia::render('readings/index', [
+        //     'sessions' => $sessions,
+        //     'ro_units' => $roUnits,
+        //     'filter_ro_unit_id' => $request->integer('ro_unit_id') ?: null,
+        // ]);
         return Inertia::render('readings/index', [
-            'sessions' => $sessions,
-            'ro_units' => $roUnits,
-            'filter_ro_unit_id' => $request->integer('ro_unit_id') ?: null,
+           'stations'=> $stations,
         ]);
     }
 

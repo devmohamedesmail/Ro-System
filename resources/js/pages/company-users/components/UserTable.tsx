@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { router } from '@inertiajs/react';
 import toast from 'react-hot-toast';
-import { Edit2, Mail, Trash2, Users } from 'lucide-react';
+import { AppWindowMac, Edit2, Mail, Trash2, User, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
@@ -20,6 +20,10 @@ interface User {
     name: string;
     email: string;
     stations?: Station[];
+    role:{
+        id:number,
+        name:string
+    }
 }
 
 interface UserTableProps {
@@ -77,6 +81,9 @@ export function UserTable({ users, stations }: UserTableProps) {
                                 {t('users.table.email')}
                             </th>
                             <th className="px-6 py-3 text-start text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+                                {t('users.table.role')}
+                            </th>
+                            <th className="px-6 py-3 text-start text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
                                 {t('users.table.stations')}
                             </th>
                             <th className="px-6 py-3 text-end text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
@@ -106,6 +113,13 @@ export function UserTable({ users, stations }: UserTableProps) {
                                     <div className="flex items-center gap-1.5 text-sm text-gray-600 dark:text-gray-400">
                                         <Mail className="h-3.5 w-3.5 shrink-0" />
                                         {user.email}
+                                    </div>
+                                </td>
+                                <td className="px-6 py-4">
+                                    <div className="flex items-center gap-1.5 text-sm text-gray-600 dark:text-gray-400">
+                                        
+                                       <User className="h-3.5 w-3.5 shrink-0" />
+                                        {user?.role?.name}
                                     </div>
                                 </td>
                                 <td className="px-6 py-4">

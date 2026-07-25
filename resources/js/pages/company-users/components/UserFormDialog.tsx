@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -23,6 +23,8 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select";
+import useImport from '@/hooks/use-import';
+import { Eye } from 'lucide-react';
 
 interface Role {
     id: number;
@@ -51,8 +53,9 @@ interface UserFormDialogProps {
     user?: User | null;
 }
 
-export function UserFormDialog({ open, onClose, stations, user ,roles}: UserFormDialogProps) {
-    const { t } = useTranslation();
+export function UserFormDialog({ open, onClose, stations, user, roles }: UserFormDialogProps) {
+    const { t } = useImport();
+    const [showPassword, setShowPassword] = useState(false)
     const isEdit = !!user;
 
     const formik = useFormik({
@@ -154,14 +157,21 @@ export function UserFormDialog({ open, onClose, stations, user ,roles}: UserForm
                                 </span>
                             )}
                         </Label>
-                        <Input
-                            name="password"
-                            type="password"
-                            value={formik.values.password}
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                            placeholder={isEdit ? '••••••••' : ''}
-                        />
+                        <div className='flex items-center'>
+                           
+                            <Input
+                                name="password"
+                                type={showPassword ? 'text' : 'password'}
+                                // type="password"
+                                value={formik.values.password}
+                                onChange={formik.handleChange}
+                                onBlur={formik.handleBlur}
+                                placeholder={isEdit ? '••••••••' : ''}
+                            />
+                             <button className='bg-primary flex items-center justify-center rounded-md h-11 w-11 ' onClick={() => setShowPassword(!showPassword)}>
+                                <Eye className='text-white' />
+                            </button>
+                        </div>
                         <InputError message={formik.touched.password ? formik.errors.password : undefined} />
                     </div>
 

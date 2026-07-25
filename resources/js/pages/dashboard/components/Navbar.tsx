@@ -4,20 +4,20 @@ import { usePage, Link } from '@inertiajs/react';
 import {
     Bell,
     ChevronDown,
-    Globe,
     Menu,
-    Moon,
-    Sun,
-    Check,
     LogOut,
     Settings,
     User,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { useAppearance } from '@/hooks/use-appearance';
+
 import { useInitials } from '@/hooks/use-initials';
-import { mockCompanies, mockStations } from '../../data/mock';
-import type { Company, Station } from '../../types';
+import ThemeSelector from '@/components/shared/theme-selector';
+
+import LanguageSelector from '@/components/shared/language-selector';
+import useImport from '@/hooks/use-import';
+import AuthMenu from '@/components/shared/auth-menu';
+
 
 interface NavbarProps {
     onMenuToggle: () => void;
@@ -41,48 +41,28 @@ function useDropdown() {
 }
 
 export function Navbar({ onMenuToggle }: NavbarProps) {
-    const { t, i18n } = useTranslation();
-    const { resolvedAppearance, updateAppearance } = useAppearance();
+    const { t, i18n , isRtl } = useImport();
     const page = usePage();
     const { auth } = page.props as { auth: { user: { name: string; email: string; avatar?: string } } };
     const getInitials = useInitials();
-    const isRtl = i18n.language === 'ar';
-
-    const [selectedCompany, setSelectedCompany] = useState<Company>(mockCompanies[0]);
-    const [selectedStation, setSelectedStation] = useState<Station>(
-        mockStations.filter((s) => s.companyId === mockCompanies[0].id)[0],
-    );
-
-    const companyDropdown = useDropdown();
-    const stationDropdown = useDropdown();
     const langDropdown = useDropdown();
     const profileDropdown = useDropdown();
 
-    const availableStations = mockStations.filter((s) => s.companyId === selectedCompany.id);
-    const unreadAlerts = 2;
+    // const availableStations = mockStations.filter((s) => s.companyId === selectedCompany.id);
+    // const unreadAlerts = 2;
 
-    function handleCompanySelect(company: Company) {
-        setSelectedCompany(company);
-        const first = mockStations.filter((s) => s.companyId === company.id)[0];
-        if (first) setSelectedStation(first);
-        companyDropdown.setOpen(false);
-    }
+    // function handleCompanySelect(company: Company) {
+    //     setSelectedCompany(company);
+    //     const first = mockStations.filter((s) => s.companyId === company.id)[0];
+    //     if (first) setSelectedStation(first);
+    //     companyDropdown.setOpen(false);
+    // }
 
-    function handleStationSelect(station: Station) {
-        setSelectedStation(station);
-        stationDropdown.setOpen(false);
-    }
+    // function handleStationSelect(station: Station) {
+    //     setSelectedStation(station);
+    //     stationDropdown.setOpen(false);
+    // }
 
-    function handleLanguageSwitch(lng: 'en' | 'ar') {
-        i18n.changeLanguage(lng);
-        document.documentElement.dir = lng === 'ar' ? 'rtl' : 'ltr';
-        document.documentElement.lang = lng;
-        langDropdown.setOpen(false);
-    }
-
-    function handleThemeToggle() {
-        updateAppearance(resolvedAppearance === 'dark' ? 'light' : 'dark');
-    }
 
     return (
         <header className="flex h-16 shrink-0 items-center justify-between border-b border-gray-200 bg-white px-4 dark:border-gray-800 dark:bg-gray-950">
@@ -97,7 +77,7 @@ export function Navbar({ onMenuToggle }: NavbarProps) {
                 </button>
 
                 {/* Company Selector */}
-                <div className="relative hidden sm:block" ref={companyDropdown.ref}>
+                {/* <div className="relative hidden sm:block" ref={companyDropdown.ref}>
                     <button
                         onClick={() => companyDropdown.setOpen((o) => !o)}
                         className="flex items-center gap-2 rounded-lg border border-gray-200 bg-gray-50 px-3 py-1.5 text-sm transition-colors hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800/60 dark:hover:bg-gray-800"
@@ -141,10 +121,10 @@ export function Navbar({ onMenuToggle }: NavbarProps) {
                             ))}
                         </div>
                     )}
-                </div>
+                </div> */}
 
                 {/* Station Selector */}
-                <div className="relative hidden md:block" ref={stationDropdown.ref}>
+                {/* <div className="relative hidden md:block" ref={stationDropdown.ref}>
                     <button
                         onClick={() => stationDropdown.setOpen((o) => !o)}
                         className="flex items-center gap-2 rounded-lg border border-gray-200 bg-gray-50 px-3 py-1.5 text-sm transition-colors hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800/60 dark:hover:bg-gray-800"
@@ -182,7 +162,7 @@ export function Navbar({ onMenuToggle }: NavbarProps) {
                             ))}
                         </div>
                     )}
-                </div>
+                </div> */}
             </div>
 
             {/* Right: Actions */}
@@ -190,68 +170,25 @@ export function Navbar({ onMenuToggle }: NavbarProps) {
                 {/* Notifications */}
                 <button
                     className="relative rounded-lg p-2 text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-                    aria-label={`${unreadAlerts} unread alerts`}
+                    // aria-label={`${unreadAlerts} unread alerts`}
                 >
                     <Bell className="h-5 w-5" />
-                    {unreadAlerts > 0 && (
+                    {/* {unreadAlerts > 0 && (
                         <span className="absolute right-1 top-1 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-[9px] font-bold text-white">
                             {unreadAlerts}
                         </span>
-                    )}
+                    )} */}
                 </button>
 
-                {/* Language Switcher */}
-                <div className="relative" ref={langDropdown.ref}>
-                    <button
-                        onClick={() => langDropdown.setOpen((o) => !o)}
-                        className="flex items-center gap-1.5 rounded-lg p-2 text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-                        aria-label="Switch language"
-                    >
-                        <Globe className="h-4.5 w-4.5" />
-                        <span className="hidden text-xs font-semibold sm:block">
-                            {i18n.language === 'ar' ? 'AR' : 'EN'}
-                        </span>
-                    </button>
-
-                    {langDropdown.open && (
-                        <div className={cn(
-                            'absolute top-full z-50 mt-1.5 min-w-36 rounded-xl border border-gray-200 bg-white py-1.5 shadow-lg dark:border-gray-700 dark:bg-gray-900',
-                            isRtl ? 'left-0' : 'right-0',
-                        )}>
-                            {(['en', 'ar'] as const).map((lng) => (
-                                <button
-                                    key={lng}
-                                    onClick={() => handleLanguageSwitch(lng)}
-                                    className="flex w-full items-center justify-between px-3 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-50 dark:text-gray-200 dark:hover:bg-gray-800"
-                                >
-                                    <span>{lng === 'en' ? '🇺🇸 English' : '🇸🇦 العربية'}</span>
-                                    {i18n.language === lng && (
-                                        <Check className="h-3.5 w-3.5 text-blue-600 dark:text-blue-400" />
-                                    )}
-                                </button>
-                            ))}
-                        </div>
-                    )}
-                </div>
-
-                {/* Dark/Light Toggle */}
-                <button
-                    onClick={handleThemeToggle}
-                    className="rounded-lg p-2 text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-                    aria-label="Toggle dark mode"
-                >
-                    {resolvedAppearance === 'dark' ? (
-                        <Sun className="h-4.5 w-4.5" />
-                    ) : (
-                        <Moon className="h-4.5 w-4.5" />
-                    )}
-                </button>
+                <LanguageSelector />
+                <ThemeSelector />
 
                 {/* Separator */}
                 <div className="mx-1 h-6 w-px bg-gray-200 dark:bg-gray-700" />
+            
 
                 {/* User Profile */}
-                <div className="relative" ref={profileDropdown.ref}>
+                {/* <div className="relative" ref={profileDropdown.ref}>
                     <button
                         onClick={() => profileDropdown.setOpen((o) => !o)}
                         className="flex items-center gap-2 rounded-lg p-1.5 text-sm transition-colors hover:bg-gray-100 dark:hover:bg-gray-800"
@@ -315,7 +252,8 @@ export function Navbar({ onMenuToggle }: NavbarProps) {
                             </Link>
                         </div>
                     )}
-                </div>
+                </div> */}
+                <AuthMenu />
             </div>
         </header>
     );

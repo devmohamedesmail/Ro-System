@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('ro_units', function (Blueprint $table) {
             $table->id();
+             $table->foreignId('company_id')->nullable()->constrained()->cascadeOnDelete();
             $table->foreignId('station_id')
                 ->constrained()
                 ->cascadeOnDelete();

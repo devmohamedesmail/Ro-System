@@ -10,6 +10,10 @@ import {
     Moon,
     ChevronDown,
 } from 'lucide-react';
+import { Link } from '@inertiajs/react';
+import ThemeSelector from '../shared/theme-selector';
+import LanguageSelector from '../shared/language-selector';
+import Logo from '../shared/logo';
 
 const navLinks = [
     { key: 'landing.nav.features' },
@@ -47,19 +51,7 @@ export default function Navbar() {
         >
             <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-6">
                 {/* Logo */}
-                <motion.div
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5 }}
-                    className="flex items-center gap-2.5 shrink-0"
-                >
-                    <div className="relative w-8 h-8 rounded-xl bg-gradient-to-br from-teal-500 to-teal-700 flex items-center justify-center shadow-lg shadow-teal-500/30">
-                        <Droplets className="w-4.5 h-4.5 text-white" strokeWidth={2.5} />
-                    </div>
-                    <span className="font-bold text-lg tracking-tight text-slate-900 dark:text-white">
-                        {t('landing.brand')}
-                    </span>
-                </motion.div>
+               <Logo />
 
                 {/* Desktop Nav Links */}
                 <motion.ul
@@ -87,39 +79,25 @@ export default function Navbar() {
                     transition={{ duration: 0.5, delay: 0.15 }}
                     className="flex items-center gap-2 shrink-0"
                 >
-                    {/* Language Switcher */}
-                    <button
-                        aria-label={t('landing.nav.language')}
-                        className="hidden sm:flex items-center gap-1 px-2.5 py-2 text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-all duration-200"
-                    >
-                        <Globe className="w-4 h-4" />
-                        <ChevronDown className="w-3 h-3" />
-                    </button>
-
-                    {/* Theme Toggle */}
-                    <button
-                        onClick={() => setDark(!dark)}
-                        aria-label={t('landing.nav.theme')}
-                        className="flex items-center justify-center w-9 h-9 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-all duration-200"
-                    >
-                        {dark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
-                    </button>
+                   
+                     <LanguageSelector />
+                     <ThemeSelector />
 
                     {/* Login */}
-                    <a
+                    <Link
                         href="/login"
                         className="hidden sm:inline-flex px-4 py-2 text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-200"
                     >
                         {t('landing.nav.login')}
-                    </a>
+                    </Link>
 
                     {/* CTA */}
-                    <a
+                    <Link
                         href="/register"
                         className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold text-white bg-gradient-to-r from-teal-600 to-teal-500 hover:from-teal-700 hover:to-teal-600 rounded-xl shadow-lg shadow-teal-500/25 hover:shadow-teal-500/40 transition-all duration-300 hover:scale-105 active:scale-95"
                     >
                         {t('landing.nav.cta')}
-                    </a>
+                    </Link>
 
                     {/* Mobile Menu Toggle */}
                     <button

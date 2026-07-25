@@ -29,10 +29,20 @@ class RoleSeeder extends Seeder
                 'description' => 'Manages RO stations, units, and monitoring operations.',
             ],
             [
+                'name' => 'Supervisior / مشرف',
+                'slug' => 'supervisior',
+                'description' => 'Manages RO stations, units, and monitoring operations.',
+            ],
+            [
+                'name' => 'Chemical / كيميائي المحطة',
+                'slug' => 'chemical',
+                'description' => 'Responsible for entering RO readings and daily logs.',
+            ],
+            [
                 'name' => 'Operator / مشغل المحطة',
                 'slug' => 'operator',
                 'description' => 'Responsible for entering RO readings and daily logs.',
-            ],
+            ], 
             [
                 'name' => 'Technician / فني الصيانة',
                 'slug' => 'technician',

@@ -42,11 +42,12 @@ class CompanyService
                 $company->public_id = $logo['public_id'] ?? null;
             }
         }
-
+        $company->save();
         $role = Role::where('slug', 'company-admin')->first();
         $user->role_id = $role->id;
+        $user->company_id = $company->id;
         $user->save();
-        $company->save();
+      
 
         return $company;
     }

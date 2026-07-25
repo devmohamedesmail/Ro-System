@@ -4,6 +4,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { ChevronDown, Check } from 'lucide-react'
 import { useTranslation } from 'react-i18next';
+import { Globe } from 'lucide-react';
 
 export default function LanguageSelector() {
     const { t, i18n } = useTranslation()
@@ -21,7 +22,7 @@ export default function LanguageSelector() {
     return (
         <DropdownMenu>
             <DropdownMenuTrigger className="flex items-center gap-1 hover:text-primary transition-colors outline-none">
-                {currentLang.label} <ChevronDown size={11} />
+              <Globe className="h-4.5 w-4.5" />  {currentLang.code} <ChevronDown size={11} />
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="min-w-24">
                 {LANGUAGES.map(l => (

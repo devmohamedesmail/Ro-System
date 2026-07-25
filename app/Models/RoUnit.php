@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\ReadingValue;
 use Database\Factories\RoUnitFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -57,5 +58,22 @@ class RoUnit extends Model
     public function lastReadingSession(): HasOne
     {
         return $this->hasOne(ReadingSession::class)->latestOfMany('reading_at');
+    }
+
+    public function readings(): HasMany
+    {
+        return $this->hasMany(ReadingValue::class);
+    }
+    
+    public function lastestReading(){
+        return $this->hasOne(ReadingValue::class)->latestOfMany('reading_at');
+    }
+
+    public function getLatestReadingsAttribute()
+    {
+        if(!$this->lastestReading){
+            return true;
+        }
+        return $this->latestReading->created_at->addHours(3)->isPast();
     }
 }

@@ -17,9 +17,10 @@ import {
     X,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import type { SidebarNavItem } from '../../types';
+
 import useImport from '@/hooks/use-import';
 import useComapny from '@/hooks/use-comapny';
+import { SidebarNavItem } from '../types';
 
 
 
@@ -56,7 +57,7 @@ export function Sidebar({ isOpen, isCollapsed, onClose, onToggleCollapse, isMobi
         { key: 'inventory', label: t("inventory.title"), href: '/inventory', icon: FileBarChart },
         // { key: 'alerts', label: 'Alerts', href: '/alerts', icon: AlertTriangle, badge: 2 },
         { key: 'users', label:t("users.title"), href: '/users', icon: Users },
-        { key: 'settings', label: 'Settings', href: '/settings', icon: Settings },
+        { key: 'settings', label: t("users.profile"), href: '/users/auth/settings', icon: Settings },
     ];
 
     return (
@@ -73,7 +74,7 @@ export function Sidebar({ isOpen, isCollapsed, onClose, onToggleCollapse, isMobi
             {/* Sidebar Panel */}
             <aside
                 className={cn(
-                    'fixed top-0 z-50 flex h-full flex-col bg-white transition-all duration-300 ease-in-out dark:bg-gray-950',
+                    'fixed top-0 z-50 flex h-full flex-col bg-primary transition-all duration-300 ease-in-out dark:bg-gray-950',
                     'border-gray-200 dark:border-gray-800',
                     isRtl ? 'right-0 border-l' : 'left-0 border-r',
                     // Desktop collapsed/expanded
@@ -96,8 +97,8 @@ export function Sidebar({ isOpen, isCollapsed, onClose, onToggleCollapse, isMobi
                                 <img src={company?.logo} />
                             </div>
                             <div className="min-w-0">
-                                <p className="truncate text-sm font-bold text-gray-900 dark:text-white">{company.name}</p>
-                                <p className="truncate text-xs text-gray-500 dark:text-gray-400">
+                                <p className="truncate text-sm font-bold text-white dark:text-white">{company?.name}</p>
+                                <p className="truncate text-xs text-white dark:text-gray-400">
                                     {t('common.subtitle')}
                                 </p>
                             </div>
@@ -136,7 +137,7 @@ export function Sidebar({ isOpen, isCollapsed, onClose, onToggleCollapse, isMobi
                                             'group relative flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-150',
                                             active
                                                 ? 'bg-primary text-white dark:bg-blue-900/20 dark:text-blue-400'
-                                                : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-800/70 dark:hover:text-gray-100',
+                                                : 'text-white hover:bg-gray-100 hover:text-black dark:text-white dark:hover:bg-gray-800/70 dark:hover:text-gray-100',
                                             isCollapsed && !isMobile && 'justify-center px-2',
                                         )}
                                         aria-current={active ? 'page' : undefined}
@@ -189,10 +190,10 @@ export function Sidebar({ isOpen, isCollapsed, onClose, onToggleCollapse, isMobi
                             )}
                             aria-label={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
                         >
-                            <CollapseIcon className="h-4 w-4 shrink-0" />
+                            <CollapseIcon className="h-4 w-4 shrink-0 text-white" />
                             {!isCollapsed && (
-                                <span className="text-xs font-medium">
-                                    {t('sidebar.collapse', 'Collapse')}
+                                <span className="text-xs text-white font-medium">
+                                    {t('common.collapse')}
                                 </span>
                             )}
                         </button>

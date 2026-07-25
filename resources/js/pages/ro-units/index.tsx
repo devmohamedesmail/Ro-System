@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Head, usePage } from '@inertiajs/react';
 import { useTranslation } from 'react-i18next';
 import { Droplets, Plus } from 'lucide-react';
-import { DashboardLayout } from '../dashboard/components/layout/DashboardLayout';
+import { DashboardLayout } from '../dashboard/components/DashboardLayout';
 import { Button } from '@/components/ui/button';
 import { RoUnitTable } from './components/RoUnitTable';
 import { RoUnitFormDialog } from './components/RoUnitFormDialog';

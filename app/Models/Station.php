@@ -53,8 +53,6 @@ class Station extends Model
         return $this->belongsToMany(User::class, 'user_stations');
     }
 
-
-
     public function inventory()
     {
         return $this->hasOne(Inventory::class);
