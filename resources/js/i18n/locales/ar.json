@@ -381,9 +381,11 @@
         "file-type-limit": "حد نوع الملف",
         "choose-file": "اختر ملف",
         "no-file": "لم يتم اختيار ملف",
-        "warning-des":"Please proceed with caution, this cannot be undone.",
-        "warning":"Warning",
-         "collapse":"Collapse"
+        "warning-des": "يرجى المتابعة بحذر، لا يمكن التراجع عن هذا الإجراء.",
+        "warning": "تحذير",
+        "collapse": "طي",
+        "value": "أدخل القيمة",
+        "notes": "ملاحظات (اختياري)"
     },
     "auth": {
         "register": "إنشاء حساب",
@@ -400,13 +402,13 @@
         "no-account": "ليس لديك حساب؟",
         "forget-password": "نسيت كلمة المرور؟",
         "remember": "تذكرني",
-         "title": "Log in to your account",
+        "title": "Log in to your account",
         "description": "Enter your email and password below to log in",
-        "profile-settings":"Profile settings",
-        "profile-settings-des":"Update Your Email And Name",
-        "delete-account":"Delete Account",
-        "my-account":" حسابي ",
-        "logout":" تسجيل الخروج "
+        "profile-settings": "Profile settings",
+        "profile-settings-des": "Update Your Email And Name",
+        "delete-account": "Delete Account",
+        "my-account": " حسابي ",
+        "logout": " تسجيل الخروج "
     },
     "companies": {
         "company_logo": "شعار الشركة",
@@ -438,7 +440,7 @@
         "createSuccess": "تم إنشاء المحطة بنجاح",
         "updateSuccess": "تم تحديث المحطة بنجاح",
         "noStations": "لا توجد محطات. أنشئ أول محطة.",
-         "createFailed":" فشل انشاء محطة ",
+        "createFailed": " فشل انشاء محطة ",
         "table": {
             "name": "اسم المحطة",
             "code": "الكود",
@@ -477,8 +479,8 @@
         "createSuccess": "تم إنشاء المستخدم بنجاح",
         "updateSuccess": "تم تحديث المستخدم بنجاح",
         "noUsers": "لا يوجد مستخدمون. أضف أول مستخدم.",
-         "profile":" الملف الشخصي ",
-         "dashboard":"لوحة التحكم",
+        "profile": " الملف الشخصي ",
+        "dashboard": "لوحة التحكم",
         "table": {
             "name": "الاسم",
             "email": "البريد الإلكتروني",
@@ -543,6 +545,8 @@
         "unit": "وحدة RO",
         "notes": "الملاحظات",
         "viewValues": "عرض القيم",
+        "no-parameters":"لا يوجد معامل في هذا القسم",
+        "notes_placeholder":"ملاحظات اضافية...",
         "create": {
             "title": "إدخال قراءة جديدة",
             "subtitle": "أدخل قراءات العداد لوحدة RO",

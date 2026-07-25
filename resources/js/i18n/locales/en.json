@@ -383,7 +383,9 @@
         "no-file":"No file chosen",
         "warning-des":"Please proceed with caution, this cannot be undone.",
         "warning":"Warning",
-        "collapse":"Collapse"
+        "collapse":"Collapse",
+        "value":"Enter Value",
+        "notes":"Notes (Optional)"
     },
     "auth":{
         "register":"Register",
@@ -545,6 +547,7 @@
         "notes": "Notes",
         "viewValues": "View Values",
         "no-parameters":"No Parameter in this Section",
+        "notes_placeholder":"Any additional notes...",
         "create": {
             "title": "Insert New Reading",
             "subtitle": "Submit meter readings for an RO unit",
