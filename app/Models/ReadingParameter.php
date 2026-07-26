@@ -19,6 +19,8 @@ class ReadingParameter extends Model
         'input_type',
         'min_value',
         'max_value',
+        'usage',
+        'track_difference',
         'order',
         'is_required',
         'is_active',

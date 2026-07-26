@@ -47,15 +47,13 @@ export function Sidebar({ isOpen, isCollapsed, onClose, onToggleCollapse, isMobi
         : isCollapsed ? ChevronRight : ChevronLeft;
 
     const navItems: SidebarNavItem[] = [
-        // { key: 'dashboard', label: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
-        // { key: 'companies', label: 'Companies', href: '/companies', icon: Building2 },
+        { key: 'dashboard', label: 'Dashboard', href: '/companies/dashboard', icon: LayoutDashboard },
         { key: 'stations', label: t("stations.title"), href: '/stations', icon: MapPin },
         { key: 'ro-units', label: t("ro-units.title"), href: '/ro-units', icon: Droplets , activeUrls: ['/ro-units'] },
         { key: 'ro-units-settings', label: t("ro-units.ro-settings"), href: '/ro-units/settings', icon: Settings2Icon , activeUrls: ['/ro-units/settings'] },
         { key: 'readings', label: t("readings.title"), href: '/readings', icon: BarChart3 },
         { key: 'daily-reports', label: t("reports.title"), href: '/reports', icon: FileBarChart },
         { key: 'inventory', label: t("inventory.title"), href: '/inventory', icon: FileBarChart },
-        // { key: 'alerts', label: 'Alerts', href: '/alerts', icon: AlertTriangle, badge: 2 },
         { key: 'users', label:t("users.title"), href: '/users', icon: Users },
         { key: 'settings', label: t("users.profile"), href: '/users/auth/settings', icon: Settings },
         { key: 'sass-update', label: t("common.sass-settings"), href: '/sass-update', icon: Settings },
@@ -160,7 +158,7 @@ export function Sidebar({ isOpen, isCollapsed, onClose, onToggleCollapse, isMobi
                                                 'h-4.5 w-4.5 shrink-0 transition-colors',
                                                 active
                                                     ? 'text-white dark:text-white'
-                                                    : 'text-gray-400 group-hover:text-gray-600 dark:text-gray-500 dark:group-hover:text-gray-300',
+                                                    : 'text-white group-hover:text-gray-600 dark:text-gray-500 dark:group-hover:text-gray-300',
                                             )}
                                         />
 

@@ -375,69 +375,68 @@
         "createdAt": "Created At",
         "total": "Total",
         "of": "of",
-        "subtitle":"Manage your RO systems",
-        "upload-image":"Upload Image",
-        "file-size-limit":"File Size Limit",
-        "file-type-limit":"File Type Limit",
-        "choose-file":"Choose File",
-        "no-file":"No file chosen",
-        "warning-des":"Please proceed with caution, this cannot be undone.",
-        "warning":"Warning",
-        "collapse":"Collapse",
-        "value":"Enter Value",
-        "notes":"Notes (Optional)",
-        "sass-settings":"Sass Settings",
-        "sass-settings-des":"Manage your sass settings",
-        "remove":"Remove",
-        "change":"Change",
-        "update":"Update"
+        "subtitle": "Manage your RO systems",
+        "upload-image": "Upload Image",
+        "file-size-limit": "File Size Limit",
+        "file-type-limit": "File Type Limit",
+        "choose-file": "Choose File",
+        "no-file": "No file chosen",
+        "warning-des": "Please proceed with caution, this cannot be undone.",
+        "warning": "Warning",
+        "collapse": "Collapse",
+        "value": "Enter Value",
+        "notes": "Notes (Optional)",
+        "sass-settings": "Sass Settings",
+        "sass-settings-des": "Manage your sass settings",
+        "remove": "Remove",
+        "change": "Change",
+        "update": "Update"
     },
-    "auth":{
-        "register":"Register",
-        "name":"Name",
-        "name-placeholder":"Write Your Name",
-        "password":"Password",
-        "email":"Email Address",
-        "email-placeholder":"Write Your Email Address",
-        "confirm-password":"Confirm Password",
-        "login":"Sign In",
-        "password-placeholder":"***********",
-        "create-account":"Create Account",
-        "have-account":"Already have an account?",
-        "no-account":" Don't have an account?",
-        "forget-password":"Forget Your Password",
-        "remember":"Remember me",
+    "auth": {
+        "register": "Register",
+        "name": "Name",
+        "name-placeholder": "Write Your Name",
+        "password": "Password",
+        "email": "Email Address",
+        "email-placeholder": "Write Your Email Address",
+        "confirm-password": "Confirm Password",
+        "login": "Sign In",
+        "password-placeholder": "***********",
+        "create-account": "Create Account",
+        "have-account": "Already have an account?",
+        "no-account": " Don't have an account?",
+        "forget-password": "Forget Your Password",
+        "remember": "Remember me",
         "title": "Log in to your account",
         "description": "Enter your email and password below to log in",
-        "profile-settings":"Profile settings",
-        "profile-settings-des":"Update Your Email And Name",
-        "delete-account":"Delete Account",
-        "my-account":"My Account",
-        "logout":"Sign Out",
-        "sign-in-with-passkey":"Sign in with a passkey",
-        "authenticating":"Authenticating...",
-        "or-continue-with-email":"Or continue with email"
+        "profile-settings": "Profile settings",
+        "profile-settings-des": "Update Your Email And Name",
+        "delete-account": "Delete Account",
+        "my-account": "My Account",
+        "logout": "Sign Out",
+        "sign-in-with-passkey": "Sign in with a passkey",
+        "authenticating": "Authenticating...",
+        "or-continue-with-email": "Or continue with email"
     },
     "companies": {
-        "company_logo":"Company Logo",
-        "company_name":"Company Name",
-        "company_email":"Company Email",
-        "company_phone":"Company Phone",
-        "company_address":"Company Address",
-        "create":"Create Company",
-        "createSuccess":"Company created successfully",
-        "updateSuccess":"Company updated successfully",
-        "deleteSuccess":"Company deleted successfully",
-        "noCompanies":"No companies found. Create your first company.",
-        "company_whatsapp":"Company WhatsApp",
-        "country":"Country",
-        "city":"City",
-        "address":"Company Address",
-        "phone":"Company Phone",
-        "whatsapp":"Company WhatsApp",
-        "company_website":"Company Website",
-        "description":"Company Description"
-        
+        "company_logo": "Company Logo",
+        "company_name": "Company Name",
+        "company_email": "Company Email",
+        "company_phone": "Company Phone",
+        "company_address": "Company Address",
+        "create": "Create Company",
+        "createSuccess": "Company created successfully",
+        "updateSuccess": "Company updated successfully",
+        "deleteSuccess": "Company deleted successfully",
+        "noCompanies": "No companies found. Create your first company.",
+        "company_whatsapp": "Company WhatsApp",
+        "country": "Country",
+        "city": "City",
+        "address": "Company Address",
+        "phone": "Company Phone",
+        "whatsapp": "Company WhatsApp",
+        "company_website": "Company Website",
+        "description": "Company Description"
     },
     "stations": {
         "title": "Stations",
@@ -449,7 +448,7 @@
         "createSuccess": "Station created successfully",
         "updateSuccess": "Station updated successfully",
         "noStations": "No stations found. Create your first station.",
-        "createFailed":"Failed To Create Station",
+        "createFailed": "Failed To Create Station",
         "table": {
             "name": "Station Name",
             "code": "Code",
@@ -476,7 +475,7 @@
         "email": "Please enter a valid email address",
         "min": "Minimum {{min}} characters required",
         "max": "Maximum {{max}} characters allowed",
-        "invalid-email":" Invalid Email "
+        "invalid-email": " Invalid Email "
     },
     "users": {
         "title": "Users",
@@ -488,8 +487,8 @@
         "createSuccess": "User created successfully",
         "updateSuccess": "User updated successfully",
         "noUsers": "No users found. Add your first user.",
-        "profile":"Profile",
-        "dashboard":"Dashboard",
+        "profile": "Profile",
+        "dashboard": "Dashboard",
         "table": {
             "name": "Name",
             "email": "Email",
@@ -507,8 +506,8 @@
             "company": "Company",
             "stations": "Assigned Stations",
             "isActive": "Active",
-            "selectRole":"Select Role",
-            "selectStations":"Select Stations"
+            "selectRole": "Select Role",
+            "selectStations": "Select Stations"
         }
     },
     "ro-units": {
@@ -521,7 +520,7 @@
         "createSuccess": "RO Unit created successfully",
         "updateSuccess": "RO Unit updated successfully",
         "noUnits": "No RO units found. Create your first unit.",
-        "ro-settings":"Ro Setting",
+        "ro-settings": "Ro Setting",
         "table": {
             "name": "Unit Name",
             "code": "Code",
@@ -554,8 +553,8 @@
         "unit": "RO Unit",
         "notes": "Notes",
         "viewValues": "View Values",
-        "no-parameters":"No Parameter in this Section",
-        "notes_placeholder":"Any additional notes...",
+        "no-parameters": "No Parameter in this Section",
+        "notes_placeholder": "Any additional notes...",
         "create": {
             "title": "Insert New Reading",
             "subtitle": "Submit meter readings for an RO unit",
@@ -582,8 +581,37 @@
             "notes": "Notes"
         }
     },
-    "reports":{
-        "title":"Reports"
+    "reports": {
+        "title": "Daily Reports",
+        "subtitle": "Submit daily operational readings and observations",
+        "reportDate": "Report Date",
+        "parameter": "Parameter",
+        "previousValue": "Previous",
+        "currentValue": "Current",
+        "difference": "Difference",
+        "actions": "Actions Taken",
+        "actionsPlaceholder": "Describe any actions taken today...",
+        "recommendations": "Recommendations",
+        "recommendationsPlaceholder": "Add any recommendations or notes...",
+        "submit": "Submit Report",
+        "submittedFor": "Submitting report for",
+        "badge": "Daily Report Management",
+        "stations": "Stations",
+        "roUnits": "RO Units",
+        "active": "Active",
+        "inactive": "Inactive",
+        "capacity": "Capacity",
+        "code": "Code",
+        "open": "Open",
+        "noRoUnits": "No RO units available.",
+        "details": "Details",
+        "readings": "Readings",
+        "dailyReports": "Daily Reports",
+        "validation": {
+            "dateRequired": "Report date is required",
+            "required": "This field is required",
+            "numeric": "Must be a number"
+        }
     },
     "ro-settings": {
         "title": "RO Settings",
@@ -612,6 +640,11 @@
         "deleteParameterSuccess": "Parameter deleted successfully",
         "assignSuccess": "Category assigned to RO unit",
         "unassignSuccess": "Category removed from RO unit",
+        "usage": {
+            "READING": "Reading",
+            "DAILY_REPORT": "Daily Report",
+            "BOTH": "Both"
+        },
         "fields": {
             "categoryName": "Category Name",
             "order": "Order",
@@ -622,7 +655,9 @@
             "minValue": "Min Value",
             "maxValue": "Max Value",
             "isRequired": "Required",
-            "isActive": "Active"
+            "isActive": "Active",
+            "usage": "Usage",
+            "trackDifference": "Track Difference"
         },
         "inputTypes": {
             "NUMBER": "Number",
@@ -635,26 +670,26 @@
             "hoursRule": "A new reading can only be submitted every 3 hours"
         }
     },
-    "inventory":{
-        "title":"Inventory"
+    "inventory": {
+        "title": "Inventory"
     },
     "settings": {
-    "title": "SaaS Settings",
-    "app-name-en": "Application Name English",
-    "app-name-ar": "Application Name Arabic",
-    "company-name": "Company Name",
-    "email": "Email",
-    "phone": "Phone",
-    "address": "Address",
-    "app-logo": "Application Logo",
-    "app-logo-dark": "Dark Logo",
-    "primary-color": "Primary Color",
-    "secondary-color": "Secondary Color",
-    "footer-text": "Footer Text",
-    "meta-title": "Meta Title",
-    "meta-description": "Meta Description",
-    "meta-keywords": "Meta Keywords",
-    "updated":"Updated successfully",
-    "error":"Failed to update Settings"
-  }
+        "title": "SaaS Settings",
+        "app-name-en": "Application Name English",
+        "app-name-ar": "Application Name Arabic",
+        "company-name": "Company Name",
+        "email": "Email",
+        "phone": "Phone",
+        "address": "Address",
+        "app-logo": "Application Logo",
+        "app-logo-dark": "Dark Logo",
+        "primary-color": "Primary Color",
+        "secondary-color": "Secondary Color",
+        "footer-text": "Footer Text",
+        "meta-title": "Meta Title",
+        "meta-description": "Meta Description",
+        "meta-keywords": "Meta Keywords",
+        "updated": "Updated successfully",
+        "error": "Failed to update Settings"
+    }
 }

@@ -15,7 +15,7 @@ class ReadingCategoryService
     public function getCompanyCategories(int $companyId): Collection
     {
         return ReadingCategory::where('company_id', $companyId)
-            ->orWhere('company_id',null)
+            ->orWhere('company_id', null)
             ->orWhere('is_system', true)
             ->orderBy('order')
             ->with(['parameters' => fn ($q) => $q->orderBy('order')])
@@ -86,6 +86,8 @@ class ReadingCategoryService
             'input_type' => 'required|in:NUMBER,TEXT,BOOLEAN',
             'min_value' => 'nullable|numeric',
             'max_value' => 'nullable|numeric',
+            'usage' => 'nullable|string|max:255',
+            'track_difference' => 'nullable|boolean',
             'order' => 'nullable|integer|min:0',
             'is_required' => 'boolean',
         ]);
@@ -97,6 +99,8 @@ class ReadingCategoryService
             'input_type' => $request->input_type ?? 'NUMBER',
             'min_value' => $request->min_value,
             'max_value' => $request->max_value,
+            'usage' => $request->usage,
+            'track_difference' => $request->track_difference,
             'order' => $request->order ?? 0,
             'is_required' => $request->boolean('is_required', false),
             'is_active' => true,
@@ -112,13 +116,15 @@ class ReadingCategoryService
             'input_type' => 'required|in:NUMBER,TEXT,BOOLEAN',
             'min_value' => 'nullable|numeric',
             'max_value' => 'nullable|numeric',
+            'usage' => 'nullable|string|max:255',
+            'track_difference' => 'nullable|boolean',
             'order' => 'nullable|integer|min:0',
             'is_required' => 'boolean',
             'is_active' => 'boolean',
         ]);
 
         $parameter->update($request->only([
-            'name', 'code', 'unit', 'input_type',
+            'name', 'code', 'unit', 'input_type', 'usage', 'track_difference',
             'min_value', 'max_value', 'order', 'is_required', 'is_active',
         ]));
 

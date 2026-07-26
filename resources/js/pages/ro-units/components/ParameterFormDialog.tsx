@@ -30,6 +30,8 @@ interface Parameter {
     code: string | null;
     unit: string | null;
     input_type: 'NUMBER' | 'TEXT' | 'BOOLEAN';
+    usage: 'READING' | 'DAILY_REPORT' | 'BOTH';
+    track_difference: boolean;
     min_value: number | null;
     max_value: number | null;
     order: number;
@@ -55,6 +57,8 @@ export function ParameterFormDialog({ open, onClose, categoryId, parameter }: Pa
             code: parameter?.code ?? '',
             unit: parameter?.unit ?? '',
             input_type: parameter?.input_type ?? 'NUMBER',
+            usage: parameter?.usage ?? 'READING',
+            track_difference: parameter?.track_difference ?? false,
             min_value: parameter?.min_value?.toString() ?? '',
             max_value: parameter?.max_value?.toString() ?? '',
             order: parameter?.order?.toString() ?? '0',
@@ -66,6 +70,8 @@ export function ParameterFormDialog({ open, onClose, categoryId, parameter }: Pa
             code: Yup.string().nullable(),
             unit: Yup.string().nullable(),
             input_type: Yup.string().oneOf(['NUMBER', 'TEXT', 'BOOLEAN']).required(),
+            usage: Yup.string().oneOf(['READING', 'DAILY_REPORT', 'BOTH']).required(),
+            track_difference: Yup.boolean(),
             min_value: Yup.number().nullable(),
             max_value: Yup.number().nullable(),
             order: Yup.number().min(0),
@@ -76,6 +82,8 @@ export function ParameterFormDialog({ open, onClose, categoryId, parameter }: Pa
                 code: values.code || null,
                 unit: values.unit || null,
                 input_type: values.input_type,
+                usage: values.usage,
+                track_difference: values.track_difference,
                 min_value: values.min_value !== '' ? Number(values.min_value) : null,
                 max_value: values.max_value !== '' ? Number(values.max_value) : null,
                 order: Number(values.order),
@@ -161,6 +169,33 @@ export function ParameterFormDialog({ open, onClose, categoryId, parameter }: Pa
                             </Select>
                         </div>
 
+
+                        {/* place to show */}
+                        <div className="space-y-1">
+                            <Label>
+                                {t('ro-settings.fields.usage')}
+                            </Label>
+
+                            <Select
+                                value={formik.values.usage}
+                                onValueChange={(v) =>
+                                    formik.setFieldValue('usage', v)
+                                }
+                            >
+                                <SelectTrigger>
+                                    <SelectValue />
+                                </SelectTrigger>
+
+                                <SelectContent>
+                                    {(['READING', 'DAILY_REPORT', 'BOTH'] as const).map((type) => (
+                                        <SelectItem key={type} value={type}>
+                                            {t(`ro-settings.usage.${type}`)}
+                                        </SelectItem>
+                                    ))}
+                                </SelectContent>
+                            </Select>
+                        </div>
+
                         <div className="space-y-1">
                             <Label>{t('ro-settings.fields.unit')}</Label>
                             <Input
@@ -232,6 +267,29 @@ export function ParameterFormDialog({ open, onClose, categoryId, parameter }: Pa
                                 <span>{t('ro-settings.fields.isActive')}</span>
                             </label>
                         )}
+
+
+
+
+
+
+
+                        <label className="flex cursor-pointer items-center gap-2 text-sm">
+                            <Checkbox
+                                checked={formik.values.track_difference}
+                                onCheckedChange={(v) =>
+                                    formik.setFieldValue(
+                                        'track_difference',
+                                        !!v
+                                    )
+                                }
+                                id="track-difference"
+                            />
+
+                            <span>
+                                {t('ro-settings.fields.trackDifference')}
+                            </span>
+                        </label>
                     </div>
 
                     <DialogFooter>

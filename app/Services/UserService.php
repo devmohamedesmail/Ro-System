@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
@@ -59,9 +60,14 @@ class UserService
         $user->delete();
     }
 
+    public function getUserStations()
+    {
+        $stations = Auth::user()->stations()->with('roUnits.readingCategories.parameters')->get();
 
+        return $stations;
+    }
 
-      private function generateUsername(string $name): string
+    private function generateUsername(string $name): string
     {
         // convert name to slug
         $username = Str::slug($name);

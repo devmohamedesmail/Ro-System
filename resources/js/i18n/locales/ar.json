@@ -582,7 +582,36 @@
         }
     },
     "reports": {
-        "title": "التقارير اليومية"
+        "title": "التقارير اليومية",
+        "subtitle": "إدخال القراءات اليومية وملاحظات التشغيل",
+        "reportDate": "تاريخ التقرير",
+        "parameter": "المعامل",
+        "previousValue": "القيمة السابقة",
+        "currentValue": "القيمة الحالية",
+        "difference": "الفرق",
+        "actions": "الإجراءات المتخذة",
+        "actionsPlaceholder": "صف الإجراءات التي تم اتخاذها اليوم...",
+        "recommendations": "التوصيات",
+        "recommendationsPlaceholder": "أضف أي توصيات أو ملاحظات...",
+        "submit": "إرسال التقرير",
+        "submittedFor": "إرسال تقرير عن",
+        "badge": "إدارة التقارير اليومية",
+        "stations": "المحطات",
+        "roUnits": "وحدات RO",
+        "active": "نشطة",
+        "inactive": "غير نشطة",
+        "capacity": "السعة",
+        "code": "الكود",
+        "open": "فتح",
+        "noRoUnits": "لا توجد وحدات RO.",
+        "details": "التفاصيل",
+    "readings": "القراءات",
+    "dailyReports": "التقارير",
+        "validation": {
+            "dateRequired": "تاريخ التقرير مطلوب",
+            "required": "هذا الحقل مطلوب",
+            "numeric": "يجب أن يكون رقماً"
+        }
     },
     "ro-settings": {
         "title": "إعدادات RO",
@@ -611,6 +640,11 @@
         "deleteParameterSuccess": "تم حذف المعامل بنجاح",
         "assignSuccess": "تم تعيين الفئة للوحدة",
         "unassignSuccess": "تم إلغاء تعيين الفئة من الوحدة",
+        "usage": {
+            "READING": "قراءة دورية",
+            "DAILY_REPORT": "تقرير يومي",
+            "BOTH": "كلاهما"
+        },
         "fields": {
             "categoryName": "اسم الفئة",
             "order": "الترتيب",
@@ -621,7 +655,9 @@
             "minValue": "الحد الأدنى",
             "maxValue": "الحد الأقصى",
             "isRequired": "إلزامي",
-            "isActive": "نشط"
+            "isActive": "نشط",
+            "usage": "الاستخدام",
+            "trackDifference": "تتبع الفرق"
         },
         "inputTypes": {
             "NUMBER": "رقم",
@@ -638,22 +674,22 @@
         "title": " المخزون "
     },
     "settings": {
-    "title": "إعدادات النظام",
-    "app-name-en": "اسم التطبيق بالإنجليزية",
-    "app-name-ar": "اسم التطبيق بالعربية",
-    "company-name": "اسم الشركة",
-    "email": "البريد الإلكتروني",
-    "phone": "رقم الهاتف",
-    "address": "العنوان",
-    "app-logo": "شعار التطبيق",
-    "app-logo-dark": "الشعار الداكن",
-    "primary-color": "اللون الأساسي",
-    "secondary-color": "اللون الثانوي",
-    "footer-text": "نص التذييل",
-    "meta-title": "عنوان الميتا",
-    "meta-description": "وصف الميتا",
-    "meta-keywords": "الكلمات المفتاحية",
-    "updated": "تم التحديث بنجاح",
-    "error": "فشل تحديث الإعدادات"
-  }
+        "title": "إعدادات النظام",
+        "app-name-en": "اسم التطبيق بالإنجليزية",
+        "app-name-ar": "اسم التطبيق بالعربية",
+        "company-name": "اسم الشركة",
+        "email": "البريد الإلكتروني",
+        "phone": "رقم الهاتف",
+        "address": "العنوان",
+        "app-logo": "شعار التطبيق",
+        "app-logo-dark": "الشعار الداكن",
+        "primary-color": "اللون الأساسي",
+        "secondary-color": "اللون الثانوي",
+        "footer-text": "نص التذييل",
+        "meta-title": "عنوان الميتا",
+        "meta-description": "وصف الميتا",
+        "meta-keywords": "الكلمات المفتاحية",
+        "updated": "تم التحديث بنجاح",
+        "error": "فشل تحديث الإعدادات"
+    }
 }

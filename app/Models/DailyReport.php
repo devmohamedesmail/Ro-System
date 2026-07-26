@@ -69,4 +69,9 @@ class DailyReport extends Model
             User::class
         );
     }
+
+    public function values()
+    {
+        return $this->hasMany(DailyReportValue::class);
+    }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreCompanyRequest;
 use App\Services\CompanyService;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 class CompanyController extends Controller
@@ -23,7 +24,10 @@ class CompanyController extends Controller
     }
 
     public function dashboard()
-    {
-        return Inertia::render('dashboard/index');
+    { 
+         $stations = Auth::user()->stations()->with('roUnits')->get();
+        return Inertia::render('dashboard/index',['stations'=> $stations]);
     }
+
+    
 }
