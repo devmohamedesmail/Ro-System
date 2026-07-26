@@ -14,6 +14,7 @@ import { Link } from '@inertiajs/react';
 import ThemeSelector from '../shared/theme-selector';
 import LanguageSelector from '../shared/language-selector';
 import Logo from '../shared/logo';
+import AuthMenu from '../shared/auth-menu';
 
 const navLinks = [
     { key: 'landing.nav.features' },
@@ -83,13 +84,9 @@ export default function Navbar() {
                      <LanguageSelector />
                      <ThemeSelector />
 
-                    {/* Login */}
-                    <Link
-                        href="/login"
-                        className="hidden sm:inline-flex px-4 py-2 text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-200"
-                    >
-                        {t('landing.nav.login')}
-                    </Link>
+                    
+                   
+                    <AuthMenu />
 
                     {/* CTA */}
                     <Link

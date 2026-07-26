@@ -29,6 +29,16 @@ return new class extends Migration
                 'BOOLEAN',
             ])->default('NUMBER');
 
+
+             $table->enum('usage', [
+                'READING',
+                'DAILY_REPORT',
+                'BOTH',
+            ])->default('READING');
+
+            $table->boolean('track_difference')
+                ->default(false);
+
             $table->decimal('min_value', 10, 3)
                 ->nullable();
 
