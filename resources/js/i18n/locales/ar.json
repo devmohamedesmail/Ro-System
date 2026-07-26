@@ -385,7 +385,12 @@
         "warning": "تحذير",
         "collapse": "طي",
         "value": "أدخل القيمة",
-        "notes": "ملاحظات (اختياري)"
+        "notes": "ملاحظات (اختياري)",
+        "sass-settings": "إعدادات Sass",
+        "sass-settings-des": "إدارة إعدادات Sass",
+        "remove": "حذف",
+        "change": "تغيير",
+        "update": "تحديث"
     },
     "auth": {
         "register": "إنشاء حساب",
@@ -631,5 +636,24 @@
     },
     "inventory": {
         "title": " المخزون "
-    }
+    },
+    "settings": {
+    "title": "إعدادات النظام",
+    "app-name-en": "اسم التطبيق بالإنجليزية",
+    "app-name-ar": "اسم التطبيق بالعربية",
+    "company-name": "اسم الشركة",
+    "email": "البريد الإلكتروني",
+    "phone": "رقم الهاتف",
+    "address": "العنوان",
+    "app-logo": "شعار التطبيق",
+    "app-logo-dark": "الشعار الداكن",
+    "primary-color": "اللون الأساسي",
+    "secondary-color": "اللون الثانوي",
+    "footer-text": "نص التذييل",
+    "meta-title": "عنوان الميتا",
+    "meta-description": "وصف الميتا",
+    "meta-keywords": "الكلمات المفتاحية",
+    "updated": "تم التحديث بنجاح",
+    "error": "فشل تحديث الإعدادات"
+  }
 }

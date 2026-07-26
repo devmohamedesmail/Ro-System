@@ -385,7 +385,12 @@
         "warning":"Warning",
         "collapse":"Collapse",
         "value":"Enter Value",
-        "notes":"Notes (Optional)"
+        "notes":"Notes (Optional)",
+        "sass-settings":"Sass Settings",
+        "sass-settings-des":"Manage your sass settings",
+        "remove":"Remove",
+        "change":"Change",
+        "update":"Update"
     },
     "auth":{
         "register":"Register",
@@ -632,5 +637,24 @@
     },
     "inventory":{
         "title":"Inventory"
-    }
+    },
+    "settings": {
+    "title": "SaaS Settings",
+    "app-name-en": "Application Name English",
+    "app-name-ar": "Application Name Arabic",
+    "company-name": "Company Name",
+    "email": "Email",
+    "phone": "Phone",
+    "address": "Address",
+    "app-logo": "Application Logo",
+    "app-logo-dark": "Dark Logo",
+    "primary-color": "Primary Color",
+    "secondary-color": "Secondary Color",
+    "footer-text": "Footer Text",
+    "meta-title": "Meta Title",
+    "meta-description": "Meta Description",
+    "meta-keywords": "Meta Keywords",
+    "updated":"Updated successfully",
+    "error":"Failed to update Settings"
+  }
 }

@@ -58,6 +58,8 @@ export function Sidebar({ isOpen, isCollapsed, onClose, onToggleCollapse, isMobi
         // { key: 'alerts', label: 'Alerts', href: '/alerts', icon: AlertTriangle, badge: 2 },
         { key: 'users', label:t("users.title"), href: '/users', icon: Users },
         { key: 'settings', label: t("users.profile"), href: '/users/auth/settings', icon: Settings },
+        { key: 'sass-update', label: t("common.sass-settings"), href: '/sass-update', icon: Settings },
+        
     ];
 
     return (
@@ -136,7 +138,7 @@ export function Sidebar({ isOpen, isCollapsed, onClose, onToggleCollapse, isMobi
                                         className={cn(
                                             'group relative flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-150',
                                             active
-                                                ? 'bg-primary text-white dark:bg-blue-900/20 dark:text-blue-400'
+                                                ? 'bg-primary text-white dark:bg-primary dark:text-white'
                                                 : 'text-white hover:bg-gray-100 hover:text-black dark:text-white dark:hover:bg-gray-800/70 dark:hover:text-gray-100',
                                             isCollapsed && !isMobile && 'justify-center px-2',
                                         )}
@@ -147,7 +149,7 @@ export function Sidebar({ isOpen, isCollapsed, onClose, onToggleCollapse, isMobi
                                         {active && (
                                             <span
                                                 className={cn(
-                                                    'absolute top-1/2 h-5 w-0.5 -translate-y-1/2 rounded-full bg-priamry dark:bg-blue-400',
+                                                    'absolute top-1/2 h-5 w-0.5 -translate-y-1/2 rounded-full bg-priamry dark:bg-white',
                                                     isRtl ? 'right-0' : 'left-0',
                                                 )}
                                             />
@@ -157,7 +159,7 @@ export function Sidebar({ isOpen, isCollapsed, onClose, onToggleCollapse, isMobi
                                             className={cn(
                                                 'h-4.5 w-4.5 shrink-0 transition-colors',
                                                 active
-                                                    ? 'text-white dark:text-blue-400'
+                                                    ? 'text-white dark:text-white'
                                                     : 'text-gray-400 group-hover:text-gray-600 dark:text-gray-500 dark:group-hover:text-gray-300',
                                             )}
                                         />
