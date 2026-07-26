@@ -408,7 +408,10 @@
         "profile-settings-des": "Update Your Email And Name",
         "delete-account": "Delete Account",
         "my-account": " حسابي ",
-        "logout": " تسجيل الخروج "
+        "logout": " تسجيل الخروج ",
+        "sign-in-with-passkey": "تسجيل الدخول باستخدام مفتاح مرور",
+        "authenticating": "جارٍ التحقق...",
+        "or-continue-with-email": "أو تابع باستخدام البريد الإلكتروني"
     },
     "companies": {
         "company_logo": "شعار الشركة",
@@ -545,8 +548,8 @@
         "unit": "وحدة RO",
         "notes": "الملاحظات",
         "viewValues": "عرض القيم",
-        "no-parameters":"لا يوجد معامل في هذا القسم",
-        "notes_placeholder":"ملاحظات اضافية...",
+        "no-parameters": "لا يوجد معامل في هذا القسم",
+        "notes_placeholder": "ملاحظات اضافية...",
         "create": {
             "title": "إدخال قراءة جديدة",
             "subtitle": "أدخل قراءات العداد لوحدة RO",

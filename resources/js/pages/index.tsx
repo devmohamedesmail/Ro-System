@@ -21,7 +21,7 @@ import useComapny from '@/hooks/use-comapny';
 export default function LandingPage() {
     const { t } = useImport();
     const {company}=useComapny();
-    console.log("company",company)
+    
 
     return (
         <>

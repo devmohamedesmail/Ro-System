@@ -25,8 +25,8 @@ export default function AuthMenu() {
                                 {auth.user.name?.charAt(0).toUpperCase()}
                             </div>
                             <div className="hidden sm:block text-left">
-                                <p className="text-sm font-medium text-black">{auth.user.name}</p>
-                                <p className="text-xs text-black">{t('auth.my-account')}</p>
+                                <p className="text-sm font-medium text-black dark:text-white">{auth.user.name}</p>
+                                <p className="text-xs text-black dark:text-white">{t('auth.my-account')}</p>
                             </div>
                         </button>
                     </DropdownMenuTrigger>

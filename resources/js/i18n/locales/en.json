@@ -408,7 +408,10 @@
         "profile-settings-des":"Update Your Email And Name",
         "delete-account":"Delete Account",
         "my-account":"My Account",
-        "logout":"Sign Out"
+        "logout":"Sign Out",
+        "sign-in-with-passkey":"Sign in with a passkey",
+        "authenticating":"Authenticating...",
+        "or-continue-with-email":"Or continue with email"
     },
     "companies": {
         "company_logo":"Company Logo",

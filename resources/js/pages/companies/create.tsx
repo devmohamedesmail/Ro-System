@@ -10,6 +10,7 @@ import { router } from "@inertiajs/react";
 import toast from "react-hot-toast";
 import useImport from "@/hooks/use-import";
 import InputError from "@/components/input-error";
+import PublicLayout from "@/layouts/public_layout";
 
 
 export default function Create() {
@@ -83,7 +84,8 @@ export default function Create() {
 
 
   return (
-    <div className="max-w-5xl mx-auto p-6">
+  <PublicLayout>
+      <div className="max-w-5xl mx-auto p-6">
 
       <form
         onSubmit={formik.handleSubmit}
@@ -208,6 +210,7 @@ export default function Create() {
       </form>
 
     </div>
+  </PublicLayout>
   );
 }
 
