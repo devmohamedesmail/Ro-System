@@ -8,6 +8,7 @@ class RedirectController extends Controller
 {
     public function dashboard()
     {
-        return Inertia::render('dashboard/index');
+        // return Inertia::render('dashboard/index');
+        return redirect('/companies/dashboard');
     }
 }

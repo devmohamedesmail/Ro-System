@@ -53,7 +53,7 @@ export function Sidebar({ isOpen, isCollapsed, onClose, onToggleCollapse, isMobi
         { key: 'ro-units-settings', label: t("ro-units.ro-settings"), href: '/ro-units/settings', icon: Settings2Icon , activeUrls: ['/ro-units/settings'] },
         { key: 'readings', label: t("readings.title"), href: '/readings', icon: BarChart3 },
         { key: 'daily-reports', label: t("reports.title"), href: '/reports', icon: FileBarChart },
-        { key: 'inventory', label: t("inventory.title"), href: '/inventory', icon: FileBarChart },
+        { key: 'inventory', label: t("inventory.title"), href: '/inventories', icon: FileBarChart },
         { key: 'users', label:t("users.title"), href: '/users', icon: Users },
         { key: 'settings', label: t("users.profile"), href: '/users/auth/settings', icon: Settings },
         { key: 'sass-update', label: t("common.sass-settings"), href: '/sass-update', icon: Settings },

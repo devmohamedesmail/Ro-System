@@ -69,7 +69,13 @@ export default function AuthMenu() {
                 </DropdownMenu>
             ) : (
                 <>
-                 <Link className='bg-primary px-3 py-2 rounded-md text-xs text-white' href={'/login'}>{t('auth.login')}</Link>
+                    <Link
+                        href="/login"
+                        className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold text-white bg-gradient-to-r from-teal-600 to-teal-500 hover:from-teal-700 hover:to-teal-600 rounded-xl shadow-lg shadow-teal-500/25 hover:shadow-teal-500/40 transition-all duration-300 hover:scale-105 active:scale-95"
+                    >
+                        {t('auth.login')}
+                    </Link>
+
                 </>
             )}
         </div>

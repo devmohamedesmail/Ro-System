@@ -671,7 +671,72 @@
         }
     },
     "inventory": {
-        "title": "Inventory"
+        "title": "Inventory Management",
+        "subtitle": "Manage stock and supplies across all stations",
+        "addItem": "Add Item",
+        "editItem": "Edit Item",
+        "deleteItem": "Delete Item",
+        "noItems": "No items in this inventory",
+        "noStations": "No stations found",
+        "searchPlaceholder": "Search items...",
+        "station": "Station",
+        "stationInventory": "Station Inventory",
+        "itemsCount": "{{count}} items",
+        "fields": {
+            "station": "Station",
+            "selectStation": "Select station",
+            "name": "Item Name",
+            "code": "Item Code",
+            "type": "Type",
+            "selectType": "Select type",
+            "unit": "Unit",
+            "selectUnit": "Select unit",
+            "quantity": "Quantity",
+            "minimumQuantity": "Minimum Quantity",
+            "description": "Description"
+        },
+        "types": {
+            "Chemical": "Chemical",
+            "Filter": "Filter",
+            "Membrane": "Membrane",
+            "Pump": "Pump",
+            "Pipe": "Pipe",
+            "Valve": "Valve",
+            "Electrical": "Electrical",
+            "SparePart": "Spare Part",
+            "Other": "Other"
+        },
+        "units": {
+            "Piece": "Piece",
+            "Kg": "Kg",
+            "Liter": "Liter",
+            "Meter": "Meter",
+            "Box": "Box",
+            "Bottle": "Bottle",
+            "Pack": "Pack"
+        },
+        "actions": {
+            "save": "Save",
+            "saving": "Saving...",
+            "cancel": "Cancel",
+            "edit": "Edit",
+            "delete": "Delete",
+            "confirm": "Confirm Delete"
+        },
+        "delete": {
+            "title": "Delete Item",
+            "message": "Are you sure you want to delete \"{{name}}\"? This action cannot be undone."
+        },
+        "toast": {
+            "created": "Item added successfully",
+            "updated": "Item updated successfully",
+            "deleted": "Item deleted successfully",
+            "error": "Something went wrong"
+        },
+        "status": {
+            "lowStock": "Low Stock",
+            "inStock": "In Stock"
+        }
     },
     "settings": {
         "title": "SaaS Settings",

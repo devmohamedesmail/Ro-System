@@ -671,7 +671,72 @@
         }
     },
     "inventory": {
-        "title": " المخزون "
+        "title": "إدارة المخزون",
+        "subtitle": "إدارة المواد والمستلزمات في جميع المحطات",
+        "addItem": "إضافة صنف",
+        "editItem": "تعديل الصنف",
+        "deleteItem": "حذف الصنف",
+        "noItems": "لا توجد أصناف في هذا المخزون",
+        "noStations": "لا توجد محطات",
+        "searchPlaceholder": "ابحث عن صنف...",
+        "station": "المحطة",
+        "stationInventory": "مخزون المحطة",
+        "itemsCount": "{{count}} أصناف",
+        "fields": {
+            "station": "المحطة",
+            "selectStation": "اختر المحطة",
+            "name": "اسم الصنف",
+            "code": "كود الصنف",
+            "type": "النوع",
+            "selectType": "اختر النوع",
+            "unit": "الوحدة",
+            "selectUnit": "اختر الوحدة",
+            "quantity": "الكمية",
+            "minimumQuantity": "الحد الأدنى للكمية",
+            "description": "الوصف"
+        },
+        "types": {
+            "Chemical": "مادة كيميائية",
+            "Filter": "فلتر",
+            "Membrane": "غشاء",
+            "Pump": "مضخة",
+            "Pipe": "أنبوب",
+            "Valve": "صمام",
+            "Electrical": "كهربائي",
+            "SparePart": "قطعة غيار",
+            "Other": "أخرى"
+        },
+        "units": {
+            "Piece": "قطعة",
+            "Kg": "كجم",
+            "Liter": "لتر",
+            "Meter": "متر",
+            "Box": "صندوق",
+            "Bottle": "زجاجة",
+            "Pack": "عبوة"
+        },
+        "actions": {
+            "save": "حفظ",
+            "saving": "جارٍ الحفظ...",
+            "cancel": "إلغاء",
+            "edit": "تعديل",
+            "delete": "حذف",
+            "confirm": "تأكيد الحذف"
+        },
+        "delete": {
+            "title": "حذف الصنف",
+            "message": "هل أنت متأكد من حذف \"{{name}}\"؟ لا يمكن التراجع عن هذا الإجراء."
+        },
+        "toast": {
+            "created": "تمت إضافة الصنف بنجاح",
+            "updated": "تم تحديث الصنف بنجاح",
+            "deleted": "تم حذف الصنف بنجاح",
+            "error": "حدث خطأ ما"
+        },
+        "status": {
+            "lowStock": "مخزون منخفض",
+            "inStock": "متوفر"
+        }
     },
     "settings": {
         "title": "إعدادات النظام",

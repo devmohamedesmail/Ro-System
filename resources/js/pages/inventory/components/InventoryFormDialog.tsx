@@ -3,7 +3,6 @@ import { router } from "@inertiajs/react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import toast from "react-hot-toast";
-import { useTranslation } from "react-i18next";
 
 import {
     Dialog,
@@ -12,12 +11,11 @@ import {
     DialogHeader,
     DialogTitle,
 } from "@/components/ui/dialog";
-
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 import InputError from "@/components/input-error";
-
 import {
     Select,
     SelectContent,
@@ -26,30 +24,11 @@ import {
     SelectValue,
 } from "@/components/ui/select";
 import useImport from "@/hooks/use-import";
+import type { InventoryItem, Station } from "../types";
 
-interface Station {
-    id: number;
-    name: string;
-}
+// ─── Constants ────────────────────────────────────────────────────────────────
 
-interface Inventory {
-    id: number;
-    name: string;
-    code?: string;
-    type?: string;
-    unit: string;
-    description?: string;
-    station_id?: number | null;
-}
-
-interface Props {
-    open: boolean;
-    onClose: () => void;
-    stations: Station[];
-    inventory?: Inventory | null;
-}
-
-const TYPES = [
+const ITEM_TYPES = [
     "Chemical",
     "Filter",
     "Membrane",
@@ -59,9 +38,9 @@ const TYPES = [
     "Electrical",
     "Spare Part",
     "Other",
-];
+] as const;
 
-const UNITS = [
+const ITEM_UNITS = [
     "Piece",
     "Kg",
     "Liter",
@@ -69,148 +48,136 @@ const UNITS = [
     "Box",
     "Bottle",
     "Pack",
-];
+] as const;
 
-export default function InventoryFormDialog({ open, onClose, stations = [], inventory = null }: Props) {
+// ─── Props ─────────────────────────────────────────────────────────────────────
 
+interface Props {
+    open: boolean;
+    onClose: () => void;
+    stations: Station[];
+    item?: InventoryItem | null;
+}
+
+// ─── Component ────────────────────────────────────────────────────────────────
+
+export default function InventoryFormDialog({
+    open,
+    onClose,
+    stations = [],
+    item = null,
+}: Props) {
     const { t } = useImport();
-    console.log(stations)
-    const isEdit = !!inventory;
+    const isEdit = !!item;
+
+    // Find the inventory_id from the station that owns this item
+    const getInventoryId = (): string => {
+        if (!item) return "";
+        const station = stations.find((s) => s.inventory?.id === item.inventory_id);
+        return station?.inventory?.id?.toString() ?? "";
+    };
 
     const formik = useFormik({
-
         enableReinitialize: true,
 
         initialValues: {
-           inventory_id: inventory?.id ?? null,
-            name: inventory?.name ?? "",
-            code: inventory?.code ?? "",
-            type: inventory?.type ?? "",
-            unit: inventory?.unit ?? "Piece",
-            description: inventory?.description ?? "",
+            inventory_id: getInventoryId(),
+            name: item?.name ?? "",
+            code: item?.code ?? "",
+            type: item?.type ?? "",
+            unit: item?.unit ?? "Piece",
+            description: item?.description ?? "",
         },
 
         validationSchema: Yup.object({
+            inventory_id: Yup.string().required(t("validation.required")),
             name: Yup.string().required(t("validation.required")),
             type: Yup.string().required(t("validation.required")),
             unit: Yup.string().required(t("validation.required")),
-            inventory_id: Yup.string().required(t("validation.required")),
         }),
 
         onSubmit(values, { resetForm, setSubmitting }) {
-console.log("values",values)
             const payload = {
+                inventory_id: values.inventory_id,
                 name: values.name,
                 code: values.code,
                 type: values.type,
                 unit: values.unit,
                 description: values.description,
-                inventory_id: values.inventory_id,
             };
 
             if (isEdit) {
-
-                router.put(`/inventories/${inventory.id}`, payload, {
-
+                router.put(`/inventories/items/${item!.id}`, payload, {
                     onSuccess() {
-
-                        toast.success("Inventory updated");
-
+                        toast.success(t("inventory.toast.updated"));
                         resetForm();
-
                         onClose();
-
                     },
-
                     onError() {
-
-                        toast.error("Something went wrong");
-
+                        toast.error(t("inventory.toast.error"));
                     },
-
                     onFinish() {
-
                         setSubmitting(false);
-
                     },
-
                 });
-
             } else {
-
                 router.post("/inventories/store", payload, {
-
                     onSuccess() {
-
-                        toast.success("Inventory created");
-
+                        toast.success(t("inventory.toast.created"));
                         resetForm();
-
                         onClose();
-
                     },
-
-                    onError(errors) {
-
-                        toast.error("Something went wrong");
-                        console.log(errors)
-
+                    onError() {
+                        toast.error(t("inventory.toast.error"));
                     },
-
                     onFinish() {
-
                         setSubmitting(false);
-
                     },
-
                 });
-
             }
-
         },
-
     });
 
+    const handleClose = () => {
+        formik.resetForm();
+        onClose();
+    };
+
     return (
-
-        <Dialog open={open} onOpenChange={onClose}>
-
-            <DialogContent className="max-w-xl">
-
+        <Dialog open={open} onOpenChange={handleClose}>
+            <DialogContent className="max-w-lg">
                 <DialogHeader>
-
                     <DialogTitle>
-
-                        {isEdit ? "Edit Inventory" : "Create Inventory"}
-
+                        {isEdit
+                            ? t("inventory.editItem")
+                            : t("inventory.addItem")}
                     </DialogTitle>
-
                 </DialogHeader>
 
-                <form
-                    onSubmit={formik.handleSubmit}
-                    className="space-y-4"
-                >
-
+                <form onSubmit={formik.handleSubmit} className="space-y-4">
+                    {/* Station (Inventory) */}
                     <div className="space-y-1">
-                        <Label>{t('users.fields.role')}</Label>
+                        <Label htmlFor="inventory_id">
+                            {t("inventory.fields.station")}
+                        </Label>
 
                         <Select
                             value={formik.values.inventory_id}
-                            onValueChange={(value) => {
-                                console.log("value",value)
-                                formik.setFieldValue('inventory_id', value)
-                            }}
+                            onValueChange={(value) =>
+                                formik.setFieldValue("inventory_id", value)
+                            }
                         >
-                            <SelectTrigger className="w-full">
-                                <SelectValue placeholder={t('users.fields.selectRole')} />
+                            <SelectTrigger id="inventory_id" className="w-full">
+                                <SelectValue
+                                    placeholder={t("inventory.fields.selectStation")}
+                                />
                             </SelectTrigger>
 
                             <SelectContent>
-                                {stations?.map((station) => (
+                                {stations.map((station) => (
                                     <SelectItem
                                         key={station.id}
-                                        value={station?.id.toString()}
+                                        value={station.inventory?.id?.toString() ?? ""}
                                     >
                                         {station.name}
                                     </SelectItem>
@@ -227,11 +194,12 @@ console.log("values",values)
                         />
                     </div>
 
-                    <div>
-
-                        <Label>Name</Label>
+                    {/* Name */}
+                    <div className="space-y-1">
+                        <Label htmlFor="name">{t("inventory.fields.name")}</Label>
 
                         <Input
+                            id="name"
                             name="name"
                             value={formik.values.name}
                             onChange={formik.handleChange}
@@ -245,174 +213,123 @@ console.log("values",values)
                                     : undefined
                             }
                         />
-
                     </div>
 
-                    <div>
-
-                        <Label>Code</Label>
+                    {/* Code */}
+                    <div className="space-y-1">
+                        <Label htmlFor="code">{t("inventory.fields.code")}</Label>
 
                         <Input
+                            id="code"
                             name="code"
                             value={formik.values.code}
                             onChange={formik.handleChange}
                         />
-
                     </div>
 
-                    <div>
+                    {/* Type & Unit — side by side */}
+                    <div className="grid grid-cols-2 gap-4">
+                        {/* Type */}
+                        <div className="space-y-1">
+                            <Label htmlFor="type">{t("inventory.fields.type")}</Label>
 
-                        <Label>Type</Label>
+                            <Select
+                                value={formik.values.type}
+                                onValueChange={(v) =>
+                                    formik.setFieldValue("type", v)
+                                }
+                            >
+                                <SelectTrigger id="type" className="w-full">
+                                    <SelectValue
+                                        placeholder={t("inventory.fields.selectType")}
+                                    />
+                                </SelectTrigger>
 
-                        <Select
-                            value={formik.values.type}
-                            onValueChange={(v) =>
-                                formik.setFieldValue("type", v)
-                            }
-                        >
+                                <SelectContent>
+                                    {ITEM_TYPES.map((type) => (
+                                        <SelectItem key={type} value={type}>
+                                            {t(`inventory.types.${type.replace(" ", "")}`, { defaultValue: type })}
+                                        </SelectItem>
+                                    ))}
+                                </SelectContent>
+                            </Select>
 
-                            <SelectTrigger className="w-full">
+                            <InputError
+                                message={
+                                    formik.touched.type
+                                        ? formik.errors.type
+                                        : undefined
+                                }
+                            />
+                        </div>
 
-                                <SelectValue />
+                        {/* Unit */}
+                        <div className="space-y-1">
+                            <Label htmlFor="unit">{t("inventory.fields.unit")}</Label>
 
-                            </SelectTrigger>
+                            <Select
+                                value={formik.values.unit}
+                                onValueChange={(v) =>
+                                    formik.setFieldValue("unit", v)
+                                }
+                            >
+                                <SelectTrigger id="unit" className="w-full">
+                                    <SelectValue
+                                        placeholder={t("inventory.fields.selectUnit")}
+                                    />
+                                </SelectTrigger>
 
-                            <SelectContent>
+                                <SelectContent>
+                                    {ITEM_UNITS.map((unit) => (
+                                        <SelectItem key={unit} value={unit}>
+                                            {t(`inventory.units.${unit}`, { defaultValue: unit })}
+                                        </SelectItem>
+                                    ))}
+                                </SelectContent>
+                            </Select>
 
-                                {TYPES.map(type => (
-
-                                    <SelectItem
-                                        key={type}
-                                        value={type}
-                                    >
-                                        {type}
-                                    </SelectItem>
-
-                                ))}
-
-                            </SelectContent>
-
-                        </Select>
-
+                            <InputError
+                                message={
+                                    formik.touched.unit
+                                        ? formik.errors.unit
+                                        : undefined
+                                }
+                            />
+                        </div>
                     </div>
 
-                    <div>
+                    {/* Description */}
+                    <div className="space-y-1">
+                        <Label htmlFor="description">
+                            {t("inventory.fields.description")}
+                        </Label>
 
-                        <Label>Unit</Label>
-
-                        <Select
-                            value={formik.values.unit}
-                            onValueChange={(v) =>
-                                formik.setFieldValue("unit", v)
-                            }
-                        >
-
-                            <SelectTrigger className="w-full">
-
-                                <SelectValue />
-
-                            </SelectTrigger>
-
-                            <SelectContent>
-
-                                {UNITS.map(unit => (
-
-                                    <SelectItem
-                                        key={unit}
-                                        value={unit}
-                                    >
-                                        {unit}
-                                    </SelectItem>
-
-                                ))}
-
-                            </SelectContent>
-
-                        </Select>
-
-                    </div>
-
-                    <div>
-
-                        <Label>Location</Label>
-
-                        <Select
-                            value={formik.values.location}
-                            onValueChange={(v) =>
-                                formik.setFieldValue("location", v)
-                            }
-                        >
-
-                            <SelectTrigger className="w-full">
-
-                                <SelectValue />
-
-                            </SelectTrigger>
-
-                            <SelectContent>
-
-                                <SelectItem value="company">
-
-                                    Main Warehouse
-
-                                </SelectItem>
-
-                                {stations.map(station => (
-
-                                    <SelectItem
-                                        key={station.id}
-                                        value={station.id.toString()}
-                                    >
-                                        {station.name}
-                                    </SelectItem>
-
-                                ))}
-
-                            </SelectContent>
-
-                        </Select>
-
-                    </div>
-
-                    <div>
-
-                        <Label>Description</Label>
-
-                        <Input
+                        <Textarea
+                            id="description"
                             name="description"
+                            rows={3}
                             value={formik.values.description}
                             onChange={formik.handleChange}
                         />
-
                     </div>
 
                     <DialogFooter>
-
                         <Button
                             variant="outline"
                             type="button"
-                            onClick={onClose}
+                            onClick={handleClose}
                         >
-                            Cancel
+                            {t("inventory.actions.cancel")}
                         </Button>
 
-                        <Button
-                            type="submit"
-                            disabled={formik.isSubmitting}
-                        >
+                        <Button type="submit" disabled={formik.isSubmitting}>
                             {formik.isSubmitting
-                                ? "Saving..."
-                                : "Save"}
+                                ? t("inventory.actions.saving")
+                                : t("inventory.actions.save")}
                         </Button>
-
                     </DialogFooter>
-
                 </form>
-
             </DialogContent>
-
         </Dialog>
-
     );
-
 }
