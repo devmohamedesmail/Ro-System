@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ReadingSession;
+use App\Models\ReadingValue;
 use App\Models\RoUnit;
 use App\Models\Station;
 use App\Services\ReadingService;
@@ -19,6 +20,7 @@ class ReadingController extends Controller
     public function readings_page(Request $request)
     {
         $stations = Auth::user()->stations()->with('roUnits.readingCategories.parameters')->get();
+
         return Inertia::render('readings/index', [
             'stations' => $stations,
         ]);
@@ -90,16 +92,88 @@ class ReadingController extends Controller
             ->with('success', 'Reading submitted successfully.');
     }
 
+    //    public function ro_unit_readings_page($id)
+    // {
+    //     $readings = RoUnit::with([
+    //         'readingCategories.parameters.readingValues'
+    //     ])->findOrFail($id);
 
+    //     return Inertia::render('readings/ro-unit-readings', [
+    //         'readings' => $readings,
+    //     ]);
+    // }
 
-   public function ro_unit_readings_page($id)
-{
-    $roUnit = RoUnit::with([
-        'readingCategories.parameters.readingValues'
-    ])->findOrFail($id);
+    // public function ro_unit_readings_page($id)
+    // {
+    //     $roUnit = RoUnit::findOrFail($id);
 
-    return Inertia::render('readings/ro-unit-readings', [
-        'ro_unit' => $roUnit,
-    ]);
-}
+    //     $readingValues = ReadingValue::with([
+    //         'parameter.category',
+    //         'session',
+    //     ])
+    //     ->whereHas('parameter.category.roUnits', function ($query) use ($id) {
+    //         $query->where('ro_unit_id', $id);
+    //     })
+    //     ->latest()
+    //     ->paginate(20);
+
+    //     return Inertia::render('readings/ro-unit-readings', [
+    //         'roUnit' => $roUnit,
+    //         'readingValues' => $readingValues,
+    //     ]);
+    // }
+    public function ro_unit_readings_page(Request $request, $id)
+    {
+        $roUnit = RoUnit::findOrFail($id);
+
+        $query = ReadingSession::with([
+            'readingValues.parameter.category',
+        ])
+            ->where('ro_unit_id', $id)
+            ->latest('reading_at');
+
+        if ($request->filled('date_from')) {
+            $query->whereDate('reading_at', '>=', $request->date_from);
+        }
+
+        if ($request->filled('date_to')) {
+            $query->whereDate('reading_at', '<=', $request->date_to);
+        }
+
+        $sessions = $query->paginate(10)->withQueryString();
+
+        $sessions->getCollection()->transform(function ($session) {
+            return [
+                'id' => $session->id,
+                'ro_unit_id' => $session->ro_unit_id,
+                'reading_at' => $session->reading_at,
+                'categories' => $session->readingValues
+                    ->groupBy(fn ($v) => $v->parameter->category_id)
+                    ->map(function ($values) {
+                        $category = $values->first()->parameter->category;
+
+                        return [
+                            'id' => $category->id,
+                            'name' => $category->name,
+                            'parameters' => $values->map(fn ($v) => [
+                                'id' => $v->parameter->id,
+                                'name' => $v->parameter->name,
+                                'value' => $v->value,
+                                'unit' => $v->parameter->unit,
+                            ])->values(),
+                        ];
+                    })
+                    ->values(),
+            ];
+        });
+
+        return Inertia::render('readings/ro-unit-readings', [
+            'roUnit' => $roUnit,
+            'sessions' => $sessions,
+            'filters' => [
+                'date_from' => $request->date_from,
+                'date_to' => $request->date_to,
+            ],
+        ]);
+    }
 }

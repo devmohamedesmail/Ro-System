@@ -47,7 +47,7 @@ export function Sidebar({ isOpen, isCollapsed, onClose, onToggleCollapse, isMobi
         : isCollapsed ? ChevronRight : ChevronLeft;
 
     const navItems: SidebarNavItem[] = [
-        { key: 'dashboard', label: 'Dashboard', href: '/companies/dashboard', icon: LayoutDashboard },
+        { key: 'dashboard', label: t("common.dashboard"), href: '/companies/dashboard', icon: LayoutDashboard },
         { key: 'stations', label: t("stations.title"), href: '/stations', icon: MapPin },
         { key: 'ro-units', label: t("ro-units.title"), href: '/ro-units', icon: Droplets , activeUrls: ['/ro-units'] },
         { key: 'ro-units-settings', label: t("ro-units.ro-settings"), href: '/ro-units/settings', icon: Settings2Icon , activeUrls: ['/ro-units/settings'] },

@@ -390,7 +390,8 @@
         "sass-settings-des": "إدارة إعدادات Sass",
         "remove": "حذف",
         "change": "تغيير",
-        "update": "تحديث"
+        "update": "تحديث",
+        "dashboard":"لوحة التحكم"
     },
     "auth": {
         "register": "إنشاء حساب",

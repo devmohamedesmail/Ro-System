@@ -390,7 +390,8 @@
         "sass-settings-des": "Manage your sass settings",
         "remove": "Remove",
         "change": "Change",
-        "update": "Update"
+        "update": "Update",
+        "dashboard":"Dashboard"
     },
     "auth": {
         "register": "Register",
