@@ -28,4 +28,10 @@ Route::prefix('reading-categories')->controller(ReadingCategoryController::class
     Route::post('/{category}/parameters', 'storeParameter')->name('reading_categories.parameters.store')->middleware("auth");
     Route::put('/parameters/{parameter}', 'updateParameter')->name('reading_categories.parameters.update')->middleware("auth");
     Route::delete('/parameters/{parameter}', 'destroyParameter')->name('reading_categories.parameters.destroy')->middleware("auth");
+
+
+
+
+
+    Route::post('/ro-units/{roUnit}/toggle-parameter','toggleParameter');
 });

@@ -9,6 +9,8 @@ export interface Parameter {
     order: number;
     is_required: boolean;
     is_active: boolean;
+    usage:'READING' | 'DAILY_REPORT' | 'BOTH';
+    track_difference:boolean;
 }
 
 export interface Category {
@@ -25,4 +27,6 @@ export interface RoUnit {
     name: string;
     code: string;
     reading_categories: Category[];
+    readingParameters: Parameter[];
+    reading_parameters: Parameter[];
 }

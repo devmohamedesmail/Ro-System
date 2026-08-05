@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class RoUnit extends Model
 {
@@ -39,41 +38,35 @@ class RoUnit extends Model
         return $this->belongsTo(Station::class);
     }
 
-    public function readingCategories(): BelongsToMany
-    {
-        return $this->belongsToMany(
-            ReadingCategory::class,
-            'ro_unit_reading_categories',
-            'ro_unit_id',
-            'category_id'
-        )->withPivot(['order', 'is_active'])->orderBy('ro_unit_reading_categories.order');
-    }
+    // public function readingCategories(): BelongsToMany
+    // {
+    //     return $this->belongsToMany(
+    //         ReadingCategory::class,
+    //         'ro_unit_reading_categories',
+    //         'ro_unit_id',
+    //         'reading_category_id'
+    //     )->withPivot(['order', 'is_active'])->orderBy('ro_unit_reading_categories.order');
+    // }
 
     public function readingSessions(): HasMany
     {
         return $this->hasMany(ReadingSession::class);
     }
 
-    public function lastReadingSession(): HasOne
+    // public function readingParameters()
+    // {
+    //     return $this->hasMany(
+    //         RoUnitReadingParameter::class
+    //     );
+    // }
+
+    public function readingCategories()
     {
-        return $this->hasOne(ReadingSession::class)->latestOfMany('reading_at');
+        return $this->hasMany(RoUnitReadingCategory::class);
     }
 
-    // public function readings(): HasMany
-    // {
-    //     return $this->hasMany(ReadingValue::class);
-    // }
-
-    // public function lastestReading(){
-    //     return $this->hasOne(ReadingValue::class)->latestOfMany('reading_at');
-    // }
-
-    public function getLatestReadingsAttribute()
+    public function readingParameters()
     {
-        if (! $this->lastestReading) {
-            return true;
-        }
-
-        return $this->latestReading->created_at->addHours(3)->isPast();
+        return $this->hasMany(RoUnitReadingParameter::class);
     }
 }

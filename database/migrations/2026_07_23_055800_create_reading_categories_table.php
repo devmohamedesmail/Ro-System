@@ -13,22 +13,15 @@ return new class extends Migration
     {
         Schema::create('reading_categories', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('company_id')
-                ->nullable()
-                ->constrained()
-                ->nullOnDelete();
-
-            // $table->foreignId('ro_unit_id')
-            //     ->nullable()
-            //     ->constrained('ro_units')
-            //     ->nullOnDelete();
-
+            $table->foreignId('company_id')->nullable()->constrained()->nullOnDelete();
             $table->string('name');
+            $table->string('code')->nullable();
+            $table->string('icon')->nullable();
             $table->boolean('is_system')->default(false);
+            $table->boolean('is_active')->default(true);
             $table->integer('order')->default(0);
-
+            $table->enum('usage', ['READING','DAILY_REPORT','BOTH',])->default('READING');
             $table->timestamps();
-
             $table->unique(['company_id', 'name']);
         });
     }

@@ -12,10 +12,26 @@ use Illuminate\Support\Str;
 
 class StationService
 {
+
+
+    public function getCompanyStations(){
+         $stations = Station::where('company_id', auth()->user()?->company_id ?? 1)
+            ->withCount('roUnits')
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        return $stations;    
+    }
+
+
+    public function getAuthStations(){
+        // roUnits.readingCategories.parameters
+        $stations = Auth::user()->stations()->with('roUnits.readingCategories.parameters')->get();
+        return $stations;
+    }
+    
     public function StoreStation(StoreStationRequest $request)
     {
-
-
         return DB::transaction(function () use ($request) {
             $companyId = Auth::user()?->company_id ?? 1;
             $company = Company::findOrFail($companyId);

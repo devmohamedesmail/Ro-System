@@ -63,7 +63,6 @@ class UserService
     public function getUserStations()
     {
         $stations = Auth::user()->stations()->with('roUnits.readingCategories.parameters')->get();
-
         return $stations;
     }
 

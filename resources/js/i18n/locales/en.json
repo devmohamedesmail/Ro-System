@@ -522,6 +522,8 @@
         "updateSuccess": "RO Unit updated successfully",
         "noUnits": "No RO units found. Create your first unit.",
         "ro-settings": "Ro Setting",
+        "parameter-removed":"Parameter Removed",
+        "parameter-assigned":"Parameter Assigned",
         "table": {
             "name": "Unit Name",
             "code": "Code",

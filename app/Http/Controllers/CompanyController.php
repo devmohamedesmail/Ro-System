@@ -19,8 +19,8 @@ class CompanyController extends Controller
     public function store(StoreCompanyRequest $request)
     {
         $company = $this->companyService->createCompany($request);
-
-        return redirect()->back();
+        // return redirect()->back();
+        return redirect()->route("companies.dashboard");
     }
 
     public function dashboard()

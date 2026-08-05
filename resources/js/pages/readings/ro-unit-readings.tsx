@@ -233,7 +233,8 @@ function CategoryCard({ category }: { category: Category }) {
                     className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-semibold ${style.badge}`}
                 >
                     <Tag className="h-3 w-3" />
-                    {enName(category.name)}
+                    {/* {enName(category.name)}  */}
+                    {category.name}
                 </span>
             </div>
 
@@ -245,7 +246,8 @@ function CategoryCard({ category }: { category: Category }) {
                         className="flex flex-col gap-1 bg-white px-4 py-3 dark:bg-gray-900"
                     >
                         <p className="text-xs text-muted-foreground leading-tight">
-                            {enName(param.name)}
+                            {/* {enName(param.name)} */}
+                            {param.name}
                         </p>
                         <p className="text-base font-semibold tabular-nums text-gray-900 dark:text-white">
                             {parseFloat(param.value).toLocaleString(undefined, {

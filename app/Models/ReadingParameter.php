@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Database\Factories\ReadingParameterFactory;
+use App\Models\RoUnit;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -33,13 +33,9 @@ class ReadingParameter extends Model
         'is_active' => 'boolean',
     ];
 
-    public function category()
-    {
-        return $this->belongsTo(
-            ReadingCategory::class,
-            'category_id'
-        );
-    }
+ 
+    public function category(){
+        return $this->belongsTo(ReadingCategory::class);}
 
     public function readingValues()
     {
@@ -48,4 +44,20 @@ class ReadingParameter extends Model
             'parameter_id'
         );
     }
+
+
+ public function roUnits()
+{
+    return $this->belongsToMany(
+        RoUnit::class,
+        'ro_unit_reading_parameters',
+        'reading_parameter_id',
+        'ro_unit_id'
+    );
+}
+
+
+public function roUnitParamter(){
+    return $this->hasMany(RoUnitReadingParameter::class);
+}
 }

@@ -28,12 +28,30 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->configureDefaults();
-        Inertia::share([
-            'company' => function () {
-                return Auth::user()?->company;
-            },
+        // Inertia::share([
+        //     'company' => function () {
+        //         return Auth::user()?->company;
+        //     },
 
-        ]);
+        // ]);
+
+//         Inertia::share([
+//     'auth' => function () {
+//         $user = Auth::user();
+
+//         if (!$user) {
+//             return null;
+//         }
+
+//         return [
+//             'user' => $user,
+//             'role' => $user->role,
+//             'company' => $user->company,
+//         ];
+//     },
+// ]);
+        
+   
 
         Inertia::share(
             'settings',

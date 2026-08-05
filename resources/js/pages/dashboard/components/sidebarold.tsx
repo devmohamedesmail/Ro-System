@@ -21,9 +21,6 @@ import { cn } from '@/lib/utils';
 import useImport from '@/hooks/use-import';
 import useComapny from '@/hooks/use-comapny';
 import { SidebarNavItem } from '../types';
-import useNavItems from '../hooks/useNavItems';
-import SidebarDropdown from './SidebarDropdown';
-import SidebarItem from './SidebarItem';
 
 
 
@@ -36,20 +33,12 @@ interface SidebarProps {
 }
 
 export function Sidebar({ isOpen, isCollapsed, onClose, onToggleCollapse, isMobile }: SidebarProps) {
-    const { t, isRtl } = useImport()
-    const { company } = useComapny();
+    const { t,isRtl} = useImport()
+    const {company}=useComapny();
     const currentPath = typeof window !== 'undefined' ? window.location.pathname : '';
 
 
 
-    const { auth } = usePage().props as any;
-
-    const roles = auth.user.roles?.map((r: any) => r.name);
-
-
-
-
-    const { filteredItems } = useNavItems()
 
 
 
@@ -57,6 +46,12 @@ export function Sidebar({ isOpen, isCollapsed, onClose, onToggleCollapse, isMobi
 
 
 
+
+
+
+
+
+    
     const isActive = (href: string) => {
         if (href === '/dashboard') return currentPath === '/dashboard' || currentPath === '/';
         return currentPath.startsWith(href);
@@ -69,15 +64,15 @@ export function Sidebar({ isOpen, isCollapsed, onClose, onToggleCollapse, isMobi
     const navItems: SidebarNavItem[] = [
         { key: 'dashboard', label: t("common.dashboard"), href: '/companies/dashboard', icon: LayoutDashboard },
         { key: 'stations', label: t("stations.title"), href: '/stations', icon: MapPin },
-        { key: 'ro-units', label: t("ro-units.title"), href: '/ro-units', icon: Droplets, activeUrls: ['/ro-units'] },
-        { key: 'ro-units-settings', label: t("ro-units.ro-settings"), href: '/ro-units/settings', icon: Settings2Icon, activeUrls: ['/ro-units/settings'] },
+        { key: 'ro-units', label: t("ro-units.title"), href: '/ro-units', icon: Droplets , activeUrls: ['/ro-units'] },
+        { key: 'ro-units-settings', label: t("ro-units.ro-settings"), href: '/ro-units/settings', icon: Settings2Icon , activeUrls: ['/ro-units/settings'] },
         { key: 'readings', label: t("readings.title"), href: '/readings', icon: BarChart3 },
         { key: 'daily-reports', label: t("reports.title"), href: '/reports', icon: FileBarChart },
         { key: 'inventory', label: t("inventory.title"), href: '/inventories', icon: FileBarChart },
-        { key: 'users', label: t("users.title"), href: '/users', icon: Users },
+        { key: 'users', label:t("users.title"), href: '/users', icon: Users },
         { key: 'settings', label: t("users.profile"), href: '/users/auth/settings', icon: Settings },
         { key: 'sass-update', label: t("common.sass-settings"), href: '/sass-update', icon: Settings },
-
+        
     ];
 
     return (
@@ -143,7 +138,7 @@ export function Sidebar({ isOpen, isCollapsed, onClose, onToggleCollapse, isMobi
                 </div>
 
                 {/* Navigation */}
-                {/* <nav className="flex-1 overflow-y-auto px-3 py-4">
+                <nav className="flex-1 overflow-y-auto px-3 py-4">
                     <ul className="space-y-0.5" role="list">
                         {navItems.map((item) => {
                             const active = isActive(item.href);
@@ -163,7 +158,7 @@ export function Sidebar({ isOpen, isCollapsed, onClose, onToggleCollapse, isMobi
                                         aria-current={active ? 'page' : undefined}
                                         title={isCollapsed && !isMobile ? item.label : undefined}
                                     >
-                                        
+                                        {/* Active indicator */}
                                         {active && (
                                             <span
                                                 className={cn(
@@ -197,57 +192,6 @@ export function Sidebar({ isOpen, isCollapsed, onClose, onToggleCollapse, isMobi
                             );
                         })}
                     </ul>
-                </nav> */}
-
-
-
-                <nav className="flex-1 overflow-y-auto px-3 py-4">
-
-                    <ul className="space-y-1">
-
-
-                        {
-                            filteredItems.map((item) => {
-
-
-                                if (item.children) {
-
-                                    return (
-
-                                        <SidebarDropdown
-                                            key={item.key}
-                                            item={item}
-                                            isCollapsed={isCollapsed}
-                                            isMobile={isMobile}
-                                            onClose={onClose}
-                                            isActive={isActive}
-                                        />
-
-                                    )
-
-                                }
-
-
-                                return (
-
-                                    <SidebarItem
-                                        key={item.key}
-                                        item={item}
-                                        active={isActive(item.href)}
-                                        isCollapsed={isCollapsed}
-                                        isMobile={isMobile}
-                                        onClose={onClose}
-                                    />
-
-                                )
-
-
-                            })
-                        }
-
-
-                    </ul>
-
                 </nav>
 
                 {/* Footer / Collapse Toggle */}

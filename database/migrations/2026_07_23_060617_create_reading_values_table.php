@@ -13,26 +13,15 @@ return new class extends Migration
     {
         Schema::create('reading_values', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('session_id')
-                ->constrained('reading_sessions')
-                ->cascadeOnDelete();
-
-            $table->foreignId('parameter_id')
-                ->constrained('reading_parameters')
-                ->restrictOnDelete();
-
-            $table->decimal(
-                'value',
-                10,
-                3
-            );
-
+            $table->foreignId('reading_session_id')->constrained('reading_sessions')->cascadeOnDelete();
+            $table->foreignId('ro_unit_reading_parameter_id')->constrained()->cascadeOnDelete();
+            $table->decimal('value', 10, 3);
+            $table->string('notes')->nullable();
             $table->timestamps();
-
-            $table->unique([
-                'session_id',
-                'parameter_id',
-            ]);
+            $table->unique(
+                ['reading_session_id', 'ro_unit_reading_parameter_id'],
+                'reading_value_unique'
+            );
         });
     }
 

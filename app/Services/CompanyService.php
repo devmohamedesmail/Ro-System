@@ -81,4 +81,12 @@ class CompanyService
             $lastId
         );
     }
+
+
+    public function getAuthCompany(){
+        return Auth::user()?->company;
+    }
+
+
+    
 }

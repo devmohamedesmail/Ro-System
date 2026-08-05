@@ -134,7 +134,7 @@ export function RoUnitReadingForm({ unit, t }: { unit: any, t: any }) {
             </div>
 
             <div className="flex justify-end pt-2">
-                <Button type='submit' disabled={formik.isSubmitting} className="min-w-32 bg-cyan-600 hover:bg-cyan-700 text-white shadow-sm shadow-cyan-200 dark:shadow-cyan-900/20">
+                <Button type='submit' disabled={formik.isSubmitting} className="min-w-32 ">
                     {formik.isSubmitting ? t('common.saving', 'Saving...') : t("common.save", 'Save Readings')}
                 </Button>
             </div>

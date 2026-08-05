@@ -18,7 +18,8 @@ class ReadingCategoryService
             ->orWhere('company_id', null)
             ->orWhere('is_system', true)
             ->orderBy('order')
-            ->with(['parameters' => fn ($q) => $q->orderBy('order')])
+            // ->with(['parameters' => fn ($q) => $q->orderBy('order')])
+            ->with('parameters')
             ->get();
     }
 
@@ -59,21 +60,44 @@ class ReadingCategoryService
 
     // ─── Assign / Unassign category to RO unit ────────────────────────────
 
+    // public function assignCategory(RoUnit $roUnit, int $categoryId): void
+    // {
+    //     if (! $roUnit->readingCategories()->where('reading_category_id', $categoryId)->exists()) {
+    //         $maxOrder = $roUnit->readingCategories()->max('ro_unit_reading_categories.order') ?? 0;
+    //         $roUnit->readingCategories()->attach($categoryId, [
+    //             'order' => $maxOrder + 1,
+    //             'is_active' => true,
+    //         ]);
+    //     }
+    // }
+
     public function assignCategory(RoUnit $roUnit, int $categoryId): void
-    {
-        if (! $roUnit->readingCategories()->where('category_id', $categoryId)->exists()) {
-            $maxOrder = $roUnit->readingCategories()->max('ro_unit_reading_categories.order') ?? 0;
-            $roUnit->readingCategories()->attach($categoryId, [
-                'order' => $maxOrder + 1,
-                'is_active' => true,
-            ]);
-        }
+{
+    if (! $roUnit->readingCategories()
+        ->where('reading_category_id', $categoryId)
+        ->exists()
+    ) {
+
+        $maxOrder = $roUnit->readingCategories()
+            ->max('order') ?? 0;
+
+        $roUnit->readingCategories()->create([
+            'reading_category_id' => $categoryId,
+            'order' => $maxOrder + 1,
+            'is_active' => true,
+        ]);
     }
+}
+
+    // public function unassignCategory(RoUnit $roUnit, int $categoryId): void
+    // {
+    //     $roUnit->readingCategories()->detach($categoryId);
+    // }
 
     public function unassignCategory(RoUnit $roUnit, int $categoryId): void
-    {
-        $roUnit->readingCategories()->detach($categoryId);
-    }
+{
+    $roUnit->readingCategories()->detach($categoryId);
+}
 
     // ─── Parameters ──────────────────────────────────────────────────────
 

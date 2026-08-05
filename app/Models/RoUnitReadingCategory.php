@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\RoUnitReadingParameter;
 use Database\Factories\RoUnitReadingCategoryFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -13,7 +14,7 @@ class RoUnitReadingCategory extends Model
 
     protected $fillable = [
         'ro_unit_id',
-        'category_id',
+        'reading_category_id',
         'order',
         'is_active',
     ];
@@ -31,7 +32,19 @@ class RoUnitReadingCategory extends Model
     {
         return $this->belongsTo(
             ReadingCategory::class,
-            'category_id'
+            'reading_category_id'
         );
     }
+
+
+            public function parameters()
+        {
+            return $this->hasMany(RoUnitReadingParameter::class);
+        }
+
+
+
+        public function ro_reading_parameters(){
+            return $this->hasMany(RoUnitReadingParameter::class);
+        }
 }

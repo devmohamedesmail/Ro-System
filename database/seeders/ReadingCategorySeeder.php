@@ -12,49 +12,56 @@ class ReadingCategorySeeder extends Seeder
      */
     public function run(): void
     {
-        $categories = [
+      $categories = [
             [
-                'name' => 'Conductivity / التوصيلية الكهربائية',
+                'name' => 'Production / الإنتاج',
                 'order' => 1,
             ],
             [
-                'name' => 'Water Flow Rate / معدل تدفق المياه',
+                'name' => 'Consumption / الاستهلاك',
                 'order' => 2,
             ],
             [
-                'name' => 'Pressure / الضغط',
+                'name' => 'Conductivity / التوصيلية الكهربائية',
                 'order' => 3,
             ],
             [
-                'name' => 'Electrical Reading / القراءات الكهربائية',
+                'name' => 'Water Flow Rate / معدل تدفق المياه',
                 'order' => 4,
             ],
             [
-                'name' => 'Water Quality / جودة المياه',
+                'name' => 'Pressure / الضغط',
                 'order' => 5,
             ],
             [
-                'name' => 'Chemical Dosing / الجرعات الكيميائية',
+                'name' => 'Electrical Reading / القراءات الكهربائية',
                 'order' => 6,
             ],
             [
-                'name' => 'Tank Levels / مستويات الخزانات',
+                'name' => 'Water Quality / جودة المياه',
                 'order' => 7,
             ],
             [
-                'name' => 'Pump Status / حالة المضخات',
+                'name' => 'Chemical Dosing / الجرعات الكيميائية',
                 'order' => 8,
             ],
             [
-                'name' => 'Membrane Performance / أداء الأغشية',
+                'name' => 'Tank Levels / مستويات الخزانات',
                 'order' => 9,
             ],
             [
-                'name' => 'Temperature / درجة الحرارة',
+                'name' => 'Pump Status / حالة المضخات',
                 'order' => 10,
             ],
+            [
+                'name' => 'Membrane Performance / أداء الأغشية',
+                'order' => 11,
+            ],
+            [
+                'name' => 'Temperature / درجة الحرارة',
+                'order' => 12,
+            ],
         ];
-
 
 
         foreach ($categories as $category) {
@@ -62,16 +69,12 @@ class ReadingCategorySeeder extends Seeder
                 [
                     'company_id' => null,
                     'name' => $category['name'],
-                    // 'is_active' => true,
-                    'order' => $category['order'],
                 ],
-                // [
-                //     'station_id' => null,
-                //     'ro_unit_id' => null,
-                //     'is_active' => true,
-                //     'sort_order' => $category['sort_order'],
-                // ]
+                [
+                    'order' => $category['order'],
+                ]
             );
         }
+    
     }
 }

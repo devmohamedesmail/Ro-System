@@ -522,6 +522,8 @@
         "updateSuccess": "تم تحديث وحدة RO بنجاح",
         "noUnits": "لا توجد وحدات RO. أنشئ أول وحدة.",
         "ro-settings": " اعدادت RO ",
+         "parameter-removed":" تم الغاء البارامتر ",
+        "parameter-assigned":" تم اختيار البارامتر ",
         "table": {
             "name": "اسم الوحدة",
             "code": "الكود",

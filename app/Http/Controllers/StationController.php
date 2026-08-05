@@ -14,34 +14,26 @@ class StationController extends Controller
 
     public function stations_page()
     {
-        $stations = Station::where('company_id', auth()->user()?->company_id ?? 1)
-            ->withCount('roUnits')
-            ->orderBy('created_at', 'desc')
-            ->get();
-
         return Inertia::render('stations/index', [
-            'stations' => $stations,
+            'stations' => $this->stationService->getCompanyStations(),
         ]);
     }
 
     public function store(StoreStationRequest $request)
     {
         $this->stationService->storeStation($request);
-
         return redirect()->back();
     }
 
     public function update(UpdateStationRequest $request, Station $station)
     {
         $this->stationService->updateStation($request, $station);
-
         return redirect()->back();
     }
 
     public function destroy(Station $station)
     {
         $this->stationService->destroyStation($station);
-
         return redirect()->back();
     }
 }
