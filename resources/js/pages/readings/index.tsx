@@ -1,36 +1,18 @@
 import { DashboardLayout } from '../dashboard/components/DashboardLayout'
-import { Droplets } from 'lucide-react'
 import useImport from '@/hooks/use-import'
-import useComapny from '@/hooks/use-comapny'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { RoUnitReadingForm } from './components/RoUnitReadingForm'
+import NoStations from './components/no-stations'
+import ReadingHeader from './components/reading-header'
 
 export default function RoReadings({ stations }: any) {
   const { t } = useImport();
-  const { company } = useComapny();
-  
-  console.log("stations from readign",stations)
-  // Use first station id as default tab if available
   const defaultStation = stations?.[0]?.id?.toString() || '';
 
   return (
     <DashboardLayout>
-      <div className="container mx-auto p-4 sm:p-6 lg:p-10 max-w-7xl">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between mb-8">
-          <div className="flex items-center gap-4">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-600 shadow-lg shadow-cyan-200 dark:shadow-cyan-900/40">
-              <Droplets className="h-6 w-6 text-white" />
-            </div>
-            <div>
-              <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
-                {t('ro-units.readings', 'RO Readings Entry')}
-              </h1>
-              <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
-                {company?.name} &mdash; {t('ro-units.subtitle', 'Manage water parameters for your units')}
-              </p>
-            </div>
-          </div>
-        </div>
+      <div className="container mx-auto p-4 sm:p-6 lg:p-10">
+        <ReadingHeader />
 
         {stations && stations.length > 0 ? (
           <Tabs defaultValue={defaultStation} className="w-full">
@@ -63,11 +45,7 @@ export default function RoReadings({ stations }: any) {
             ))}
           </Tabs>
         ) : (
-          <div className="text-center py-16 bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm">
-            <Droplets className="mx-auto h-12 w-12 text-gray-300 dark:text-gray-600 mb-4" />
-            <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-2">{t('stations.no_stations', 'No Stations Available')}</h3>
-            <p className="text-gray-500 dark:text-gray-400">{t('stations.no_stations_desc', 'Please add a station and RO units to start recording readings.')}</p>
-          </div>
+         <NoStations />
         )}
 
       </div>

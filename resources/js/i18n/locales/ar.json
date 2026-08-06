@@ -391,7 +391,7 @@
         "remove": "حذف",
         "change": "تغيير",
         "update": "تحديث",
-        "dashboard":"لوحة التحكم"
+        "dashboard": "لوحة التحكم"
     },
     "auth": {
         "register": "إنشاء حساب",
@@ -450,7 +450,9 @@
         "updateSuccess": "تم تحديث المحطة بنجاح",
         "noStations": "لا توجد محطات. أنشئ أول محطة.",
         "createFailed": " فشل انشاء محطة ",
-         "station":" المحطة ",
+        "station": " المحطة ",
+        "no_stations": "لا توجد محطات متاحة",
+        "no_stations_desc": "يرجى إضافة محطة ووحدات RO لبدء تسجيل القراءات.",
         "table": {
             "name": "اسم المحطة",
             "code": "الكود",
@@ -523,8 +525,10 @@
         "updateSuccess": "تم تحديث وحدة RO بنجاح",
         "noUnits": "لا توجد وحدات RO. أنشئ أول وحدة.",
         "ro-settings": " اعدادت RO ",
-         "parameter-removed":" تم الغاء البارامتر ",
-        "parameter-assigned":" تم اختيار البارامتر ",
+        "parameter-removed": " تم الغاء البارامتر ",
+        "parameter-assigned": " تم اختيار البارامتر ",
+        "readings": "إدخال قراءات وحدات RO",
+        "subtitle-readings": "إدارة معايير وجودة المياه لوحداتك",
         "table": {
             "name": "اسم الوحدة",
             "code": "الكود",
@@ -609,8 +613,8 @@
         "open": "فتح",
         "noRoUnits": "لا توجد وحدات RO.",
         "details": "التفاصيل",
-    "readings": "القراءات",
-    "dailyReports": "التقارير",
+        "readings": "القراءات",
+        "dailyReports": "التقارير",
         "validation": {
             "dateRequired": "تاريخ التقرير مطلوب",
             "required": "هذا الحقل مطلوب",

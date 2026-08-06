@@ -66,19 +66,7 @@ export function Sidebar({ isOpen, isCollapsed, onClose, onToggleCollapse, isMobi
         ? isCollapsed ? ChevronLeft : ChevronRight
         : isCollapsed ? ChevronRight : ChevronLeft;
 
-    const navItems: SidebarNavItem[] = [
-        { key: 'dashboard', label: t("common.dashboard"), href: '/companies/dashboard', icon: LayoutDashboard },
-        { key: 'stations', label: t("stations.title"), href: '/stations', icon: MapPin },
-        { key: 'ro-units', label: t("ro-units.title"), href: '/ro-units', icon: Droplets, activeUrls: ['/ro-units'] },
-        { key: 'ro-units-settings', label: t("ro-units.ro-settings"), href: '/ro-units/settings', icon: Settings2Icon, activeUrls: ['/ro-units/settings'] },
-        { key: 'readings', label: t("readings.title"), href: '/readings', icon: BarChart3 },
-        { key: 'daily-reports', label: t("reports.title"), href: '/reports', icon: FileBarChart },
-        { key: 'inventory', label: t("inventory.title"), href: '/inventories', icon: FileBarChart },
-        { key: 'users', label: t("users.title"), href: '/users', icon: Users },
-        { key: 'settings', label: t("users.profile"), href: '/users/auth/settings', icon: Settings },
-        { key: 'sass-update', label: t("common.sass-settings"), href: '/sass-update', icon: Settings },
-
-    ];
+  
 
     return (
         <>
@@ -141,65 +129,6 @@ export function Sidebar({ isOpen, isCollapsed, onClose, onToggleCollapse, isMobi
                         </button>
                     )}
                 </div>
-
-                {/* Navigation */}
-                {/* <nav className="flex-1 overflow-y-auto px-3 py-4">
-                    <ul className="space-y-0.5" role="list">
-                        {navItems.map((item) => {
-                            const active = isActive(item.href);
-                            const Icon = item.icon;
-                            return (
-                                <li key={item.key}>
-                                    <Link
-                                        href={item.href}
-                                        onClick={isMobile ? onClose : undefined}
-                                        className={cn(
-                                            'group relative flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-150',
-                                            active
-                                                ? 'bg-primary text-white dark:bg-primary dark:text-white'
-                                                : 'text-white hover:bg-gray-100 hover:text-black dark:text-white dark:hover:bg-gray-800/70 dark:hover:text-gray-100',
-                                            isCollapsed && !isMobile && 'justify-center px-2',
-                                        )}
-                                        aria-current={active ? 'page' : undefined}
-                                        title={isCollapsed && !isMobile ? item.label : undefined}
-                                    >
-                                        
-                                        {active && (
-                                            <span
-                                                className={cn(
-                                                    'absolute top-1/2 h-5 w-0.5 -translate-y-1/2 rounded-full bg-priamry dark:bg-white',
-                                                    isRtl ? 'right-0' : 'left-0',
-                                                )}
-                                            />
-                                        )}
-
-                                        <Icon
-                                            className={cn(
-                                                'h-4.5 w-4.5 shrink-0 transition-colors',
-                                                active
-                                                    ? 'text-white dark:text-white'
-                                                    : 'text-white group-hover:text-gray-600 dark:text-gray-500 dark:group-hover:text-gray-300',
-                                            )}
-                                        />
-
-                                        {(!isCollapsed || isMobile) && (
-                                            <>
-                                                <span className="flex-1 truncate">{item.label}</span>
-                                                {item.badge != null && item.badge > 0 && (
-                                                    <span className="inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-red-500 px-1.5 text-[10px] font-bold text-white">
-                                                        {item.badge}
-                                                    </span>
-                                                )}
-                                            </>
-                                        )}
-                                    </Link>
-                                </li>
-                            );
-                        })}
-                    </ul>
-                </nav> */}
-
-
 
                 <nav className="flex-1 overflow-y-auto px-3 py-4">
 

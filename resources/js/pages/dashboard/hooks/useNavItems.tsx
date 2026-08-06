@@ -41,7 +41,7 @@ export default function useNavItems() {
             key: 'stations',
             label: t("stations.title"),
             icon: MapPin,
-            roles: ['admin' ,'operator','company-admin'],
+            roles: ['admin' ,'operator','company-admin','chemical'],
             children: [
                 {
                     key: 'stations-list',
@@ -58,7 +58,7 @@ export default function useNavItems() {
             key: 'ro',
             label: t("ro-units.title"),
             icon: Droplets,
-            roles: ['company-admin','operator'],
+            roles: ['company-admin','operator','chemical'],
             children: [
 
                 {
@@ -66,6 +66,7 @@ export default function useNavItems() {
                     label: t("ro-units.title"),
                     href: '/ro-units',
                     icon: Droplets,
+                    roles: ['company-admin','operator','chemical']
                 },
 
 
@@ -74,10 +75,7 @@ export default function useNavItems() {
                     label: t("ro-units.ro-settings"),
                     href: '/ro-units/settings',
                     icon: Settings2Icon,
-                    roles: [
-                        'company-admin',
-                        'operator'
-                    ]
+                    roles: ['company-admin','operator','chemical']
                 }
 
             ]
@@ -89,7 +87,7 @@ export default function useNavItems() {
             label: t("readings.title"),
             href: '/readings',
             icon: BarChart3,
-            roles: ['company-admin','operator'],
+            roles: ['company-admin','operator','chemical'],
              children: [
 
                 {
@@ -97,6 +95,7 @@ export default function useNavItems() {
                     label: t("readings.create.title"),
                     href: '/readings',
                     icon: Plus,
+                    roles: ['company-admin','operator','chemical']
                 },
 
             ]
@@ -108,22 +107,14 @@ export default function useNavItems() {
             label: t("reports.title"),
             href: '/reports',
             icon: FileBarChart,
-            roles: [
-                'company-admin',
-                'manager',
-                 'operator'
-            ]
+            roles: ['company-admin','operator','chemical']
         },
         {
             key: 'inventory',
             label: t("inventory.title"),
             href: '/inventories',
             icon: FileBarChart,
-            roles: [
-                'company-admin',
-                'manager',
-                'operator'
-            ]
+           roles: ['company-admin','operator','chemical']
         },
 
 

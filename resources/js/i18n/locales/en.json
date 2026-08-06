@@ -451,6 +451,8 @@
         "noStations": "No stations found. Create your first station.",
         "createFailed": "Failed To Create Station",
         "station":"Station",
+        "no_stations": "No Stations Available",
+        "no_stations_desc": "Please add a station and RO units to start recording readings.",
         "table": {
             "name": "Station Name",
             "code": "Code",
@@ -525,6 +527,8 @@
         "ro-settings": "Ro Setting",
         "parameter-removed":"Parameter Removed",
         "parameter-assigned":"Parameter Assigned",
+        "readings": "RO Readings Entry",
+        "subtitle-readings": "Manage water parameters for your units",
         "table": {
             "name": "Unit Name",
             "code": "Code",
