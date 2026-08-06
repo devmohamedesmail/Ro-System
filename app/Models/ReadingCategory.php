@@ -14,14 +14,19 @@ class ReadingCategory extends Model
 
     protected $fillable = [
         'company_id',
-        'ro_unit_id',
         'name',
+        'code',
+        'icon',
         'is_system',
+        'is_active',
         'order',
+        'usage',
     ];
 
     protected $casts = [
         'is_system' => 'boolean',
+        'is_active' => 'boolean',
+        'order' => 'integer',
     ];
 
     public function company()

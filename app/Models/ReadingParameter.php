@@ -12,25 +12,30 @@ class ReadingParameter extends Model
     use HasFactory;
 
     protected $fillable = [
-        'category_id',
+        'reading_category_id',
+        'company_id',
+        'ro_unit_id',
+        'ro_unit_reading_category_id',
         'name',
         'code',
         'unit',
         'input_type',
-        'min_value',
-        'max_value',
         'usage',
         'track_difference',
+        'min_value',
+        'max_value',
         'order',
         'is_required',
         'is_active',
     ];
 
     protected $casts = [
-        'min_value' => 'decimal:3',
-        'max_value' => 'decimal:3',
+        'min_value' => 'float',
+        'max_value' => 'float',
+        'track_difference' => 'boolean',
         'is_required' => 'boolean',
         'is_active' => 'boolean',
+        'order' => 'integer',
     ];
 
  

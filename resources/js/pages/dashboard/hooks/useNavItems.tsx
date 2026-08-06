@@ -128,6 +128,13 @@ export default function useNavItems() {
             ]
         },
 
+        {
+            key: 'categories',
+            label: t("common.categories-settings"),
+            href: '/categories',
+            icon: LayoutDashboard,
+        },
+
 
         {
             key: 'settings',
