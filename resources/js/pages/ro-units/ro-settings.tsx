@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Head, router, usePage } from '@inertiajs/react';
 import { useTranslation } from 'react-i18next';
-import { BookOpen,Plus} from 'lucide-react';
+import { BookOpen, Plus } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { DashboardLayout } from '../dashboard/components/DashboardLayout';
 import { Button } from '@/components/ui/button';
@@ -17,26 +17,29 @@ import RoSettingSidebar from './components/ro-setting-sidebar';
 interface PageProps {
     ro_units: RoUnit[];
     categories: Category[];
+    stations: any
 }
 
 
-export default function RoSettings() {
+export default function RoSettings({ stations, categories }: any) {
+  
+  console.log("stations" ,stations)
+  
     const { t } = useTranslation();
-    const { ro_units, categories } = usePage().props as any as PageProps;
     const { company } = useComapny();
-
-
-    const [selectedUnitId, setSelectedUnitId] = useState<number | null>(
-        ro_units?.[0]?.id ?? null,
-    );
-
     const [createCatOpen, setCreateCatOpen] = useState(false);
     const [editCategory, setEditCategory] = useState<Category | null>(null);
     const [deleteCategory, setDeleteCategory] = useState<Category | null>(null);
     const [deletingCat, setDeletingCat] = useState(false);
-    const selectedUnit = ro_units?.find((u) => u.id === selectedUnitId) ?? null;
+
+    const [selectedUnitId, setSelectedUnitId] = useState<number | null>(
+        stations?.[0]?.ro_units?.[0]?.id ?? null
+    );
 
 
+    const selectedUnit = stations
+        ?.flatMap((station: any) => station.ro_units)
+        ?.find((unit: any) => unit.id === selectedUnitId) ?? null;
 
     function handleDeleteCategory() {
         if (!deleteCategory) return;
@@ -57,8 +60,13 @@ export default function RoSettings() {
 
             <div className="flex h-full flex-col gap-0 lg:flex-row">
                 {/* ── Left sidebar: RO unit list ── */}
-               
-                <RoSettingSidebar company={company} ro_units={ro_units} setSelectedUnitId={setSelectedUnitId} selectedUnitId={selectedUnitId} />
+
+                <RoSettingSidebar
+                    company={company}
+                    stations={stations}
+                    setSelectedUnitId={setSelectedUnitId}
+                    selectedUnitId={selectedUnitId}
+                />
 
                 {/* ── Right panel: categories & parameters ── */}
                 <main className="flex-1 overflow-y-auto p-6">
@@ -68,7 +76,7 @@ export default function RoSettings() {
                         </div>
                     ) : (
                         <div className="space-y-5">
-                        
+
                             <div className="flex items-center justify-between">
                                 <div>
                                     <h2 className="text-base font-bold text-gray-900 dark:text-white">
@@ -90,7 +98,7 @@ export default function RoSettings() {
                                 </Button>
                             </div>
 
-                          
+
                             {selectedUnit.reading_categories.length === 0 ? (
                                 <div className="flex flex-col items-center justify-center rounded-xl border border-dashed border-gray-300 bg-white py-12 dark:border-gray-700 dark:bg-gray-900">
                                     <BookOpen className="mb-2 h-8 w-8 text-gray-300" />
@@ -100,7 +108,7 @@ export default function RoSettings() {
                                 </div>
                             ) : (
                                 <div className="space-y-3">
-                                    {selectedUnit.reading_categories.map((cat) => (
+                                    {selectedUnit.reading_categories.map((cat:any) => (
                                         <CategoryCard
                                             key={cat.id}
                                             category={cat}
@@ -110,12 +118,12 @@ export default function RoSettings() {
                                             onEditCategory={setEditCategory}
                                             onDeleteCategory={setDeleteCategory}
                                         />
-                                        
+
                                     ))}
                                 </div>
                             )}
 
-                           
+
                             <AssignCategoryPanel
                                 roUnit={selectedUnit}
                                 allCategories={categories ?? []}

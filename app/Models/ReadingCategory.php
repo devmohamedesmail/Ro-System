@@ -29,25 +29,30 @@ class ReadingCategory extends Model
         return $this->belongsTo(Company::class);
     }
 
-    public function roUnit()
-    {
-        return $this->belongsTo(RoUnit::class);
-    }
+  
 
-   
-
-    public function parameters(){
-        return $this->hasMany(ReadingParameter::class);
-    }
-
-    public function roUnits()
+      public function parameters()
     {
         return $this->hasMany(
-            RoUnitReadingCategory::class,
+            ReadingParameter::class,
             'reading_category_id'
         );
     }
 
 
+
+    public function roUnits()
+{
+    return $this->belongsToMany(
+        RoUnit::class,
+        'ro_unit_reading_categories',
+        'reading_category_id',
+        'ro_unit_id'
+    )
+    ->withPivot([
+        'order',
+        'is_active'
+    ]);
+}
 
 }

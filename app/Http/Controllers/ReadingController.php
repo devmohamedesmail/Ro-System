@@ -12,7 +12,17 @@ class ReadingController extends Controller
 
     
     public function readings_page(){
-         $stations = Auth::user()->stations()->with('roUnits.readingCategories.parameters')->get();
+
+
+
+$stations = Auth::user()
+    ->stations()
+    ->with([
+        'roUnits.roUnitReadingCategories.category',
+        'roUnits.roUnitReadingCategories.parameters.parameter',
+    ])
+    ->get();
+  
        return Inertia::render("readings/index",[
         // "stations"=> $this->stationService->getAuthStations()
         "stations"=> $stations

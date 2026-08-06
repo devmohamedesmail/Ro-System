@@ -450,6 +450,7 @@
         "updateSuccess": "Station updated successfully",
         "noStations": "No stations found. Create your first station.",
         "createFailed": "Failed To Create Station",
+        "station":"Station",
         "table": {
             "name": "Station Name",
             "code": "Code",

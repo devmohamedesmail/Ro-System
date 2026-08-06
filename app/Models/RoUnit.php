@@ -33,10 +33,95 @@ class RoUnit extends Model
         ];
     }
 
-    public function station(): BelongsTo
+
+// -------------------- Relations ----------------------------
+     public function station(): BelongsTo
     {
         return $this->belongsTo(Station::class);
     }
+
+
+
+
+// public function readingCategories()
+//     {
+//         return $this->hasMany(
+//             RoUnitReadingCategory::class
+//         );
+//     }
+
+public function readingCategories()
+{
+    return $this->belongsToMany(
+        ReadingCategory::class,
+        'ro_unit_reading_categories',
+        'ro_unit_id',
+        'reading_category_id'
+    )
+    ->withPivot([
+        'id',
+        'order',
+        'is_active'
+    ])
+    ->orderBy('ro_unit_reading_categories.order');
+}
+
+
+public function readingParameters()
+{
+    return $this->hasMany(
+        RoUnitReadingParameter::class,
+        'ro_unit_id'
+    );
+}
+
+
+public function roUnitReadingCategories()
+{
+    return $this->hasMany(
+        RoUnitReadingCategory::class,
+        'ro_unit_id'
+    );
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
 
     // public function readingCategories(): BelongsToMany
     // {
@@ -53,20 +138,7 @@ class RoUnit extends Model
         return $this->hasMany(ReadingSession::class);
     }
 
-    // public function readingParameters()
-    // {
-    //     return $this->hasMany(
-    //         RoUnitReadingParameter::class
-    //     );
-    // }
+  
+  
 
-    public function readingCategories()
-    {
-        return $this->hasMany(RoUnitReadingCategory::class);
-    }
-
-    public function readingParameters()
-    {
-        return $this->hasMany(RoUnitReadingParameter::class);
-    }
 }

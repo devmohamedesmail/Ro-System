@@ -41,7 +41,7 @@ class ReadingCategoryController extends Controller
 
     public function assign(Request $request, RoUnit $roUnit)
     {
-        // dd($request);
+        
         $request->validate(['reading_category_id' => 'required|exists:reading_categories,id']);
         $this->service->assignCategory($roUnit, $request->reading_category_id);
         return redirect()->back();
@@ -50,7 +50,7 @@ class ReadingCategoryController extends Controller
     public function unassign(Request $request, RoUnit $roUnit)
     {
         $request->validate(['reading_category_id' => 'required|exists:reading_categories,id']);
-        $this->service->unassignCategory($roUnit, $request->category_id);
+        $this->service->unassignCategory($roUnit, $request->reading_category_id);
         return redirect()->back();
     }
 
@@ -86,7 +86,7 @@ public function toggleParameter(Request $request, RoUnit $roUnit)
 
 // dd($roUnit->id,$request->parameter_id);
 
-
+// dd($request);
 $exist = RoUnitReadingParameter::where('ro_unit_id', $roUnit->id)
 ->where('reading_parameter_id', $request->parameter_id)->first();
 
@@ -96,7 +96,7 @@ if($exist){
     return redirect()->back();
 }else{
     $validated = $request->validate([
-        'reading_category_id'=>'nullable',
+        'ro_unit_reading_category_id'=>'nullable',
         'parameter_id' => 'required|exists:reading_parameters,id',
         'assigned' => 'required|boolean',
     ]);
@@ -114,7 +114,7 @@ if($exist){
      
            $roUnitParamter->reading_parameter_id = $parameter->id;
            $roUnitParamter->ro_unit_id = $roUnit->id;
-           $roUnitParamter->ro_unit_reading_category_id = $request->reading_category_id;
+           $roUnitParamter->ro_unit_reading_category_id = $request->ro_unit_reading_category_id;
             $roUnitParamter->name = $parameter->name;
             $roUnitParamter->display_name = $parameter->display_name;
             $roUnitParamter->code = $parameter->code;

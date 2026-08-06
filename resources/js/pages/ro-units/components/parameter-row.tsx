@@ -16,15 +16,15 @@ export default function ParameterRow({
     onEdit,
     onDelete,
     roUnitId,
-category,
+    category,
     selectedUnit
 }: {
     param: Parameter;
     onEdit: (p: Parameter) => void;
     onDelete: (p: Parameter) => void;
     roUnitId: number;
- category:any
-    selectedUnit:any
+    category: any
+    selectedUnit: any
 }) {
     const { t } = useImport();
     const INPUT_TYPE_COLORS = {
@@ -39,7 +39,7 @@ category,
         router.post(
             `/reading-categories/ro-units/${roUnitId}/toggle-parameter`,
             {
-                reading_category_id:category.id,
+                ro_unit_reading_category_id: category.pivot.id,
                 parameter_id: param.id,
                 assigned: checked,
             },
@@ -48,8 +48,8 @@ category,
                 onSuccess: () => {
                     toast.success(
                         checked
-                            ?t('ro-units.parameter-assigned')
-                            :t('ro-units.parameter-removed')
+                            ? t('ro-units.parameter-assigned')
+                            : t('ro-units.parameter-removed')
                     );
                 },
                 onError: () => {
@@ -67,7 +67,7 @@ category,
             <div className="flex flex-1 flex-wrap items-center gap-2">
 
                 <Checkbox
-                    checked={selectedUnit.reading_parameters.some((item:any) =>item.reading_parameter_id === param.id)}
+                    checked={selectedUnit.reading_parameters.some((item: any) => item.reading_parameter_id === param.id)}
                     onCheckedChange={(checked) =>
                         handleToggleParameter(Boolean(checked))
                     }

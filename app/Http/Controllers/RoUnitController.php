@@ -4,14 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreROunitRequest;
 use App\Http\Requests\UpdateROunitRequest;
-use App\Models\Company;
 use App\Models\RoUnit;
-use App\Models\Station;
 use App\Services\CompanyService;
 use App\Services\ReadingCategoryService;
 use App\Services\RoUnitService;
 use App\Services\StationService;
-use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 class RoUnitController extends Controller
@@ -40,11 +37,11 @@ class RoUnitController extends Controller
     {
         
         $company = $this->companyService->getAuthCompany();
-        $stations = $company->stations()->with(['roUnits.readingParameters','roUnits.readingCategories.parameters'])->get();
-        $roUnits = $stations->pluck('roUnits')->flatten()->values();
+        $stations = $company->stations()->with(['roUnits.readingCategories','roUnits.readingCategories.parameters', 'roUnits.readingParameters'])->get();
+   
         $categories = $this->readingCategoryService->getCompanyCategories($company->id);
         return Inertia::render('ro-units/ro-settings', [
-            'ro_units' => $roUnits,
+            'stations'=>$stations,
             'categories' => $categories,
         ]);
     }

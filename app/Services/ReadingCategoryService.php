@@ -71,18 +71,17 @@ class ReadingCategoryService
     //     }
     // }
 
-    public function assignCategory(RoUnit $roUnit, int $categoryId): void
+public function assignCategory(RoUnit $roUnit, int $categoryId): void
 {
     if (! $roUnit->readingCategories()
-        ->where('reading_category_id', $categoryId)
+        ->wherePivot('reading_category_id', $categoryId)
         ->exists()
     ) {
 
         $maxOrder = $roUnit->readingCategories()
-            ->max('order') ?? 0;
+            ->max('ro_unit_reading_categories.order') ?? 0;
 
-        $roUnit->readingCategories()->create([
-            'reading_category_id' => $categoryId,
+        $roUnit->readingCategories()->attach($categoryId, [
             'order' => $maxOrder + 1,
             'is_active' => true,
         ]);

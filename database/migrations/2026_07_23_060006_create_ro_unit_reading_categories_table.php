@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('ro_unit_reading_categories', function (Blueprint $table) {
             $table->id();
             $table->foreignId('ro_unit_id')->constrained('ro_units')->cascadeOnDelete();
-            $table->foreignId('reading_category_id')->nullable()->constrained('reading_categories')->cascadeOnDelete();
+            $table->foreignId('reading_category_id')->constrained('reading_categories')->cascadeOnDelete();
             $table->enum('usage', ['READING','DAILY_REPORT','BOTH'])->default('READING');    
             $table->integer('order')->default(0);
             $table->boolean('is_active')->default(true);

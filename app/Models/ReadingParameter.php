@@ -34,30 +34,47 @@ class ReadingParameter extends Model
     ];
 
  
-    public function category(){
-        return $this->belongsTo(ReadingCategory::class);}
+    // public function category(){
+    //     return $this->belongsTo(ReadingCategory::class);}
 
-    public function readingValues()
+    // public function readingValues()
+    // {
+    //     return $this->hasMany(
+    //         ReadingValue::class,
+    //         'parameter_id'
+    //     );
+    // }
+
+
+//  public function roUnits()
+// {
+//     return $this->belongsToMany(
+//         RoUnit::class,
+//         'ro_unit_reading_parameters',
+//         'reading_parameter_id',
+//         'ro_unit_id'
+//     );
+// }
+
+
+// public function roUnitParamter(){
+//     return $this->hasMany(RoUnitReadingParameter::class);
+// }
+
+
+
+ public function category()
     {
-        return $this->hasMany(
-            ReadingValue::class,
-            'parameter_id'
+        return $this->belongsTo(
+            ReadingCategory::class
         );
     }
 
 
- public function roUnits()
-{
-    return $this->belongsToMany(
-        RoUnit::class,
-        'ro_unit_reading_parameters',
-        'reading_parameter_id',
-        'ro_unit_id'
-    );
-}
-
-
-public function roUnitParamter(){
-    return $this->hasMany(RoUnitReadingParameter::class);
-}
+    public function unitParameters()
+    {
+        return $this->hasMany(
+            RoUnitReadingParameter::class
+        );
+    }
 }

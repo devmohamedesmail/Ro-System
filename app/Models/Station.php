@@ -37,22 +37,31 @@ class Station extends Model
             'is_active' => 'boolean',
         ];
     }
-
+    // --------------------------------------------------------
     public function company(): BelongsTo
     {
         return $this->belongsTo(Company::class);
     }
 
+
+
+
+    // --------------------------------------------------------
     public function roUnits(): HasMany
     {
         return $this->hasMany(RoUnit::class);
     }
 
+
+
+    // --------------------------------------------------------
     public function users()
     {
         return $this->belongsToMany(User::class, 'user_stations');
     }
 
+
+    // --------------------------------------------------------
     public function inventory()
     {
         return $this->hasOne(Inventory::class);

@@ -51,10 +51,11 @@ export default function AssignCategoryPanel(
                         className="flex items-center gap-1.5 rounded-lg border border-gray-200 bg-gray-50 px-3 py-1.5 text-sm text-gray-700 transition hover:border-white hover:bg-primary hover:text-white dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300"
                     >
                         <Plus className="h-3.5 w-3.5" />
-                        {cat.name}
+                        {cat.name} - {cat.id}
                     </button>
                 ))}
             </div>
+            
         </div>
   )
 }

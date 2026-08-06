@@ -15,31 +15,18 @@ class Company extends Model
 
     protected $fillable = [
         'name',
-
         'email',
-
         'phone',
-
         'whatsapp',
-
         'website',
-
         'description',
-
         'country',
-
         'city',
-
         'address',
-
         'logo',
-
         'slug',
-
         'company_code',
-
-        'public_id',
-
+        'public_id'
     ];
 
     public function stations(): HasMany
@@ -51,8 +38,6 @@ class Company extends Model
     {
         return $this->hasMany(User::class);
     }
-
-
 
     public function inventories()
     {

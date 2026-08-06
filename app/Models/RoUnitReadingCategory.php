@@ -23,12 +23,49 @@ class RoUnitReadingCategory extends Model
         'is_active' => 'boolean',
     ];
 
+    // public function roUnit()
+    // {
+    //     return $this->belongsTo(RoUnit::class);
+    // }
+
+    // public function category()
+    // {
+    //     return $this->belongsTo(
+    //         ReadingCategory::class,
+    //         'reading_category_id'
+    //     );
+    // }
+
+
+        //     public function parameters()
+        // {
+        //     return $this->hasMany(RoUnitReadingParameter::class);
+        // }
+
+
+
+        // public function ro_reading_parameters(){
+        //     return $this->hasMany(RoUnitReadingParameter::class);
+        // }
+
+
+
     public function roUnit()
     {
-        return $this->belongsTo(RoUnit::class);
+        return $this->belongsTo(
+            RoUnit::class
+        );
     }
 
-    public function category()
+
+    // public function category()
+    // {
+    //     return $this->belongsTo(
+    //         ReadingCategory::class
+    //     );
+    // }
+
+      public function category()
     {
         return $this->belongsTo(
             ReadingCategory::class,
@@ -36,15 +73,28 @@ class RoUnitReadingCategory extends Model
         );
     }
 
+    // public function parameters()
+    // {
+    //     return $this->hasMany(
+    //         RoUnitReadingParameter::class
+    //     );
+    // }
 
-            public function parameters()
-        {
-            return $this->hasMany(RoUnitReadingParameter::class);
-        }
+public function parameters()
+{
+    return $this->hasMany(
+        RoUnitReadingParameter::class,
+        'ro_unit_reading_category_id'
+    );
+}
 
 
 
-        public function ro_reading_parameters(){
-            return $this->hasMany(RoUnitReadingParameter::class);
-        }
+public function assignedParameters()
+{
+    return $this->hasMany(
+        RoUnitReadingParameter::class,
+        'ro_unit_reading_category_id'
+    );
+}
 }

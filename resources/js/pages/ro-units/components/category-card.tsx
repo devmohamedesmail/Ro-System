@@ -18,7 +18,7 @@ type Props = {
     onDeleteCategory: (c: Category) => void;
 }
 // 
-export default function CategoryCard({category,roUnitParameters,roUnitId,onEditCategory,onDeleteCategory,selectedUnit}:any) {
+export default function CategoryCard({ category, roUnitId, onEditCategory, onDeleteCategory, selectedUnit }: any) {
     const { t } = useImport();
     const [expanded, setExpanded] = useState(true);
     const [addParamOpen, setAddParamOpen] = useState(false);
@@ -34,10 +34,14 @@ export default function CategoryCard({category,roUnitParameters,roUnitId,onEditC
         setUnassigning(true);
         router.post(
             `/ro-units/${roUnitId}/unassign-category`,
-            { category_id: category.id },
+            { reading_category_id: category.id },
+            
             {
                 onSuccess: () => toast.success(t('ro-settings.unassignSuccess')),
-                onError: () => toast.error(t('common.error')),
+                onError: (errors) => {
+                    toast.error(t('common.error')),
+                    console.log("Error", errors)
+                },
                 onFinish: () => setUnassigning(false),
             },
         );
@@ -60,6 +64,7 @@ export default function CategoryCard({category,roUnitParameters,roUnitId,onEditC
     return (
         <div className="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm dark:border-gray-800 dark:bg-gray-900">
             {/* Header */}
+            {category.pivot.id}
             <div className="flex items-center gap-2 px-4 py-3">
                 <button
                     type="button"
@@ -73,7 +78,7 @@ export default function CategoryCard({category,roUnitParameters,roUnitId,onEditC
                     )}
                     <BookOpen className="h-4 w-4 text-blue-500" />
                     <span className="text-sm font-semibold text-gray-800 dark:text-gray-200">
-                        {category.name}
+                        {category?.name}
                     </span>
                     {category.is_system && (
                         <Badge className="bg-amber-100 text-xs text-amber-700 dark:bg-amber-900/30 dark:text-amber-400">
@@ -81,7 +86,7 @@ export default function CategoryCard({category,roUnitParameters,roUnitId,onEditC
                         </Badge>
                     )}
                     <span className="ms-auto text-xs text-gray-400">
-                        {category.parameters.length} {t('ro-settings.parameters').toLowerCase()}
+                        {/* {category.parameters.length} {t('ro-settings.parameters').toLowerCase()} */}
                     </span>
                 </button>
 
@@ -131,7 +136,7 @@ export default function CategoryCard({category,roUnitParameters,roUnitId,onEditC
                                 {t('ro-settings.noParameters')}
                             </p>
                         ) : (
-                            category.parameters.map((p:Parameter) => (
+                            category.parameters.map((p: Parameter) => (
                                 <ParameterRow
                                     key={p.id}
                                     param={p}

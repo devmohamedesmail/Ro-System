@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\ReadingParameter;
 use App\Models\RoUnitReadingCategory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -35,6 +36,33 @@ class RoUnitReadingParameter extends Model
         'max_value' => 'decimal:3',
     ];
 
+    // public function category()
+    // {
+    //     return $this->belongsTo(
+    //         RoUnitReadingCategory::class,
+    //         'ro_unit_reading_category_id'
+    //     );
+    // }
+
+
+    // public function readingParamer(){
+    //     return $this->belongsTo(ReadingParameter::class);
+    // }
+
+
+    // public function ro_reading_category(){
+    //     return $this->belongsTo(RoUnitReadingCategory::class);
+    // }
+
+
+     public function roUnit()
+    {
+        return $this->belongsTo(
+            RoUnit::class
+        );
+    }
+
+
     public function category()
     {
         return $this->belongsTo(
@@ -44,12 +72,26 @@ class RoUnitReadingParameter extends Model
     }
 
 
-    public function readingParamer(){
-        return $this->belongsTo(ReadingParameter::class);
-    }
+    // public function parameter()
+    // {
+    //     return $this->belongsTo(
+    //         ReadingParameter::class
+    //     );
+    // }
+public function parameter()
+{
+    return $this->belongsTo(
+        ReadingParameter::class,
+        'reading_parameter_id'
+    );
+}
 
 
-    public function ro_reading_category(){
-        return $this->belongsTo(RoUnitReadingCategory::class);
-    }
+public function readingCategory()
+{
+    return $this->belongsTo(
+        RoUnitReadingCategory::class,
+        'ro_unit_reading_category_id'
+    );
+}
 }
