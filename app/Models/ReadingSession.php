@@ -40,7 +40,7 @@ class ReadingSession extends Model
     {
         return $this->hasMany(
             ReadingValue::class,
-            'session_id'
+            'reading_session_id'
         );
     }
 }

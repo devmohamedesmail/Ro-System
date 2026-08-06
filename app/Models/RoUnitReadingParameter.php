@@ -94,4 +94,11 @@ public function readingCategory()
         'ro_unit_reading_category_id'
     );
 }
+
+
+
+public function readingParameter()
+{
+    return $this->belongsTo(ReadingParameter::class);
+}
 }

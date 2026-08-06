@@ -28,11 +28,8 @@ class ReadingValue extends Model
         );
     }
 
-    public function parameter()
-    {
-        return $this->belongsTo(
-            ReadingParameter::class,
-            'parameter_id'
-        );
-    }
+  public function roUnitReadingParameter()
+{
+    return $this->belongsTo(RoUnitReadingParameter::class);
+}
 }

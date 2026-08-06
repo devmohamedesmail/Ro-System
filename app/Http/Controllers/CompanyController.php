@@ -19,14 +19,13 @@ class CompanyController extends Controller
     public function store(StoreCompanyRequest $request)
     {
         $company = $this->companyService->createCompany($request);
-        // return redirect()->back();
         return redirect()->route("companies.dashboard");
     }
 
     public function dashboard()
     { 
          $stations = Auth::user()->stations()->with('roUnits')->get();
-        return Inertia::render('dashboard/index',['stations'=> $stations]);
+         return Inertia::render('dashboard/index',['stations'=> $stations]);
     }
 
     

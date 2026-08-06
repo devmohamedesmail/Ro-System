@@ -110,7 +110,19 @@ export default function useNavItems() {
             icon: FileBarChart,
             roles: [
                 'company-admin',
-                'manager'
+                'manager',
+                 'operator'
+            ]
+        },
+        {
+            key: 'inventory',
+            label: t("inventory.title"),
+            href: '/inventories',
+            icon: FileBarChart,
+            roles: [
+                'company-admin',
+                'manager',
+                'operator'
             ]
         },
 
