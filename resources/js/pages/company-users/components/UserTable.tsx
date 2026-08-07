@@ -29,6 +29,7 @@ interface User {
 interface UserTableProps {
     users: User[];
     stations: Station[];
+    roles:any
 }
 
 function getInitials(name: string): string {
@@ -40,7 +41,7 @@ function getInitials(name: string): string {
         .slice(0, 2);
 }
 
-export function UserTable({ users, stations }: UserTableProps) {
+export function UserTable({ users, stations,roles }: UserTableProps) {
     const { t } = useTranslation();
     const [editUser, setEditUser] = useState<User | null>(null);
     const [deleteUser, setDeleteUser] = useState<User | null>(null);
@@ -128,7 +129,7 @@ export function UserTable({ users, stations }: UserTableProps) {
                                             user.stations.map((s) => (
                                                 <Badge
                                                     key={s.id}
-                                                    className="bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400"
+                                                    className="bg-primary text-white dark:bg-blue-900/30 dark:text-blue-400"
                                                 >
                                                     {s.name}
                                                 </Badge>
@@ -171,6 +172,7 @@ export function UserTable({ users, stations }: UserTableProps) {
                 onClose={() => setEditUser(null)}
                 stations={stations}
                 user={editUser}
+                 roles={roles ?? []}
             />
 
             <ConfirmDeleteDialog

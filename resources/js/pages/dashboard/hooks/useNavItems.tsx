@@ -100,6 +100,31 @@ export default function useNavItems() {
 
             ]
         },
+        {
+            key: 'activities',
+            label: t("activities.title"),
+            href: '/activities/',
+            icon: BarChart3,
+            roles: ['company-admin','operator','chemical'],
+             children: [
+
+                {
+                    key: 'add-new-activity',
+                    label: t("activities.create"),
+                    href: '/activities/create/page',
+                    icon: Plus,
+                    roles: ['company-admin','operator','chemical']
+                },
+                {
+                    key: 'show-activities',
+                    label: t("activities.show-activities"),
+                    href: '/activities',
+                    icon: Plus,
+                    roles: ['company-admin','operator','chemical']
+                },
+
+            ]
+        },
 
 
         {

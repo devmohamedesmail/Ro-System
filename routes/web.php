@@ -19,3 +19,4 @@ require __DIR__.'/reports.php';
 require __DIR__.'/inventory.php';
 require __DIR__.'/sass.php';
 require __DIR__.'/categories.php';
+require __DIR__.'/activity.php';

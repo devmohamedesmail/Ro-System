@@ -298,12 +298,12 @@ export function RoUnitFormDialog({ open, onClose, stations, roUnit }: RoUnitForm
 
                     {/* VISUAL SEPARATOR BETWEEN OLD AND NEW COLUMNS */}
                     <div className="relative my-6">
-                        <div className="absolute inset-0 flex items-center" aria-hidden="true">
-                            <div className="w-full border-t border-blue-200 dark:border-blue-900/60" />
-                        </div>
+                        {/* <div className="absolute inset-0 flex items-center" aria-hidden="true">
+                            <div className="w-full border-t border-primary dark:border-primary/60" />
+                        </div> */}
                         <div className="relative flex justify-center">
-                            <span className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-1.5 text-xs font-bold text-blue-700 shadow-sm dark:border-blue-900 dark:bg-blue-950 dark:text-blue-300">
-                                <Cpu className="h-4 w-4 text-blue-600 dark:text-blue-400" />
+                            <span className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-primary/10 px-4 py-1.5 text-xs font-bold text-primary shadow-sm dark:border-primary dark:bg-primary dark:text-blue-300">
+                                <Cpu className="h-4 w-4 text-primary dark:text-primary" />
                                 {t('ro-units.sections.techSpecs')}
                             </span>
                         </div>
@@ -313,7 +313,7 @@ export function RoUnitFormDialog({ open, onClose, stations, roUnit }: RoUnitForm
 
                     {/* 2.1 Membranes & Pressure Vessels */}
                     <div className="space-y-3 rounded-xl border border-gray-100 bg-gray-50/60 p-4 dark:border-gray-800 dark:bg-gray-900/40">
-                        <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">
+                        <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary dark:text-primary">
                             <Layers className="h-4 w-4" />
                             <span>{t('ro-units.sections.membranes')}</span>
                         </div>
@@ -373,7 +373,7 @@ export function RoUnitFormDialog({ open, onClose, stations, roUnit }: RoUnitForm
 
                     {/* 2.2 Pumps & Power Equipment */}
                     <div className="space-y-3 rounded-xl border border-gray-100 bg-gray-50/60 p-4 dark:border-gray-800 dark:bg-gray-900/40">
-                        <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">
+                        <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary dark:text-primary">
                             <Zap className="h-4 w-4" />
                             <span>{t('ro-units.sections.pumpsAndPower')}</span>
                         </div>
@@ -441,7 +441,7 @@ export function RoUnitFormDialog({ open, onClose, stations, roUnit }: RoUnitForm
 
                     {/* 2.3 Pre-treatment & Filters */}
                     <div className="space-y-3 rounded-xl border border-gray-100 bg-gray-50/60 p-4 dark:border-gray-800 dark:bg-gray-900/40">
-                        <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400">
+                        <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary dark:primary">
                             <FilterIcon className="h-4 w-4" />
                             <span>{t('ro-units.sections.filters')}</span>
                         </div>
@@ -501,7 +501,7 @@ export function RoUnitFormDialog({ open, onClose, stations, roUnit }: RoUnitForm
 
                     {/* 2.4 Design Performance Metrics */}
                     <div className="space-y-3 rounded-xl border border-gray-100 bg-gray-50/60 p-4 dark:border-gray-800 dark:bg-gray-900/40">
-                        <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
+                        <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary dark:text-primary">
                             <Gauge className="h-4 w-4" />
                             <span>{t('ro-units.sections.performance')}</span>
                         </div>
@@ -554,7 +554,7 @@ export function RoUnitFormDialog({ open, onClose, stations, roUnit }: RoUnitForm
 
                     {/* 2.5 Control & Automation */}
                     <div className="space-y-3 rounded-xl border border-gray-100 bg-gray-50/60 p-4 dark:border-gray-800 dark:bg-gray-900/40">
-                        <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-purple-600 dark:text-purple-400">
+                        <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary dark:text-primary">
                             <Wrench className="h-4 w-4" />
                             <span>{t('ro-units.sections.control')}</span>
                         </div>
@@ -600,7 +600,7 @@ export function RoUnitFormDialog({ open, onClose, stations, roUnit }: RoUnitForm
                         <Button type="button" variant="outline" onClick={onClose}>
                             {t('common.cancel')}
                         </Button>
-                        <Button type="submit" disabled={formik.isSubmitting} className="bg-blue-600 hover:bg-blue-700">
+                        <Button type="submit" disabled={formik.isSubmitting} >
                             {formik.isSubmitting ? t('common.loading') : t('common.save')}
                         </Button>
                     </DialogFooter>

@@ -98,7 +98,7 @@ export default function CompanyUsersPage() {
                 </div>
 
                 {/* Table */}
-                <UserTable users={users ?? []} stations={stations ?? []} />
+                <UserTable users={users ?? []} stations={stations ?? []} roles={roles} />
             </div>
 
             {/* Create Dialog */}
