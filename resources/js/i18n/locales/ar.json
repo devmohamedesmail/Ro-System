@@ -453,7 +453,13 @@
         "change": "تغيير",
         "update": "تحديث",
         "dashboard": "لوحة التحكم",
-        "categories-settings":" اعدادت الاقسام "
+        "categories-settings":" اعدادت الاقسام ",
+        "saving":"جارٍ الحفظ...",
+        "from":"من",
+        "to":"الي",
+        "apply":" تطبيق ",
+        "clear":" مسح ",
+        "categories":"فئات القراءات"
     },
     "auth": {
         "register": "إنشاء حساب",
@@ -586,7 +592,11 @@
         "createSuccess": "تم إنشاء وحدة RO بنجاح",
         "updateSuccess": "تم تحديث وحدة RO بنجاح",
         "noUnits": "لا توجد وحدات RO. أنشئ أول وحدة.",
-        "ro-settings": " اعدادت RO ",
+        "ro-settings": "إعدادات RO",
+        "notSpecified": "غير محدد",
+        "viewReadings": "عرض سجلات القراءات",
+        "backToUnits": "العودة لوحدات RO",
+        "unitDetails": "مواصفات وتفاصيل وحدة RO",
         "parameter-removed": " تم الغاء البارامتر ",
         "parameter-assigned": " تم اختيار البارامتر ",
         "readings": "إدخال قراءات وحدات RO",
@@ -601,15 +611,42 @@
             "status": "الحالة",
             "actions": "الإجراءات"
         },
+        "sections": {
+            "basicInfo": "البيانات الأساسية",
+            "techSpecs": "المواصفات الفنية والهندسية",
+            "membranes": "الأغشية وأوعية الضغط",
+            "pumpsAndPower": "المضخات ومعدات الطاقة",
+            "filters": "المعالجة الأولية والمرشحات",
+            "performance": "معايير الأداء التصميمي",
+            "control": "أنظمة التحكم والتحكم الآلي"
+        },
         "fields": {
             "name": "اسم الوحدة",
             "code": "كود الوحدة",
             "station": "المحطة",
-            "capacity": "الطاقة (م³/ يوم )",
+            "capacity": "الطاقة (م³/ساعة)",
             "description": "الوصف",
             "serialNumber": "الرقم التسلسلي",
             "manufacturer": "الشركة المصنعة",
-            "isActive": "نشط"
+            "isActive": "وحدة نشطة",
+            "pressureVessels": "عدد أوعية الضغط",
+            "membranesPerVessel": "عدد الأغشية لكل وعاء",
+            "totalMembranes": "إجمالي عدد الأغشية",
+            "membraneModel": "موديل الأغشية",
+            "hppModel": "موديل مضخة الضغط العالي (HPP)",
+            "hppBrand": "ماركة مضخة الضغط العالي",
+            "hppPowerKw": "قدرة مضخة الضغط العالي (kW)",
+            "feedPumpModel": "موديل مضخة التغذية (Feed Pump)",
+            "chemicalDosingModel": "موديل مضخة جرعات الكيماويات",
+            "sandFilters": "عدد مرشحات الرمل",
+            "carbonFilters": "عدد مرشحات الكربون",
+            "cartridgeFilters": "عدد المرشحات الخرطوشية",
+            "cartridgeSize": "مقاس الخرطوشة",
+            "designFlow": "التدفق التصميمي (م³/ساعة)",
+            "recoveryRate": "نسبة الاسترداد التصميمية (%)",
+            "designPressure": "الضغط التصميمي (بار)",
+            "plcModel": "موديل جهاز التحكم PLC",
+            "vfdModel": "موديل محول السرعة VFD"
         }
     },
     "readings": {
@@ -625,6 +662,8 @@
         "viewValues": "عرض القيم",
         "no-parameters": "لا يوجد معامل في هذا القسم",
         "notes_placeholder": "ملاحظات اضافية...",
+         "reading_added":" تم ادخال القراءة بنجاح ",
+         "sessions":" قراءات ",
         "create": {
             "title": "إدخال قراءة جديدة",
             "subtitle": "أدخل قراءات العداد لوحدة RO",

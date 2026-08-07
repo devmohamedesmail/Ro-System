@@ -13,29 +13,14 @@ return new class extends Migration
     {
         Schema::create('inventory_items', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('inventory_id')
-                ->constrained()
-                ->cascadeOnDelete();
-
+            $table->foreignId('inventory_id')->constrained()->cascadeOnDelete();
             $table->string('name');
-
-            $table->string('code')
-                ->nullable();
-
+            $table->string('code')->nullable();
             $table->string('type');
-
-            $table->string('unit')
-                ->default('piece');
-
-            $table->decimal('quantity', 12, 2)
-                ->default(0);
-
-            $table->decimal('minimum_quantity', 12, 2)
-                ->default(0);
-
-            $table->text('description')
-                ->nullable();
-
+            $table->string('unit')->default('piece');
+            $table->decimal('quantity', 12, 2)->default(0);
+            $table->decimal('minimum_quantity', 12, 2)->default(0);
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

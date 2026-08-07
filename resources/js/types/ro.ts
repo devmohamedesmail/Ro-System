@@ -11,6 +11,7 @@ export interface Parameter {
     is_active: boolean;
     usage: 'READING' | 'DAILY_REPORT' | 'BOTH';
     track_difference: boolean;
+    value: string;
 }
 
 export interface Category {
@@ -29,4 +30,12 @@ export interface RoUnit {
     reading_categories: Category[];
     readingParameters: Parameter[];
     reading_parameters: Parameter[];
+}
+
+
+export interface Session {
+    id: number;
+    ro_unit_id: number;
+    reading_at: string;
+    categories: Category[];
 }

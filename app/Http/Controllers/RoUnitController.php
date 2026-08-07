@@ -65,5 +65,8 @@ class RoUnitController extends Controller
     }
 
 
-   
+   public function ro_unit_details($id){
+    $ro_unit = RoUnit::with(['station:id,name,code', 'readingCategories.parameters'])->findOrFail($id);
+    return Inertia::render('ro-units/show', ['ro_unit'=>$ro_unit]);
+   }
 }

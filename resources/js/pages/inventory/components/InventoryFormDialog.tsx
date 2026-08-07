@@ -86,6 +86,7 @@ export default function InventoryFormDialog({
             code: item?.code ?? "",
             type: item?.type ?? "",
             unit: item?.unit ?? "Piece",
+            quantity:item?.quantity ?? "",
             description: item?.description ?? "",
         },
 
@@ -103,11 +104,12 @@ export default function InventoryFormDialog({
                 code: values.code,
                 type: values.type,
                 unit: values.unit,
+                quantity: values.quantity,
                 description: values.description,
             };
 
             if (isEdit) {
-                router.put(`/inventories/items/${item!.id}`, payload, {
+                router.put(`/inventories/update/items/${item!.id}`, payload, {
                     onSuccess() {
                         toast.success(t("inventory.toast.updated"));
                         resetForm();
@@ -223,6 +225,17 @@ export default function InventoryFormDialog({
                             id="code"
                             name="code"
                             value={formik.values.code}
+                            onChange={formik.handleChange}
+                        />
+                    </div>
+
+                    <div className="space-y-1">
+                        <Label htmlFor="quantity">{t("inventory.fields.quantity")}</Label>
+
+                        <Input
+                            id="quantity"
+                            name="quantity"
+                            value={formik.values.quantity}
                             onChange={formik.handleChange}
                         />
                     </div>

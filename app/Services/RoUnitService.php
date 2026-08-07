@@ -13,37 +13,22 @@ class RoUnitService
     public function store(StoreROunitRequest $request): RoUnit
     {
         $companyId = Auth::user()?->company_id ?? 1;
-        $unit = new RoUnit;
-        $unit->company_id = $companyId;
-        $unit->station_id = $request->station_id;
-        $unit->name = $request->name;
-        $unit->code = $request->code ?? $this->generateCode($request->station_id);
-        $unit->capacity = $request->capacity;
-        $unit->description = $request->description;
-        $unit->serial_number = $request->serial_number;
-        $unit->manufacturer = $request->manufacturer;
-        $unit->is_active = $request->boolean('is_active', true);
-        $unit->save();
-        return $unit;
+        $data = $request->validated();
+        $data['company_id'] = $companyId;
+        if (empty($data['code'])) {
+            $data['code'] = $this->generateCode($request->station_id);
+        }
+        if (!isset($data['is_active'])) {
+            $data['is_active'] = true;
+        }
+
+        return RoUnit::create($data);
     }
 
     public function update(UpdateROunitRequest $request, RoUnit $roUnit): RoUnit
     {
-        $roUnit->fill($request->only([
-            'station_id',
-            'name',
-            'code',
-            'capacity',
-            'description',
-            'serial_number',
-            'manufacturer',
-        ]));
-
-        if ($request->has('is_active')) {
-            $roUnit->is_active = $request->boolean('is_active');
-        }
-
-        $roUnit->save();
+        $data = $request->validated();
+        $roUnit->update($data);
 
         return $roUnit;
     }

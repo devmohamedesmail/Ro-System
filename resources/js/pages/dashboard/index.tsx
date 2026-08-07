@@ -112,7 +112,7 @@ export default function Dashboard({
                       {/* Actions */}
                       <div className="mt-5 grid grid-cols-3 gap-2">
                         <Link
-                          href={`/ro-units/${unit.id}`}
+                          href={`/ro-units/unit-details/${unit.id}`}
                           className="rounded-lg border border-gray-300 px-3 py-2 text-center text-sm font-medium text-gray-700 transition hover:border-blue-500 hover:text-blue-600 dark:border-gray-700 dark:text-gray-300"
                         >
                           {t("reports.details")}

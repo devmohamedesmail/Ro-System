@@ -12,7 +12,7 @@ class UpdateInventoryItemRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,7 +23,13 @@ class UpdateInventoryItemRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|string|max:255',
+            'code' => 'required|string|max:255',
+            'type' => 'required|string|max:255',
+            'unit' => 'required|string|max:255',
+            'quantity' => 'required',
+            'description' => 'nullable|string|max:255',
+            'inventory_id' => 'required|exists:inventories,id',
         ];
     }
 }

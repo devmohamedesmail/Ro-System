@@ -453,7 +453,13 @@
         "change": "Change",
         "update": "Update",
         "dashboard":"Dashboard",
-        "categories-settings":"Categories Setting"
+        "categories-settings":"Categories Setting",
+        "saving":"Saving...",
+        "from":"From",
+        "to":"To",
+        "apply":"Apply",
+        "clear":"Clear",
+        "categories":"Reading Categories"
     },
     "auth": {
         "register": "Register",
@@ -586,7 +592,11 @@
         "createSuccess": "RO Unit created successfully",
         "updateSuccess": "RO Unit updated successfully",
         "noUnits": "No RO units found. Create your first unit.",
-        "ro-settings": "Ro Setting",
+        "ro-settings": "RO Settings",
+        "notSpecified": "Not Specified",
+        "viewReadings": "View Reading Logs",
+        "backToUnits": "Back to RO Units",
+        "unitDetails": "RO Unit Specifications & Details",
         "parameter-removed":"Parameter Removed",
         "parameter-assigned":"Parameter Assigned",
         "readings": "RO Readings Entry",
@@ -601,6 +611,15 @@
             "status": "Status",
             "actions": "Actions"
         },
+        "sections": {
+            "basicInfo": "Basic Information",
+            "techSpecs": "Technical & Engineering Specifications",
+            "membranes": "Membranes & Pressure Vessels",
+            "pumpsAndPower": "Pumps & Power Equipment",
+            "filters": "Pre-treatment & Filters",
+            "performance": "Design Performance Metrics",
+            "control": "Control & Automation"
+        },
         "fields": {
             "name": "Unit Name",
             "code": "Unit Code",
@@ -609,7 +628,25 @@
             "description": "Description",
             "serialNumber": "Serial Number",
             "manufacturer": "Manufacturer",
-            "isActive": "Active"
+            "isActive": "Active Unit",
+            "pressureVessels": "Pressure Vessels",
+            "membranesPerVessel": "Membranes per Vessel",
+            "totalMembranes": "Total Membranes",
+            "membraneModel": "Membrane Model",
+            "hppModel": "High Pressure Pump Model",
+            "hppBrand": "HPP Brand",
+            "hppPowerKw": "HPP Power (kW)",
+            "feedPumpModel": "Feed Pump Model",
+            "chemicalDosingModel": "Chemical Dosing Model",
+            "sandFilters": "Sand Filters",
+            "carbonFilters": "Carbon Filters",
+            "cartridgeFilters": "Cartridge Filters",
+            "cartridgeSize": "Cartridge Size",
+            "designFlow": "Design Flow (m³/h)",
+            "recoveryRate": "Recovery Rate (%)",
+            "designPressure": "Design Pressure (bar)",
+            "plcModel": "PLC Model",
+            "vfdModel": "VFD Model"
         }
     },
     "readings": {
@@ -625,6 +662,8 @@
         "viewValues": "View Values",
         "no-parameters": "No Parameter in this Section",
         "notes_placeholder": "Any additional notes...",
+        "reading_added":"Reading Added Successfully",
+        "sessions":"Sessions",
         "create": {
             "title": "Insert New Reading",
             "subtitle": "Submit meter readings for an RO unit",

@@ -124,17 +124,20 @@ export default function InventoryTable({
                                     <table className="w-full text-sm">
                                         <thead>
                                             <tr className="border-b border-gray-100 text-left text-xs font-semibold uppercase tracking-wide text-muted-foreground dark:border-gray-800">
-                                                <th className="pb-3 pl-2 pr-4">
+                                                <th className="pb-3 pl-2 pr-4 text-right">
                                                     {t("inventory.fields.name")}
                                                 </th>
-                                                <th className="pb-3 px-4">
+                                                <th className="pb-3 px-4 text-right">
                                                     {t("inventory.fields.code")}
                                                 </th>
-                                                <th className="pb-3 px-4">
+                                                <th className="pb-3 px-4 text-right">
                                                     {t("inventory.fields.type")}
                                                 </th>
-                                                <th className="pb-3 px-4">
+                                                <th className="pb-3 px-4 text-right">
                                                     {t("inventory.fields.unit")}
+                                                </th>
+                                                <th className="pb-3 px-4 text-right">
+                                                    {t("inventory.fields.quantity")}
                                                 </th>
                                                 <th className="pb-3 px-4 text-right">
                                                     {t("inventory.actions.edit")} /&nbsp;
@@ -176,6 +179,11 @@ export default function InventoryTable({
                                                     <td className="px-4 py-3 text-muted-foreground">
                                                         {t(`inventory.units.${item.unit}`, {
                                                             defaultValue: item.unit,
+                                                        })}
+                                                    </td>
+                                                    <td className="px-4 py-3 text-muted-foreground">
+                                                        {t(`inventory.units.${item.quantity}`, {
+                                                            defaultValue: item.quantity,
                                                         })}
                                                     </td>
 

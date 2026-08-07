@@ -23,17 +23,15 @@ export function RoUnitReadingForm({ unit, t }: { unit: any, t: any }) {
             notes: '',
             values: initialValues
         },
-        onSubmit: (values, { setSubmitting, resetForm, setErrors }) => {
-          console.log(values)
-          
+        onSubmit: (values, { setSubmitting, resetForm, setErrors }) => {  
             router.post('/readings', values, {
                 preserveScroll: true,
                 onSuccess: () => {
-                    toast.success(t('common.saved', 'Saved Successfully'));
+                    toast.success(t('readings.reading_added'));
                     resetForm();
                 },
                 onError: (errors: any) => {
-                    toast.error(t('common.error', 'An error occurred'));
+                    toast.error(t('common.error'));
                     setErrors(errors);
                 },
                 onFinish: () => setSubmitting(false),

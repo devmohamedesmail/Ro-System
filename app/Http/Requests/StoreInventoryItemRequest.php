@@ -27,6 +27,7 @@ class StoreInventoryItemRequest extends FormRequest
             'code' => 'required|string|max:255',
             'type' => 'required|string|max:255',
             'unit' => 'required|string|max:255',
+            'quantity' => 'required',
             'description' => 'nullable|string|max:255',
             'inventory_id' => 'required|exists:inventories,id',
         ];

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('ro-units')->group(function () {
     Route::controller(RoUnitController::class)->group(function () {
         Route::get('/', 'ro_units_page')->name('ro_units.page')->middleware("auth");
+        Route::get('/unit-details/{id}', 'ro_unit_details')->name('ro_units.details')->middleware("auth");
         Route::get('/settings', 'ro_units_settings_page')->name('ro_units.settings.page')->middleware("auth");
         Route::post('/store', 'store')->name('ro_units.store')->middleware("auth");
         Route::put('/{roUnit}', 'update')->name('ro_units.update')->middleware("auth");
