@@ -139,7 +139,32 @@ export default function useNavItems() {
             label: t("inventory.title"),
             href: '/inventories',
             icon: FileBarChart,
-           roles: ['company-admin','operator','chemical']
+            roles: ['company-admin','operator','chemical'],
+              children: [
+
+                {
+                    key: 'show-inventories',
+                    label: t("inventory.show-inventories"),
+                    href: '/inventories',
+                    icon: Plus,
+                    roles: ['company-admin','operator','chemical']
+                },
+                {
+                    key: 'mif',
+                    label: t("inventory.mif"),
+                    href: '/mif',
+                    icon: Plus,
+                    roles: ['company-admin','operator','chemical']
+                },
+                {
+                    key: 'mrf',
+                    label: t("inventory.mrf"),
+                    href: '/inventories/mrf',
+                    icon: Plus,
+                    roles: ['company-admin','operator','chemical']
+                },
+
+            ]
         },
 
 

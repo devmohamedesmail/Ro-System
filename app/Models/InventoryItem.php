@@ -17,7 +17,14 @@ class InventoryItem extends Model
         'code',
         'type',
         'unit',
+        'quantity',
+        'minimum_quantity',
         'description',
+    ];
+
+    protected $casts = [
+        'quantity' => 'float',
+        'minimum_quantity' => 'float',
     ];
 
     public function inventory()

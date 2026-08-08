@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreMaterialIssuingFormRequest;
-use App\Http\Requests\UpdateMaterialIssuingFormRequest;
-use App\Models\MaterialIssuingForm;
+use App\Http\Requests\StoreMaterialReceivingItemRequest;
+use App\Http\Requests\UpdateMaterialReceivingItemRequest;
+use App\Models\MaterialReceivingItem;
 
-class MaterialIssuingFormController extends Controller
+class MaterialReceivingItemController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +27,7 @@ class MaterialIssuingFormController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreMaterialIssuingFormRequest $request)
+    public function store(StoreMaterialReceivingItemRequest $request)
     {
         //
     }
@@ -35,7 +35,7 @@ class MaterialIssuingFormController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(MaterialIssuingForm $materialIssuingForm)
+    public function show(MaterialReceivingItem $materialReceivingItem)
     {
         //
     }
@@ -43,7 +43,7 @@ class MaterialIssuingFormController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(MaterialIssuingForm $materialIssuingForm)
+    public function edit(MaterialReceivingItem $materialReceivingItem)
     {
         //
     }
@@ -51,7 +51,7 @@ class MaterialIssuingFormController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateMaterialIssuingFormRequest $request, MaterialIssuingForm $materialIssuingForm)
+    public function update(UpdateMaterialReceivingItemRequest $request, MaterialReceivingItem $materialReceivingItem)
     {
         //
     }
@@ -59,7 +59,7 @@ class MaterialIssuingFormController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(MaterialIssuingForm $materialIssuingForm)
+    public function destroy(MaterialReceivingItem $materialReceivingItem)
     {
         //
     }
