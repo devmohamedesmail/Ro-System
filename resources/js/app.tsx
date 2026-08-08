@@ -7,6 +7,7 @@ import AuthLayout from '@/layouts/auth-layout';
 import SettingsLayout from '@/layouts/settings/layout';
 import './i18n/index'
 import toast, { Toaster } from 'react-hot-toast';
+import PWA from './components/shared/PWA';
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
@@ -30,6 +31,7 @@ createInertiaApp({
             <TooltipProvider delayDuration={0}>
                 {app}
                 <Toaster />
+                <PWA />
             </TooltipProvider>
         );
     },

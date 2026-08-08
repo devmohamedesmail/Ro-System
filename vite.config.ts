@@ -5,6 +5,7 @@ import react from '@vitejs/plugin-react';
 import laravel from 'laravel-vite-plugin';
 import { bunny } from 'laravel-vite-plugin/fonts';
 import { defineConfig } from 'vite';
+import { VitePWA } from 'vite-plugin-pwa'
 
 export default defineConfig({
     plugins: [
@@ -21,6 +22,49 @@ export default defineConfig({
         react({
             babel: {
                 plugins: ['babel-plugin-react-compiler'],
+            },
+        }),
+        VitePWA({
+            registerType: 'autoUpdate',
+
+            includeAssets: [
+                'favicon.ico',
+                'favicon.svg',
+            ],
+
+             manifest: {
+                name: 'RO System',
+                short_name: 'RO System',
+                description: 'RO Water Management System',
+                theme_color: '#0891b2',
+                background_color: '#ffffff',
+                display: 'standalone',
+                orientation: 'portrait',
+
+                icons: [
+                    {
+                        src: '/app-icon.png',
+                        sizes: '192x192',
+                        type: 'image/png',
+                    },
+                    {
+                        src: '/app-icon.png',
+                        sizes: '512x512',
+                        type: 'image/png',
+                    },
+                    {
+                        src: '/app-icon.png',
+                        sizes: '512x512',
+                        type: 'image/png',
+                        purpose: 'any maskable',
+                    },
+                ],
+            },
+
+            workbox: {
+                globPatterns: [
+                    '**/*.{js,css,html,ico,png,svg,woff2}',
+                ],
             },
         }),
         tailwindcss(),
