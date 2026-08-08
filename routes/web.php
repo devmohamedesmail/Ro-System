@@ -21,3 +21,4 @@ require __DIR__.'/sass.php';
 require __DIR__.'/categories.php';
 require __DIR__.'/activity.php';
 require __DIR__.'/mif.php';
+require __DIR__.'/mrf.php';

@@ -159,7 +159,7 @@ export default function useNavItems() {
                 {
                     key: 'mrf',
                     label: t("inventory.mrf"),
-                    href: '/inventories/mrf',
+                    href: '/mrf',
                     icon: Plus,
                     roles: ['company-admin','operator','chemical']
                 },

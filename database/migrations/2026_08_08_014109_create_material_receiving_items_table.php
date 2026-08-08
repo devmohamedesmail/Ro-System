@@ -13,6 +13,34 @@ return new class extends Migration
     {
         Schema::create('material_receiving_items', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('material_receiving_form_id')
+                ->constrained('material_receiving_forms')
+                ->cascadeOnDelete();
+
+            // S.N.
+            $table->unsignedInteger('serial_number');
+
+            // Material
+            $table->string('item_code')->nullable();
+            $table->text('material_description')->nullable();
+
+            // Part Serial Number
+            $table->string('part_serial_number')->nullable();
+
+            // Valuation
+            $table->string('valuation_type')->nullable();
+
+            // Storage
+            $table->string('bin_location')->nullable();
+
+            // Quantity
+            $table->string('unit')->nullable();
+            $table->decimal('quantity', 15, 3)->default(0);
+
+            // Documents
+            $table->string('sto_pro_no')->nullable();
+            $table->string('invoice_no')->nullable();
+
             $table->timestamps();
         });
     }
