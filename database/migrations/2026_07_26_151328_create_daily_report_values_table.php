@@ -18,9 +18,10 @@ return new class extends Migration
                 ->constrained()
                 ->cascadeOnDelete();
 
-            $table->foreignId('reading_parameter_id')
-                ->nullable()->constrained('reading_parameters')
-                ->cascadeOnDelete();
+           $table->foreignId('ro_unit_reading_parameter_id')
+    ->nullable()
+    ->constrained('ro_unit_reading_parameters')
+    ->cascadeOnDelete();
 
             $table->decimal('previous_value', 12, 2)
                 ->nullable();
@@ -32,10 +33,10 @@ return new class extends Migration
                 ->nullable();
             $table->timestamps();
 
-            $table->unique([
-                'daily_report_id',
-                'reading_parameter_id'
-            ]);
+           $table->unique(
+    ['daily_report_id', 'ro_unit_reading_parameter_id'],
+    'daily_report_values_report_parameter_unique'
+);
         });
     }
 

@@ -58,7 +58,7 @@ class ReadingController extends Controller
         //    'readingValues.parameter'
         // ])->latest('reading_at')->paginate(10);
         // return $readings;
-       $roUnit=RoUnit::findOrFail($id);
+        $roUnit=RoUnit::findOrFail($id);
         $sessions= ReadingSession::where('ro_unit_id',$id)->with(['readingValues.parameter'])->latest()->paginate(10);
 
         

@@ -102,6 +102,6 @@ public function assignedParameters()
 
 public function readingCategory()
 {
-    return $this->belongsTo(ReadingCategory::class);
+    return $this->belongsTo(ReadingCategory::class,'reading_category_id');
 }
 }

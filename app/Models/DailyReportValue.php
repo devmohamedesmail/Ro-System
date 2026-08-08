@@ -13,7 +13,7 @@ class DailyReportValue extends Model
 
     protected $fillable = [
         'daily_report_id',
-        'reading_parameter_id',
+        'ro_unit_reading_parameter_id',
         'previous_value',
         'current_value',
         'difference',
@@ -30,8 +30,11 @@ class DailyReportValue extends Model
         return $this->belongsTo(DailyReport::class);
     }
 
-    public function readingParameter()
-    {
-        return $this->belongsTo(ReadingParameter::class);
-    }
+   public function roUnitReadingParameter()
+{
+    return $this->belongsTo(
+        RoUnitReadingParameter::class,
+        'ro_unit_reading_parameter_id'
+    );
+}
 }

@@ -126,7 +126,7 @@ export default function Dashboard({
                         </Link>
 
                         <Link
-                          href={`/reports/${unit.id}`}
+                          href={`/reports/ro-unit/${unit.id}`}
                           className="rounded-lg bg-emerald-600 px-3 py-2 text-center text-sm font-medium text-white transition hover:bg-emerald-700"
                         >
                           {t("reports.dailyReports")}

@@ -6,6 +6,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { DailyReportForm } from './components/DailyReportForm'
 
 export default function DailyReports({ stations }: { stations: Array<any> }) {
+    console.log("stations from resports",stations)
     const { t } = useImport()
     const { company } = useComapny()
     const defaultStation = stations?.[0]?.id?.toString() || ''
@@ -53,7 +54,7 @@ export default function DailyReports({ stations }: { stations: Array<any> }) {
                             >
                                 {station.ro_units && station.ro_units.length > 0 ? (
                                     station.ro_units.map((unit: any) => (
-                                        <DailyReportForm key={unit.id} unit={unit} t={t} />
+                                        <DailyReportForm key={unit.id} unit={unit}  />
                                     ))
                                 ) : (
                                     <div className="text-center py-12 bg-gray-50 dark:bg-gray-800/50 rounded-2xl border border-dashed border-gray-200 dark:border-gray-700">

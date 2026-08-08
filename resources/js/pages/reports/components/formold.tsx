@@ -46,10 +46,10 @@ interface DailyReportFormProps {
 }
 
 export function DailyReportForm({ unit }: DailyReportFormProps) {
-console.log("unit" , unit)
+
     const { t } = useImport();
     const initialValues: Record<string, string> = {}
-    unit.ro_unit_reading_categories?.forEach((category) => {
+    unit.reading_categories?.forEach((category) => {
         category.parameters?.forEach((param) => {
             initialValues[`prev_${param.id}`] = ''
             initialValues[`curr_${param.id}`] = ''

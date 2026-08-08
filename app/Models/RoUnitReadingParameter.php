@@ -78,6 +78,8 @@ class RoUnitReadingParameter extends Model
     //         ReadingParameter::class
     //     );
     // }
+
+    
 public function parameter()
 {
     return $this->belongsTo(
