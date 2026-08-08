@@ -13,6 +13,7 @@ import {
     CheckCircle,
     Wifi,
 } from 'lucide-react';
+import { Link } from '@inertiajs/react';
 
 // ─── Animated Counter ─────────────────────────────────────────────────────────
 function Counter({ from, to, suffix = '' }: { from: number; to: number; suffix?: string }) {
@@ -248,7 +249,7 @@ export default function HeroSection() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5 }}
-                            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-teal-50 dark:bg-teal-950/50 border border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300 text-sm font-medium mb-8"
+                            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-teal-50 dark:bg-primary/50 border border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300 text-sm font-medium mb-8"
                         >
                             <span className="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse" />
                             {t('landing.hero.badge')}
@@ -262,7 +263,7 @@ export default function HeroSection() {
                             className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.1] mb-6"
                         >
                             {t('landing.hero.titlePart1')}{' '}
-                            <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">
+                            <span className="bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
                                 {t('landing.hero.titlePart2')}
                             </span>{' '}
                             {t('landing.hero.titlePart3')}
@@ -285,13 +286,13 @@ export default function HeroSection() {
                             transition={{ duration: 0.6, delay: 0.3 }}
                             className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
                         >
-                            <a
+                            <Link
                                 href="/register"
-                                className="group inline-flex items-center justify-center gap-2 px-7 py-3.5 text-base font-semibold text-white bg-gradient-to-r from-teal-600 to-teal-500 hover:from-teal-700 hover:to-teal-600 rounded-2xl shadow-xl shadow-teal-500/30 hover:shadow-teal-500/50 transition-all duration-300 hover:scale-105 active:scale-95"
+                                className="group inline-flex items-center justify-center gap-2 px-7 py-3.5 text-base font-semibold text-white bg-gradient-to-r from-primary to-primary hover:primary hover:to-primary rounded-2xl shadow-xl shadow-primary/30 hover:shadow-primary/50 transition-all duration-300 hover:scale-105 active:scale-95"
                             >
                                 {t('landing.hero.ctaPrimary')}
                                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                            </a>
+                            </Link>
                             <button className="group inline-flex items-center justify-center gap-2.5 px-7 py-3.5 text-base font-semibold text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105 active:scale-95">
                                 <span className="w-7 h-7 rounded-full bg-teal-500/10 flex items-center justify-center">
                                     <Play className="w-3.5 h-3.5 text-teal-600 fill-teal-600" />

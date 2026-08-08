@@ -60,7 +60,7 @@ export default function InstallPWA() {
     }
 
     return (
-        <button
+           <button
             onClick={installApp}
             className="fixed bottom-5 right-5 z-[9999] rounded-xl bg-cyan-600 px-5 py-3 font-semibold text-white shadow-xl hover:bg-cyan-700"
         >

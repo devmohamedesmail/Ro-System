@@ -38,7 +38,7 @@ export default function SidebarDropdown({
 
                 {(!isCollapsed || isMobile) && (
                     <>
-                        <span className="flex-1 text-left">
+                        <span className="flex-1 text-right">
                             {item.label}
                         </span>
 

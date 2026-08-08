@@ -9,6 +9,7 @@ import {
 
 import { DashboardLayout } from "./components/DashboardLayout";
 import useImport from "@/hooks/use-import";
+import PageTitle from "@/components/shared/page-title";
 
 export default function Dashboard({
   stations,
@@ -19,8 +20,10 @@ export default function Dashboard({
   return (
     <DashboardLayout>
       <Head title="Dashboard — AquaRO" />
-
+       
       <div className="space-y-8 container mx-auto px-10 py-10">
+
+       
         <div className="mb-8 flex flex-col gap-3">
           <span className="text-sm font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">
             {t("reports.badge")}

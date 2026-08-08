@@ -1,5 +1,6 @@
 import { Link } from "@inertiajs/react";
 import { cn } from "@/lib/utils";
+import { ChevronLeft } from "lucide-react";
 
 
 export default function SidebarItem({
@@ -8,30 +9,30 @@ export default function SidebarItem({
     isCollapsed,
     isMobile,
     onClose
-}:any){
+}: any) {
 
-    const Icon=item.icon;
+    const Icon = item.icon;
 
 
     return (
 
-        <li>
+        <li className="flex justify-between items-center">
 
             <Link
                 href={item.href}
                 onClick={isMobile ? onClose : undefined}
                 className={cn(
-                    "group relative flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition",
-                    
+                    "group w-full relative flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition",
+
                     active
-                    ? "bg-white/20 text-white"
-                    : "text-white hover:bg-white/10",
+                        ? "bg-white/20 text-white"
+                        : "text-white hover:bg-white/10",
 
                     isCollapsed && !isMobile && "justify-center px-2"
                 )}
             >
 
-                <Icon className="h-5 w-5 shrink-0"/>
+                <Icon className="h-5 w-5 shrink-0" />
 
 
                 {(!isCollapsed || isMobile) && (
@@ -43,7 +44,7 @@ export default function SidebarItem({
                 )}
 
             </Link>
-
+            <ChevronLeft className="text-white text-xs" size={18} />
         </li>
 
     )

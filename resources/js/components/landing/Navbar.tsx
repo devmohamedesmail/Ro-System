@@ -1,15 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
-import {
-    Droplets,
-    Menu,
-    X,
-    Globe,
-    Sun,
-    Moon,
-    ChevronDown,
-} from 'lucide-react';
+import {  Menu, X} from 'lucide-react';
 import { Link } from '@inertiajs/react';
 import ThemeSelector from '../shared/theme-selector';
 import LanguageSelector from '../shared/language-selector';
@@ -91,7 +83,7 @@ export default function Navbar() {
                     {/* CTA */}
                     <Link
                         href="/companies/register/page"
-                        className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold text-white bg-gradient-to-r from-teal-600 to-teal-500 hover:from-teal-700 hover:to-teal-600 rounded-xl shadow-lg shadow-teal-500/25 hover:shadow-teal-500/40 transition-all duration-300 hover:scale-105 active:scale-95"
+                        className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold text-white bg-gradient-to-r from-primary to-primary/80 hover:from-primary hover:to-primary/80 rounded-xl shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all duration-300 hover:scale-105 active:scale-95"
                     >
                         {t('landing.nav.cta')}
                     </Link>

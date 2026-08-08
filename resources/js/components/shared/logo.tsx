@@ -14,12 +14,11 @@ export default function Logo() {
             className="flex items-center gap-2.5 shrink-0"
         >
             <div className="relative w-12 h-12 rounded-xl  flex items-center justify-center shadow-lg ">
-                {/* <Droplets className="w-4.5 h-4.5 text-white" strokeWidth={2.5} /> */}
                 <img src={settings.app_logo || ''} alt={settings.app_name_ar} />
             </div>
-            <span className="font-bold text-lg tracking-tight text-slate-900 dark:text-white">
+            {/* <span className="font-bold text-lg tracking-tight text-slate-900 dark:text-white">
                 {settings.app_name_ar}
-            </span>
+            </span> */}
         </motion.div>
     )
 }

@@ -25,7 +25,6 @@ class StationService
 
 
     public function getAuthStations(){
-        // roUnits.readingCategories.parameters
         $stations = Auth::user()->stations()->with('roUnits.readingCategories.parameters')->get();
         return $stations;
     }
@@ -75,6 +74,13 @@ class StationService
     public function destroyStation(Station $station): void
     {
         $station->delete();
+    }
+
+
+
+    public function getAuthStationsOperators(){
+        $operators = Auth::user()->stations()->with('users')->get();
+        return $operators;
     }
 
     private function generateSlug(string $name): string

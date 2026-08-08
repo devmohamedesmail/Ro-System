@@ -12,7 +12,7 @@ export default function DailyReports({ stations }: { stations: Array<any> }) {
     const defaultStation = stations?.[0]?.id?.toString() || ''
     return (
         <DashboardLayout>
-            <div className="container mx-auto p-4 sm:p-6 lg:p-10 max-w-7xl">
+            <div className="container mx-auto p-4 sm:p-6 lg:p-10">
                 {/* Page Header */}
                 <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between mb-8">
                     <div className="flex items-center gap-4">

@@ -48,6 +48,12 @@ export default function useNavItems() {
                     label: t("stations.title"),
                     href: '/stations',
                     icon: MapPin,
+                },
+                {
+                    key: 'stations-users',
+                    label: t("stations.operators"),
+                    href: '/stations/operators',
+                    icon: MapPin,
                 }
                 
             ]

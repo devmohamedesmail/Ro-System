@@ -22,8 +22,8 @@ import useImport from '@/hooks/use-import';
 import useComapny from '@/hooks/use-comapny';
 import { SidebarNavItem } from '../types';
 import useNavItems from '../hooks/useNavItems';
-import SidebarDropdown from './SidebarDropdown';
-import SidebarItem from './SidebarItem';
+import SidebarDropdown from './sidebar-dropdown';
+import SidebarItem from './sidebar-item';
 
 
 

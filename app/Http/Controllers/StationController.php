@@ -36,4 +36,12 @@ class StationController extends Controller
         $this->stationService->destroyStation($station);
         return redirect()->back();
     }
+
+
+    public function station_operators(){
+        
+        return Inertia::render('stations/operators',[
+            'operators'=>$this->stationService->getAuthStationsOperators()
+        ]);
+    }
 }

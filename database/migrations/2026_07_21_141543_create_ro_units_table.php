@@ -41,6 +41,9 @@ return new class extends Migration
             $table->string('plc_model')->nullable();
             $table->string('vfd_model')->nullable();
             $table->boolean('is_active')->default(true);
+            $table->enum('status',["RUNNING","STOPPED","MAINTENANCE"])->default("STOPPED");
+            $table->string("stop_reason")->nullable();
+            
             $table->timestamps();
 
             $table->unique(['station_id', 'name']);

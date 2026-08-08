@@ -241,7 +241,7 @@ console.log("unit" , unit)
                                             formik.touched[prevKey] && formik.errors[prevKey]
 
                                         return (
-                                            <div key={param.id} className="grid grid-cols-12 gap-3 items-start">
+                                            <div key={param.id} className="grid grid-cols-1 md:grid-cols-12  gap-3 items-start">
                                                 {/* Parameter name */}
                                                 <div className="col-span-4 flex items-start gap-2 pt-2">
                                                     <ChevronRight className="h-3 w-3 text-teal-500 mt-1 flex-shrink-0" />
@@ -262,6 +262,7 @@ console.log("unit" , unit)
 
                                                 {/* Previous value */}
                                                 <div className="col-span-3">
+                                                    <Label> {t('reports.previousValue', 'Previous / السابق')}</Label>
                                                     <Input
                                                         id={`prev_${param.id}_${unit.id}`}
                                                         name={prevKey}
@@ -282,6 +283,7 @@ console.log("unit" , unit)
 
                                                 {/* Current value */}
                                                 <div className="col-span-3">
+                                                      <Label>   {t('reports.currentValue', 'Current / الحالي')}</Label>
                                                     <Input
                                                         id={`curr_${param.id}_${unit.id}`}
                                                         name={currKey}
