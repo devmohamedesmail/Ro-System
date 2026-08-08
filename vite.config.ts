@@ -27,17 +27,25 @@ export default defineConfig({
         VitePWA({
             registerType: 'autoUpdate',
 
+            injectRegister: 'auto',
+
             includeAssets: [
                 'favicon.ico',
                 'favicon.svg',
+                'app-icon.png',
             ],
 
-             manifest: {
+            manifest: {
                 name: 'RO System',
                 short_name: 'RO System',
                 description: 'RO Water Management System',
+
+                start_url: '/',
+                scope: '/',
+
                 theme_color: '#0891b2',
                 background_color: '#ffffff',
+
                 display: 'standalone',
                 orientation: 'portrait',
 
